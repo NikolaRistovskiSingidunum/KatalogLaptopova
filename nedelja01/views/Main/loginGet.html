@@ -1,0 +1,13 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+    <form method="post" action="/nedelja01/login/">
+        Username: <input type="text" name="username"><br>
+        Password: <input type="password" name="password"><br>
+        <button type="submit">Log in</button>
+    </form>
+{% endblock %}
+
+{% block naslov %}
+Logovanje
+{% endblock %}

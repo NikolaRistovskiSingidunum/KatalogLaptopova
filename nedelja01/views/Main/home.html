@@ -1,0 +1,16 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<ul class="category-list">
+    {% for category in categories %}
+    <li class="category-item">
+        <a href="/nedelja01/category/{{ category.category_id }}">
+            {{ category.name|escape }}
+        </a>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block naslov %}
+Spisak kategorija
+{% endblock %}
