@@ -6,6 +6,8 @@ use App\Core\Controller;
 use App\Models\OfferModel;
 
 class AuctionController extends Controller {
+
+    //pratimo konvenciju imenovanja, bitno je da postoji views/Aucution/show.html pod direktorijumom views
     public function show($auctionId) {
         $am = new AuctionModel($this->getDatabaseConnection());
         $auction = $am->getById($auctionId);

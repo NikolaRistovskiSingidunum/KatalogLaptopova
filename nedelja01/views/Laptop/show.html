@@ -1,0 +1,19 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<h1> OVO JE NEKI POVECI TEKST a</h1>
+
+<h1>Members</h1>
+{% for laptop in laptops %}
+<li>{{ laptop.name|e }}</li>
+<li>{{ laptop.price|e }}</li>
+<li>{{ laptop.image_path|e }}</li>
+<li>{{ laptop.operating_system|e }}</li>
+<li>{{ laptop.keyboard_layout|e }}</li>
+<li>{{ laptop.is_numpad|e }}</li>
+<br>
+<br>
+{% endfor %}
+
+{% endblock %}
+

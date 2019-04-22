@@ -12,13 +12,20 @@ $config = new App\Core\DatabaseConfiguration(
     \Configuration::DATABASE_PASS
 );
 
+
+
 $router = new Router();
 foreach (require_once 'Routes.php' as $route) {
     $router->add($route);
 }
 
+
+
 $url = strval(filter_input(INPUT_GET, 'URL'));
 $httpMethod = filter_input(INPUT_SERVER, 'REQUEST_METHOD');
+
+// echo "RUTUA JE" . $url;
+// die($url . "Zasto je ruta prazna");
 
 $foundRoute = $router->find($httpMethod, $url);
 
@@ -61,7 +68,10 @@ $twig = new Twig_Environment($loader, [
     'auto_reload' => true
 ]);
 
+//print_r($data);
 echo $twig->render(
     $foundRoute->getControllerName() . '/' . $foundRoute->getMethodName() . '.html',
-    $data
+    $data // aleternativno koristii ['data'=> data] da bi promenjive u twigu bile dostupune preko data
+
 );
+//echo    ($foundRoute->getControllerName() . '/' . $foundRoute->getMethodName());

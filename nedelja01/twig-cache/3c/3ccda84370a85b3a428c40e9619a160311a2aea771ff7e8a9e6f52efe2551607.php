@@ -1,0 +1,98 @@
+<?php
+
+/* Laptop/show.html */
+class __TwigTemplate_8008cb801266d8fc967825525f7690bf62e1ddda4a0a7572510340f471cbbd85 extends Twig_Template
+{
+    private $source;
+
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        // line 1
+        $this->parent = $this->loadTemplate("_global/index.html", "Laptop/show.html", 1);
+        $this->blocks = [
+            'main' => [$this, 'block_main'],
+        ];
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "_global/index.html";
+    }
+
+    protected function doDisplay(array $context, array $blocks = [])
+    {
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 3
+    public function block_main($context, array $blocks = [])
+    {
+        // line 4
+        echo "<h1> OVO JE NEKI POVECI TEKST a</h1>
+
+<h1>Members</h1>
+";
+        // line 7
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["laptops"] ?? null));
+        foreach ($context['_seq'] as $context["_key"] => $context["laptop"]) {
+            // line 8
+            echo "<li>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["laptop"], "name", []));
+            echo "</li>
+<li>";
+            // line 9
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["laptop"], "price", []));
+            echo "</li>
+<li>";
+            // line 10
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["laptop"], "image_path", []));
+            echo "</li>
+<li>";
+            // line 11
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["laptop"], "operating_system", []));
+            echo "</li>
+<li>";
+            // line 12
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["laptop"], "keyboard_layout", []));
+            echo "</li>
+<li>";
+            // line 13
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["laptop"], "is_numpad", []));
+            echo "</li>
+<br>
+<br>
+";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['laptop'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 17
+        echo "
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "Laptop/show.html";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  75 => 17,  65 => 13,  61 => 12,  57 => 11,  53 => 10,  49 => 9,  44 => 8,  40 => 7,  35 => 4,  32 => 3,  15 => 1,);
+    }
+
+    public function getSourceContext()
+    {
+        return new Twig_Source("", "Laptop/show.html", "D:\\xampp\\htdocs\\KatalogLaptopova\\KatalogLaptopova\\nedelja01\\views\\Laptop\\show.html");
+    }
+}

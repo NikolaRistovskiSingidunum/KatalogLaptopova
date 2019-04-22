@@ -24,6 +24,7 @@ class Controller {
             return $this->dbc;
         }
 
+        //stavlja novu vrednost ako se nama poklasap sa '/^[a-z][A-z0-9]*$/', inace ne radi nista
         protected function set(string $name, $value) {
             if (\preg_match('/^[a-z][A-z0-9]*$/', $name)) {
                 $this->data[$name] = $value;

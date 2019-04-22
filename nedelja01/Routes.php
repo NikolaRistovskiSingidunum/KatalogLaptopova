@@ -5,6 +5,7 @@
         Route::get('#^categories/?$#',                 'Main',         'home'),
         Route::get('|^category/([0-9]+)/?$|',          'Main',         'showCategoryAuctions'),
         Route::get('#^auction/([0-9]+)/?$#',           'Auction',      'show'),
+        Route::get('#^laptop/([0-9]+)/?$#',           'Laptop',      'show'),
 
         Route::get('#^api/categories/?$#',             'MainApi',      'categories'),
         Route::get('#^api/auctions/([0-9]+)/?$#',      'MainApi',      'auctions'),
@@ -18,5 +19,6 @@
         Route::post('#^login/?$#',                     'Main',         'loginPost'),
 
         # Fallback
+        
         Route::get('#^.*$#', 'Main', 'home')
     ];
