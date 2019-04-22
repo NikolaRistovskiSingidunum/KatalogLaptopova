@@ -35,7 +35,7 @@ class LaptopController extends Controller {
 
 
         $test = [['laptop_id'=>"neki id", 
-        'name' =>"neko ime"    ,
+        'name' =>"neko ime ds"    ,
         'price'=>"1600"         ,
         'image_path'=>"image path",    
         'operating_system'=>"neki os", 

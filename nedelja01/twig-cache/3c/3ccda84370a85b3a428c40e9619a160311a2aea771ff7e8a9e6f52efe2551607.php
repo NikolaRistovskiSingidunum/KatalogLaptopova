@@ -15,6 +15,7 @@ class __TwigTemplate_8008cb801266d8fc967825525f7690bf62e1ddda4a0a7572510340f471c
         $this->parent = $this->loadTemplate("_global/index.html", "Laptop/show.html", 1);
         $this->blocks = [
             'main' => [$this, 'block_main'],
+            'title' => [$this, 'block_title'],
         ];
     }
 
@@ -76,6 +77,15 @@ class __TwigTemplate_8008cb801266d8fc967825525f7690bf62e1ddda4a0a7572510340f471c
 ";
     }
 
+    // line 19
+    public function block_title($context, array $blocks = [])
+    {
+        // line 20
+        echo "Katalog Laptopova";
+        echo "
+";
+    }
+
     public function getTemplateName()
     {
         return "Laptop/show.html";
@@ -88,7 +98,7 @@ class __TwigTemplate_8008cb801266d8fc967825525f7690bf62e1ddda4a0a7572510340f471c
 
     public function getDebugInfo()
     {
-        return array (  75 => 17,  65 => 13,  61 => 12,  57 => 11,  53 => 10,  49 => 9,  44 => 8,  40 => 7,  35 => 4,  32 => 3,  15 => 1,);
+        return array (  84 => 20,  81 => 19,  76 => 17,  66 => 13,  62 => 12,  58 => 11,  54 => 10,  50 => 9,  45 => 8,  41 => 7,  36 => 4,  33 => 3,  15 => 1,);
     }
 
     public function getSourceContext()

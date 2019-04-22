@@ -33,7 +33,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         echo "        </title>
         <meta charset=\"utf-8\">
 
-        <link rel=\"stylesheet\" href=\"/nedelja01/assets/css/main.css\">
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"/nedelja01/assets/css/main.css\">
     </head>
     <body>
         <section>
@@ -69,12 +69,14 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
                 </nav>
             </header>
 
-            <main>
+            <div class=\"intro\">
+            <main >
                 ";
-        // line 46
+        // line 47
         $this->displayBlock('main', $context, $blocks);
-        // line 49
+        // line 50
         echo "            </main>
+            </div>
 
             <aside>
                 Sajdbar sadrzaj...
@@ -98,10 +100,10 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         echo "Aukcije";
     }
 
-    // line 46
+    // line 47
     public function block_main($context, array $blocks = [])
     {
-        // line 47
+        // line 48
         echo "                ...
                 ";
     }
@@ -113,7 +115,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
 
     public function getDebugInfo()
     {
-        return array (  105 => 47,  102 => 46,  96 => 5,  77 => 49,  75 => 46,  33 => 6,  31 => 5,  25 => 1,);
+        return array (  107 => 48,  104 => 47,  98 => 5,  78 => 50,  76 => 47,  33 => 6,  31 => 5,  25 => 1,);
     }
 
     public function getSourceContext()
