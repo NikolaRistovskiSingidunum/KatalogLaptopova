@@ -65,7 +65,11 @@ if ($controllerInstance instanceof App\Core\ApiController) {
 $loader = new Twig_Loader_Filesystem('./views');
 $twig = new Twig_Environment($loader, [
     'cache' => './twig-cache',
-    'auto_reload' => true
+    'auto_reload' => true,
+    //'debug' => 'true',
+     //'cache' => false
+    // 'auto_reload' => 'true'
+    
 ]);
 
 //print_r($data);

@@ -4,19 +4,32 @@ RewriteEngine On
 # Base path putanja /nedelja01/ stoji kod njega 
 RewriteBase /KatalogLaptopova/KatalogLaptopova/nedelja01/
 
+
+
+
+
 # Ako nije file, skip
 RewriteCond %{REQUEST_FILENAME} !-f
 
+
 # Ako nije dir, skip
 RewriteCond %{REQUEST_FILENAME} !-d
+
+
+
+
+
 
 # Sve preusmeri na...
 RewriteRule ^(.*)$ ./index.php?URL=$1 [L]
 
 
-# DISABLE CACHING
-<IfModule mod_headers.c>
-	Header set Cache-Control "no-cache, no-store, must-revalidate"
-	Header set Pragma "no-cache"
-	Header set Expires 0
-</IfModule>
+
+
+#DISABLE CACHING
+#	Header set Cache-Control "no-cache, no-store, must-revalidate"
+#	Header set Pragma "no-cache"
+#	Header set Expires 0
+#</IfModule>
+
+

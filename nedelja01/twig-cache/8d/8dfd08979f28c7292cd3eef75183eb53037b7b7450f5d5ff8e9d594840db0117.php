@@ -33,7 +33,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         echo "        </title>
         <meta charset=\"utf-8\">
 
-        <link rel=\"stylesheet\" type=\"text/css\" href=\"/nedelja01/assets/css/main.css\">
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/css/main.css\">
     </head>
     <body>
         <section>
@@ -41,7 +41,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
                 <div class=\"banner\">
                     <img alt=\"Banner 1\" src=\"/nedelja01/assets/img/site/banner.png\">
                 </div>
-
+                
                 <div class=\"social-links\">
                     <a href=\"#\" target=\"_blank\"><img alt=\"FB\" src=\"/nedelja01/assets/img/social/fb.png\"></a>
                     <a href=\"#\" target=\"_blank\"><img alt=\"TW\" src=\"/nedelja01/assets/img/social/tw.png\"></a>
@@ -69,14 +69,14 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
                 </nav>
             </header>
 
-            <div class=\"intro\">
-            <main >
+            <div class=\"laptop1\" >
+            <main  >
                 ";
         // line 47
         $this->displayBlock('main', $context, $blocks);
         // line 50
         echo "            </main>
-            </div>
+        </div  >
 
             <aside>
                 Sajdbar sadrzaj...
