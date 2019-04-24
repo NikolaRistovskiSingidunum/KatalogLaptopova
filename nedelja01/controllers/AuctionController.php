@@ -30,5 +30,6 @@ class AuctionController extends Controller {
 
         $this->set('auction', $auction);
         $this->set('lastPrice', $price);
+        -----
     }
 }
