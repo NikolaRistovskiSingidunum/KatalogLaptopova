@@ -1,2 +1,2 @@
-# KatalogLaptopova praktium 1
+# KatalogLaptopova
 Web stranica za katalog laptopova
