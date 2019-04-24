@@ -20,5 +20,5 @@
 
         # Fallback
         
-        Route::get('#^.*$#', 'Main', 'home')
+        Route::get('#^.*$#', 'Main', 'home') //test
     ];
