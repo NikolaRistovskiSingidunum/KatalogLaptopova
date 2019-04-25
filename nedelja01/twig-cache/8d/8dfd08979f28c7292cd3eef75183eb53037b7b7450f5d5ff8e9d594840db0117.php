@@ -39,22 +39,22 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         <section>
             <header class=\"site-header\">
                 <div class=\"banner\">
-                    <img alt=\"Banner 1\" src=\"/nedelja01/assets/img/site/banner.png\">
+                    <img alt=\"Banner 1\" src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/site/banner.png\">
                 </div>
                 
                 <div class=\"social-links\">
-                    <a href=\"#\" target=\"_blank\"><img alt=\"FB\" src=\"/nedelja01/assets/img/social/fb.png\"></a>
-                    <a href=\"#\" target=\"_blank\"><img alt=\"TW\" src=\"/nedelja01/assets/img/social/tw.png\"></a>
-                    <a href=\"#\" target=\"_blank\"><img alt=\"IG\" src=\"/nedelja01/assets/img/social/ig.png\"></a>
-                    <a href=\"#\" target=\"_blank\"><img alt=\"LI\" src=\"/nedelja01/assets/img/social/li.png\"></a>
-                    <a href=\"#\" target=\"_blank\"><img alt=\"YT\" src=\"/nedelja01/assets/img/social/yt.png\"></a>
-                    <a href=\"#\" target=\"_blank\"><img alt=\"PT\" src=\"/nedelja01/assets/img/social/pt.png\"></a>
+                    <a href=\"#\" target=\"_blank\"><img alt=\"FB\" src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/social/fb.png\"></a>
+                    <a href=\"#\" target=\"_blank\"><img alt=\"TW\" src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/social/tw.png\"></a>
+                    <a href=\"#\" target=\"_blank\"><img alt=\"IG\" src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/social/ig.png\"></a>
+                    <a href=\"#\" target=\"_blank\"><img alt=\"LI\" src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/social/li.png\"></a>
+                    <a href=\"#\" target=\"_blank\"><img alt=\"YT\" src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/social/yt.png\"></a>
+                    <a href=\"#\" target=\"_blank\"><img alt=\"PT\" src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/social/pt.png\"></a>
                 </div>
 
                 <div class=\"search-box\">
                     <form method=\"post\" action=\"/nedelja01/search\">
                         <input type=\"text\" placeholder=\"Kljucne reci\" name=\"search\">
-                        <button type=\"submit\"><img alt=\"Lupa\" src=\"/nedelja01/assets/img/search.png\"></button>
+                        <button type=\"submit\"><img alt=\"Lupa\" src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/search.png\"></button>
                     </form>
                 </div>
 
