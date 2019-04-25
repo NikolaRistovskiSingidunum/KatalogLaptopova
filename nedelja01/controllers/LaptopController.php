@@ -31,7 +31,7 @@ class LaptopController extends Controller {
         // $this->set('lastPrice', $price);
 
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
-        $laptops = $laptopModel->getAll();
+        $laptops = $laptopModel->getAllJoint();
 
 
         $test = [['laptop_id'=>"neki id", 
@@ -52,7 +52,7 @@ class LaptopController extends Controller {
         'is_deleted'=>"idalje je tu"]      ];
 
         
-        $this->set("laptops", $test);
+        $this->set("laptops", $laptops);
         //$this->set("a", "neka vrednost" . $broj);
         //die($this->getData());
 

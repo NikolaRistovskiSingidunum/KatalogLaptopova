@@ -5,12 +5,34 @@
 
 <h1>Members</h1>
 {% for laptop in laptops %}
-<li>{{ laptop.name|e }}</li>
-<li>{{ laptop.price|e }}</li>
+<li>{{ 'Ime laptopa: ' ~ laptop.laptop_name|e }}</li>
+<li>{{ 'Laptop id: ' ~ laptop.laptop_id|e }}</li>
+<li>{{ 'Numericka tastatura: ' ~ laptop.is_numpad ? 'YES' : 'NO'  }}</li>
+<li>{{ 'Kreiran: ' ~ laptop.created_at|e }}</li>
+<li>{{ 'Raspored dugmica na tastaturi: ' ~ laptop.keyboard_layout|e }}</li>
+<li>{{ 'Proizvodjac: ' ~ laptop.manufacturer|e }}</li>
+<!-- <li>{{ 'Ime laptopa: ' ~ laptop.laptop_name|e }}</li> -->
+<li>{{ 'Operativni sistem: ' ~ laptop.operating_system|e }}</li>
+<li>{{ 'Cena: ' ~ laptop.price|e }}</li>
+<li>{{ 'Capacitet RAMa: ' ~ laptop.ram_capacity|e }}</li>
+<li>{{ 'Model Graficke Karte: ' ~ laptop.gpu_model|e }}</li>
+<li>{{ 'Tip Graficke Karte: ' ~ laptop.type|e }}</li>
+<li>{{ 'Velicna video memorije graficke karte : ' ~ laptop.video_memory|e }}</li>
+<li>{{ 'Kategorija: ' ~ laptop.category_name|e }}</li>
+<li>{{ 'Da li je Ekran na dodir: ' ~ laptop.is_touchscreen ? 'YES' : 'NO' }}</li>
+<li>{{ 'Rezolucija: ' ~ laptop.resolution|e }}</li>
+<li>{{ 'CPU Broj Jezgarad: ' ~ laptop.core_count|e }}</li>
+<li>{{ 'CPU brzina: ' ~ laptop.frequency|e }}</li>
+<li>{{ 'CPU proizvodjac: ' ~ laptop.cpu_manufactor|e }}</li>
+<li>{{ 'CPU model: ' ~ laptop.cpu_model|e }}</li>
+<li>{{ 'img model: ' ~ laptop.image_path|e }}</li>
+
+
+<!-- <li>{{ laptop.price|e }}</li>
 <li>{{ laptop.image_path|e }}</li>
 <li>{{ laptop.operating_system|e }}</li>
 <li>{{ laptop.keyboard_layout|e }}</li>
-<li>{{ laptop.is_numpad|e }}</li>
+<li>{{ laptop.is_numpad|e }}</li> -->
 <br>
 <br>
 {% endfor %}
