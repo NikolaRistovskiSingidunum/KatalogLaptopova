@@ -29,8 +29,8 @@
 <li>{{ 'img model: ' ~ laptop.image_path|e }}</li>
 </data>
 <img src= {{ '/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/laptops/' ~laptop.image_path|e }}></img>
-<button onclick={{'radi(' ~laptop.laptop_id|e ~ ')'}}> Detalji </button>
-<div>Detalji</div>
+<button onclick={{'getStorageDetails(' ~laptop.laptop_id|e ~ ')'}}> Detalji </button>
+<div id={{'Details'~laptop.laptop_id|e }}>Detalji</div>
 <!-- <li>{{ laptop.price|e }}</li>
 <li>{{ laptop.image_path|e }}</li>
 <li>{{ laptop.operating_system|e }}</li>

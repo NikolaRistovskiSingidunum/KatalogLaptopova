@@ -90,6 +90,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         </section>
 
         <script src=\"/nedelja01/assets/js/bookmarks.js\"></script>
+        <script src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/js/details.js\"></script>
     </body>
 </html>
 ";
@@ -116,7 +117,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
 
     public function getDebugInfo()
     {
-        return array (  108 => 49,  105 => 48,  99 => 5,  79 => 51,  77 => 48,  33 => 6,  31 => 5,  25 => 1,);
+        return array (  109 => 49,  106 => 48,  100 => 5,  79 => 51,  77 => 48,  33 => 6,  31 => 5,  25 => 1,);
     }
 
     public function getSourceContext()

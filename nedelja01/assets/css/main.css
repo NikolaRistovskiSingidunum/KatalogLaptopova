@@ -30,6 +30,7 @@
 }
 .laptop > data
 {
+    
     grid-area: b;
     background-color:red;    
     border: #000;
@@ -42,6 +43,8 @@
 }
 
 .laptop > img  {
+    background-color: beige;
+    border-radius: 25px;
     grid-area: a;
     background-color: #8ca0ff;
     height: 100%;
@@ -50,6 +53,8 @@
     align-content: center;
   }
 .laptop > button{
+    background-color: beige;
+    border-radius: 25px;
     grid-area: c;
     height: 100%;
     width: 100%;

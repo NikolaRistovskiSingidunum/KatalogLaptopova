@@ -134,9 +134,12 @@ class __TwigTemplate_8008cb801266d8fc967825525f7690bf62e1ddda4a0a7572510340f471c
             echo "></img>
 <button onclick=";
             // line 32
-            echo twig_escape_filter($this->env, (("radi(" . twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["laptop"], "laptop_id", []))) . ")"), "html", null, true);
+            echo twig_escape_filter($this->env, (("getStorageDetails(" . twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["laptop"], "laptop_id", []))) . ")"), "html", null, true);
             echo "> Detalji </button>
-<div>Detalji</div>
+<div id=";
+            // line 33
+            echo twig_escape_filter($this->env, ("Details" . twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["laptop"], "laptop_id", []))), "html", null, true);
+            echo ">Detalji</div>
 <!-- <li>";
             // line 34
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["laptop"], "price", []));
@@ -189,7 +192,7 @@ class __TwigTemplate_8008cb801266d8fc967825525f7690bf62e1ddda4a0a7572510340f471c
 
     public function getDebugInfo()
     {
-        return array (  175 => 44,  172 => 43,  167 => 41,  158 => 38,  154 => 37,  150 => 36,  146 => 35,  142 => 34,  137 => 32,  133 => 31,  128 => 29,  124 => 28,  120 => 27,  116 => 26,  112 => 25,  108 => 24,  104 => 23,  100 => 22,  96 => 21,  92 => 20,  88 => 19,  84 => 18,  80 => 17,  76 => 16,  72 => 15,  68 => 14,  64 => 13,  60 => 12,  56 => 11,  52 => 10,  48 => 9,  44 => 7,  40 => 6,  36 => 4,  33 => 3,  15 => 1,);
+        return array (  178 => 44,  175 => 43,  170 => 41,  161 => 38,  157 => 37,  153 => 36,  149 => 35,  145 => 34,  141 => 33,  137 => 32,  133 => 31,  128 => 29,  124 => 28,  120 => 27,  116 => 26,  112 => 25,  108 => 24,  104 => 23,  100 => 22,  96 => 21,  92 => 20,  88 => 19,  84 => 18,  80 => 17,  76 => 16,  72 => 15,  68 => 14,  64 => 13,  60 => 12,  56 => 11,  52 => 10,  48 => 9,  44 => 7,  40 => 6,  36 => 4,  33 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
