@@ -69,14 +69,15 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
                 </nav>
             </header>
 
-            <div class=\"laptop1\" >
-            <main  >
-                ";
-        // line 47
+           
+                <main>
+                    
+                    ";
+        // line 48
         $this->displayBlock('main', $context, $blocks);
-        // line 50
-        echo "            </main>
-        </div  >
+        // line 51
+        echo "                </main>
+            
 
             <aside>
                 Sajdbar sadrzaj...
@@ -100,12 +101,12 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         echo "Aukcije";
     }
 
-    // line 47
+    // line 48
     public function block_main($context, array $blocks = [])
     {
-        // line 48
-        echo "                ...
-                ";
+        // line 49
+        echo "                    ...
+                    ";
     }
 
     public function getTemplateName()
@@ -115,7 +116,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
 
     public function getDebugInfo()
     {
-        return array (  107 => 48,  104 => 47,  98 => 5,  78 => 50,  76 => 47,  33 => 6,  31 => 5,  25 => 1,);
+        return array (  108 => 49,  105 => 48,  99 => 5,  79 => 51,  77 => 48,  33 => 6,  31 => 5,  25 => 1,);
     }
 
     public function getSourceContext()

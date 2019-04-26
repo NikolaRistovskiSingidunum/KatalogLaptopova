@@ -3,12 +3,62 @@
     margin: 0px;
     box-sizing: border-box;
 }
-
-.laptop1 {
+.laptops
+{
+    background-color:blue;
+    overflow : scroll;
+    height: 800px;
+}
+.laptop {
     background-color: beige;
-    height: 400px;
-    overflow-y: scroll;
+    
+    /* overflow-x: auto;
+    overflow-y: scroll; */
+    display: grid;
+    /* a je za sliku, b je za podatke, c je za dodatne informacije tj. dugme, d je za prikaz dodatnih informacija */
+    grid-template-areas: "a b c"
+                         "a b d";
+    grid-template-rows: 0.1fr 1fr  ;
+    grid-template-columns: 1fr 1fr 0.4fr;
+    border: #000;
+    border-style: solid;
+    justify-items:normal;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+
+}
+.laptop > data
+{
+    grid-area: b;
+    background-color:red;    
+    border: #000;
+    border-style: solid;
+    
+
+}
+.laptop > data > li{
+    list-style: none;
+}
+
+.laptop > img  {
+    grid-area: a;
+    background-color: #8ca0ff;
+    height: 100%;
+    width: 100%;
+    border-style: solid;
+    align-content: center;
   }
+.laptop > button{
+    grid-area: c;
+    height: 100%;
+    width: 100%;
+}
+.laptop > div
+{
+    grid-area: d;
+    background-color: red;
+}
 body {
     max-width: 1100px;
     margin: 0px auto;
