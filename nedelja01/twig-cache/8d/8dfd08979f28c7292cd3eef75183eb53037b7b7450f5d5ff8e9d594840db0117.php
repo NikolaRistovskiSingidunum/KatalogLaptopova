@@ -66,7 +66,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
 
                 <nav class=\"main-menu\">
                     <ul>
-                        <li><a href=\"#\">Pocetna</a>
+                        <li><a href=\"http://localhost/KatalogLaptopova/KatalogLaptopova/nedelja01/laptop/\">Pocetna</a>
                         <li><a href=\"#\">Kategorije</a>
                         <li><a href=\"#\">Registracija</a>
                         <li><a href=\"#\">Prijava</a>

@@ -24,7 +24,8 @@ function displayCategories(data)
      for (let d of data['categories'])
      {
         var a = document.createElement("a");
-        a.setAttribute('href','aaa');
+        var category_id = d['category_id'];
+        a.setAttribute('href',"http://localhost/KatalogLaptopova/KatalogLaptopova/nedelja01/laptop/category.category_id/"+category_id);
         a.innerText = d['name'];
         elm.appendChild(a);
      }

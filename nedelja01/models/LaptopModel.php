@@ -77,7 +77,7 @@
             join category on category.category_id = laptop.category_id
             join display on laptop.display_id = display.display_id
             join cpu on cpu.cpu_id = laptop.cpu_id
-                        where" . $name . '= ?;'; 
+						where " . $name ."=". "?" . ";";
                         
 
             $prep = $pdo->prepare($sql);
@@ -88,6 +88,7 @@
                 $items = $prep->fetchAll(PDO::FETCH_OBJ);
 
                 if (!$items) {
+
                     $items = [];
                 }
             }
