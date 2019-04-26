@@ -73,6 +73,7 @@ $twig = new Twig_Environment($loader, [
 ]);
 
 //print_r($data);
+//nisam siguran kako twig razlucuje globalni html
 echo $twig->render(
     $foundRoute->getControllerName() . '/' . $foundRoute->getMethodName() . '.html',
     $data // aleternativno koristii ['data'=> data] da bi promenjive u twigu bile dostupune preko data

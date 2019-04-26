@@ -7,8 +7,9 @@
         <meta charset="utf-8">
 
         <link rel="stylesheet" type="text/css" href="/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/css/main.css">
+        <link rel="stylesheet" type="text/css" href="/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/css/dropdownmenu.css">
     </head>
-    <body>
+    <body  onload="getCategories()">
         <section>
             <header class="site-header">
                 <div class="banner">
@@ -22,6 +23,11 @@
                     <a href="#" target="_blank"><img alt="LI" src="/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/social/li.png"></a>
                     <a href="#" target="_blank"><img alt="YT" src="/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/social/yt.png"></a>
                     <a href="#" target="_blank"><img alt="PT" src="/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/social/pt.png"></a>
+
+              
+
+
+
                 </div>
 
                 <div class="search-box">
@@ -38,6 +44,16 @@
                         <li><a href="#">Registracija</a>
                         <li><a href="#">Prijava</a>
                         <li><a href="#">Kontakt</a>
+                        <li>
+                            <!-- stavimo ovde dropdown button dok ne nadjemo bolje mesto -->
+                            <div class="dropdown">
+                                    <button class="dropbtn">Kategorije</button>
+                                    <div id="category" class="dropdown-content">
+                                    <!-- <a href="#">Link 1</a>
+                                    <a href="#">Link 2</a>
+                                    <a href="#">Link 3</a> -->
+                                    </div>
+                                  </div>
                     </ul>
                 </nav>
             </header>
@@ -63,5 +79,7 @@
 
         <script src="/nedelja01/assets/js/bookmarks.js"></script>
         <script src="/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/js/details.js"></script>
+        <script src="/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/js/category.js"></script>
+        
     </body>
 </html>

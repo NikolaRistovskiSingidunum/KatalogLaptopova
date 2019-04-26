@@ -34,8 +34,9 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         <meta charset=\"utf-8\">
 
         <link rel=\"stylesheet\" type=\"text/css\" href=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/css/main.css\">
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/css/dropdownmenu.css\">
     </head>
-    <body>
+    <body  onload=\"getCategories()\">
         <section>
             <header class=\"site-header\">
                 <div class=\"banner\">
@@ -49,6 +50,11 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
                     <a href=\"#\" target=\"_blank\"><img alt=\"LI\" src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/social/li.png\"></a>
                     <a href=\"#\" target=\"_blank\"><img alt=\"YT\" src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/social/yt.png\"></a>
                     <a href=\"#\" target=\"_blank\"><img alt=\"PT\" src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/img/social/pt.png\"></a>
+
+              
+
+
+
                 </div>
 
                 <div class=\"search-box\">
@@ -65,6 +71,16 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
                         <li><a href=\"#\">Registracija</a>
                         <li><a href=\"#\">Prijava</a>
                         <li><a href=\"#\">Kontakt</a>
+                        <li>
+                            <!-- stavimo ovde dropdown button dok ne nadjemo bolje mesto -->
+                            <div class=\"dropdown\">
+                                    <button class=\"dropbtn\">Kategorije</button>
+                                    <div id=\"category\" class=\"dropdown-content\">
+                                    <!-- <a href=\"#\">Link 1</a>
+                                    <a href=\"#\">Link 2</a>
+                                    <a href=\"#\">Link 3</a> -->
+                                    </div>
+                                  </div>
                     </ul>
                 </nav>
             </header>
@@ -73,9 +89,9 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
                 <main>
                     
                     ";
-        // line 48
+        // line 64
         $this->displayBlock('main', $context, $blocks);
-        // line 51
+        // line 67
         echo "                </main>
             
 
@@ -91,6 +107,8 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
 
         <script src=\"/nedelja01/assets/js/bookmarks.js\"></script>
         <script src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/js/details.js\"></script>
+        <script src=\"/KatalogLaptopova/KatalogLaptopova/nedelja01/assets/js/category.js\"></script>
+        
     </body>
 </html>
 ";
@@ -102,10 +120,10 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         echo "Aukcije";
     }
 
-    // line 48
+    // line 64
     public function block_main($context, array $blocks = [])
     {
-        // line 49
+        // line 65
         echo "                    ...
                     ";
     }
@@ -117,7 +135,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
 
     public function getDebugInfo()
     {
-        return array (  109 => 49,  106 => 48,  100 => 5,  79 => 51,  77 => 48,  33 => 6,  31 => 5,  25 => 1,);
+        return array (  127 => 65,  124 => 64,  118 => 5,  95 => 67,  93 => 64,  33 => 6,  31 => 5,  25 => 1,);
     }
 
     public function getSourceContext()

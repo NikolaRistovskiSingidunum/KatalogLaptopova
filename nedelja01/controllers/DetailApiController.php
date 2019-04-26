@@ -7,7 +7,10 @@ use App\Models\PortModel;
 
 class DetailApiController extends ApiController {
     public function details($laptopId) {
-        //die("aaaaaaaaaaaaa");
+        //pristupa sotrage i detail modelu, vadi informacije i pakuje ih u data pod odgovaracjucim kljucevima
+
+
+
         $storageModel = new StorageModel($this->getDatabaseConnection());
         $storageItems = $storageModel->getAllByFieldName("laptop_id",$laptopId) ;
         $this->set('storagies', $storageItems);

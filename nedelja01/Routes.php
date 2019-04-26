@@ -14,6 +14,7 @@
         Route::get('#^api/bookmarks/add/([0-9]+)/?$#', 'BookmarkApi',  'addBookmark'),
         Route::get('#^api/bookmarks/clear/?$#',        'BookmarkApi',  'clear'),
         Route::get('#^api/details/([0-9]+)/?$#',           'DetailApi',      'details'),
+        Route::get('#^api/categories/?$#',           'CategoryApi',      'categories'),
 
         # Za testiranje funkcionalnosti
         Route::get('#^test/?$#',                       'Main',         'test'),

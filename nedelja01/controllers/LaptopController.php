@@ -8,30 +8,10 @@ use App\Models\LaptopModel;
 
 class LaptopController extends Controller {
     public function show($broj) {
-        // $am = new AuctionModel($this->getDatabaseConnection());
-        // $auction = $am->getById($auctionId);
-
-        // if ( !$am->isActive($auction) ) {
-        //     ob_clean();
-        //     header('Location: /nedelja01/');
-        //     exit;
-        // }
-
-        // $om = new OfferModel($this->getDatabaseConnection());
-        // $offers = $om->getAllByAuctionId($auctionId);
-        
-        // $price = $auction->starting_price;
-
-        // if (count($offers) > 0) {
-        //     $lastOffer = $offers[ count($offers) - 1 ];
-        //     $price = $lastOffer->price;
-        // }
-
-        // $this->set('auction', $auction);
-        // $this->set('lastPrice', $price);
+   
 
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
-        $laptops = $laptopModel->getAllJoint();
+        $laptops = $laptopModel->getAllJoined();
 
 
         $test = [['laptop_id'=>"neki id", 
@@ -53,8 +33,11 @@ class LaptopController extends Controller {
 
         
         $this->set("laptops", $laptops);
-        //$this->set("a", "neka vrednost" . $broj);
-        //die($this->getData());
+       
+
+    }
+    public function showByCategory($fieldName, $value)
+    {
 
     }
 }
