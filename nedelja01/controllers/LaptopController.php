@@ -44,4 +44,9 @@ class LaptopController extends Controller {
         $this->set("laptops", $laptops);
  
     }
+
+    public function showSearchForm()
+    {
+        
+    }
 }

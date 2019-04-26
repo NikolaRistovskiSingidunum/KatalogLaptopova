@@ -71,6 +71,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
                         <li><a href=\"#\">Registracija</a>
                         <li><a href=\"#\">Prijava</a>
                         <li><a href=\"#\">Kontakt</a>
+                        <li><a href=\"#\">Pretraga</a>
                         <li>
                             <!-- stavimo ovde dropdown button dok ne nadjemo bolje mesto -->
                             <div class=\"dropdown\">
@@ -89,9 +90,9 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
                 <main>
                     
                     ";
-        // line 64
+        // line 65
         $this->displayBlock('main', $context, $blocks);
-        // line 67
+        // line 68
         echo "                </main>
             
 
@@ -120,10 +121,10 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         echo "Aukcije";
     }
 
-    // line 64
+    // line 65
     public function block_main($context, array $blocks = [])
     {
-        // line 65
+        // line 66
         echo "                    ...
                     ";
     }
@@ -135,7 +136,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
 
     public function getDebugInfo()
     {
-        return array (  127 => 65,  124 => 64,  118 => 5,  95 => 67,  93 => 64,  33 => 6,  31 => 5,  25 => 1,);
+        return array (  128 => 66,  125 => 65,  119 => 5,  96 => 68,  94 => 65,  33 => 6,  31 => 5,  25 => 1,);
     }
 
     public function getSourceContext()
