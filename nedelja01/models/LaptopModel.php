@@ -128,7 +128,7 @@
 
 
 
-           die($sql);
+           //die($sql);
             $prep = $pdo->prepare($sql);
             $items = [];
 

@@ -89,11 +89,11 @@ class SearchController extends Controller {
      }
      //poverava da li su variable a i b dobro definisane(da li imaju vrednost ili su null) i da li je a < od b
      //kada se vrati false, onda a i b nece biti ukljucene u where vrednost>a and vrednost<b 
-     private function checkValidityAndRange($a,$b)
+     private function checkValidityAndRange(&$a,&$b)
      {
         //ne radi kada je a jednako =0 
         //debagovati kasnije
-        return ($a==true) and ($b==true) and  ($a>=0) and ($a<=$b);
+        return (!$a==null) and (!$b==null) and  ($a>=0) and ($a<=$b);
      }
  
 
