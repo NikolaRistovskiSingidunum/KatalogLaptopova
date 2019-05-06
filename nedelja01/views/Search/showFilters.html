@@ -1,0 +1,38 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+
+<h6>Mogli je nasao mandarinu</h6>
+
+<form action="http://localhost/KatalogLaptopova/KatalogLaptopova/nedelja01/pretragaPoFilterima" method="POST">
+    Cena:<br>
+    od: <input type="text" name="priceMin" value=""> do: <input type="text" name="priceMax" value=""> 
+    <br>
+    Velicina RAMa:<br>
+    od: <input type="text" name="ramMin" value=""> do: <input type="text" name="ramMax" value=""> 
+    <br>
+    Brzina procesora:<br>
+    od: <input type="text" name="cpuSpeedMin" value=""> do: <input type="text" name="cpuSpeedMax" value=""> 
+    <br>
+    Velicina diska:<br>
+    od: <input type="text" name="diskMin" value=""> do: <input type="text" name="diskMax" value=""> 
+    <br>
+    Broj jezgara:<br>
+    od: <input type="text" name="coreMin" value=""> do: <input type="text" name="coreMax" value=""> 
+    <br>
+    <input type="checkbox" name="sortByPrice" value="sort"> Sortiraj po ceni
+    <br>
+    <input type="radio" name="priceSortOrder" value="acs" checked> Rastuce
+    <br>
+    <input type="radio" name="priceSortOrder" value="decs"> Opadajuce
+    <br>
+    Kategorija:<br>
+    <input type="text" name="category" value="Brz">
+    <br><br>
+    <input type="submit" value="Submit">
+  </form> 
+
+{% endblock %}
+{% block title %}
+{{ "Pretraga po Kategorijama" }}
+{% endblock %}

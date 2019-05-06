@@ -12,6 +12,8 @@
         Route::get('#^auction/([0-9]+)/?$#',           'Auction',      'show'),
         Route::get('#^laptop/?$#',           'Laptop',      'show'),
         Route::get('#^laptop/([a-zA-Z_\.]+)/([0-9]+)/?$#',           'Laptop',      'showByCategory'),
+        Route::get('#^filteriForma/?$#',           'Search',      'showFilters'),
+        Route::post('#^pretragaPoFilterima/?$#',           'Search',      'showByFilters'),
 
         Route::get('#^api/categories/?$#',             'MainApi',      'categories'),
         Route::get('#^api/auctions/([0-9]+)/?$#',      'MainApi',      'auctions'),
@@ -21,6 +23,7 @@
         Route::get('#^api/details/([0-9]+)/?$#',           'DetailApi',      'details'),
         Route::get('#^api/categories/?$#',           'CategoryApi',      'categories'),
 
+        #/nedelja01/pretragePoKategorijama
         # Za testiranje funkcionalnosti
         Route::get('#^test/?$#',                       'Main',         'test'),
         Route::get('#^login/?$#',                      'Main',         'loginGet'),
