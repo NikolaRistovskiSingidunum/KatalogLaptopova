@@ -54,9 +54,9 @@ class __TwigTemplate_fd540ad0e9d0e251a93b5e5a7f9cab5b89d3d08584f8e3fcef6a580e738
     <br>
     <input type=\"checkbox\" name=\"sortByPrice\" value=\"sort\"> Sortiraj po ceni
     <br>
-    <input type=\"radio\" name=\"priceSortOrder\" value=\"acs\" checked> Rastuce
+    <input type=\"radio\" name=\"priceSortOrder\" value=\"asc\" checked> Rastuce
     <br>
-    <input type=\"radio\" name=\"priceSortOrder\" value=\"decs\"> Opadajuce
+    <input type=\"radio\" name=\"priceSortOrder\" value=\"desc\"> Opadajuce
     <br>
     Kategorija:<br>
     <input type=\"text\" name=\"category\" value=\"Brz\">

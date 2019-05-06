@@ -41,14 +41,44 @@ class SearchController extends Controller {
         // echo("<br>");
         // if(!$priceMax)
         // echo("nije ok");
-
         // echo("<br>;;<br>");
 
-        // $where = "";
+        //Generalno gledano ovo treba da se uradi na pametniji nacin
 
-        // if($this->checkValidityAndRange($priceMin,$priceMax))
-        // $where .= "price >= ".$price;
 
+        //napravi where, uradi brzi work around 
+        $where = "(1=1)";
+
+        if($this->checkValidityAndRange($priceMin,$priceMax))
+        {
+
+        $where .="and ";
+        $where .= "(" . "laptop.price >= ".$priceMin ." and laptop.price <=" .$priceMax .")" ;
+        }   
+        
+        if($this->checkValidityAndRange($ramMin,$ramMax))
+        {
+        $where .="and ";    
+        $where .= "(" . "laptop.ram_capacity >= ".$ramMin ." and laptop.ram_capacity <=" .$ramMax .")" ;
+        }
+
+        if($this->checkValidityAndRange($cpuSpeedMin,$cpuSpeedMax))
+        {
+        $where .="and";    
+        $where .= "(" . "cpu.frequency >= ".$cpuSpeedMin ." and cpu.frequency<=" . $cpuSpeedMax .")" ;
+        }
+
+
+        //Hapravi oreder by
+        $orderBy = "";
+        if($sortByPrice)
+        {
+            $orderBy .= "laptop.price " . $priceSortOrder;
+        }
+
+        $laptopModel = new LaptopModel($this->getDatabaseConnection());
+        $laptops = $laptopModel->getAllJoinedByWhereAndOrder($where,$orderBy);
+        $this->set("laptops", $laptops);
 
         // if($this->checkValidityAndRange($priceMin,$priceMax))
         // echo($this->checkValidityAndRange($priceMin,$priceMax));
@@ -61,7 +91,9 @@ class SearchController extends Controller {
      //kada se vrati false, onda a i b nece biti ukljucene u where vrednost>a and vrednost<b 
      private function checkValidityAndRange($a,$b)
      {
-        return $a && $b && $a<$b;
+        //ne radi kada je a jednako =0 
+        //debagovati kasnije
+        return ($a==true) and ($b==true) and  ($a>=0) and ($a<=$b);
      }
  
 
