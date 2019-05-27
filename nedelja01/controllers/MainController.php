@@ -5,6 +5,7 @@ use App\Models\CategoryModel;
 use App\Core\Controller;
 use App\Models\AuctionModel;
 use App\Models\UserModel;
+use App\Validators\StringValidator;
 
 class MainController extends Controller {
     public function home() {
@@ -35,22 +36,6 @@ class MainController extends Controller {
         $this->set('category', $category);
     }
 
-    public function test() {
-        $userId = $this->getSession()->get('userId');
-
-        if ($userId === null) {
-            \ob_clean();
-            header('Location: /nedelja01/login/');
-            exit;
-        }
-
-        $brojac = $this->getSession()->get('brojac', 0);
-        $brojac++;
-        $this->getSession()->put('brojac', $brojac);
-
-        $this->set('message', 'Ulogovani ste! Brojac je: ' . $brojac);
-    }
-
     public function loginGet() {
 
     }
@@ -59,15 +44,81 @@ class MainController extends Controller {
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
-        if ($username == 'test' && $password == '123456') {
-            $this->getSession()->put('userId', 11);
+        $um = new UserModel($this->getDatabaseConnection());
 
-            \ob_clean();
-            header('Location: /nedelja01/test/');
-            exit;
+        $user = $um->getByFieldName('username', $username);
+
+        if (!$user) {
+            sleep(1);
+            $this->set('message', 'Losi podaci!');
+            return;
         }
 
-        sleep(1);
-        $this->set('message', 'Losi podaci!');
+        if (!password_verify($password, $user->password_hash)) {
+            sleep(1);
+            $this->set('message', 'Losi podaci!');
+            return;
+        }
+
+        $this->getSession()->put('userId', $user->user_id);
+
+        \ob_clean();
+        header('Location: ' . BASE . 'user/dashboard/');
+        exit;
+    }
+
+    public function getRegister() {
+        
+    }
+
+    public function postRegister() {
+        $username  = filter_input(INPUT_POST, 'reg_username', FILTER_SANITIZE_STRING);
+        $email     = filter_input(INPUT_POST, 'reg_email', FILTER_SANITIZE_EMAIL);
+        $forename  = filter_input(INPUT_POST, 'reg_forename', FILTER_SANITIZE_STRING);
+        $surname   = filter_input(INPUT_POST, 'reg_surname', FILTER_SANITIZE_STRING);
+        $password1 = filter_input(INPUT_POST, 'reg_password_1', FILTER_SANITIZE_STRING);
+        $password2 = filter_input(INPUT_POST, 'reg_password_2', FILTER_SANITIZE_STRING);
+
+        if ($password1 != $password2) {
+            $this->set('message', 'Morate dva puta da potvrdite istu lozinku.');
+            return;
+        }
+
+        $validator = (new StringValidator())->setMinLength(6)->setMaxLength(120);
+        if (! $validator->isValid($password1)) {
+            $this->set('message', 'Lozinka mora imati najmanje 6 karaktera i najvise 120 karaktera.');
+            return;
+        }
+
+        $um = new UserModel($this->getDatabaseConnection());
+
+        $user = $um->getByFieldName('username', $username);
+        if ($user) {
+            $this->set('message', 'Korisničko ime je zauzeto.');
+            return;
+        }
+
+        $user = $um->getByFieldName('email', $email);
+        if ($user) {
+            $this->set('message', 'Sa tom adresom e-pošte već postoji nalog.');
+            return;
+        }
+
+        $passwrodHash = password_hash($password1, PASSWORD_DEFAULT);
+
+        $userId = $um->add([
+            'username' =>      $username,
+            'password_hash' => $passwrodHash,
+            'email' =>         $email,
+            'forename' =>      $forename,
+            'surname' =>       $surname
+        ]);
+
+        if (!$userId) {
+            $this->set('message', 'Došlo je do greške prilikom registracije naloga.');
+            return;
+        }
+
+        $this->set('message', 'USPEŠNO je registrovan nalog. Možete da se prijavite sada.');
     }
 }

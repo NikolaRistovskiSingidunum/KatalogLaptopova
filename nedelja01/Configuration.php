@@ -1,5 +1,7 @@
 <?php
     final class Configuration {
+        const BASE = 'http://localhost/KatalogLaptopova/KatalogLaptopova/nedelja01/';
+
         const DATABASE_HOST = 'localhost';
         const DATABASE_USER = 'root';
         const DATABASE_PASS = '';

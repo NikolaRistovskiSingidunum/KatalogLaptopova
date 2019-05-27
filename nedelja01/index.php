@@ -12,20 +12,15 @@ $config = new App\Core\DatabaseConfiguration(
     \Configuration::DATABASE_PASS
 );
 
-
+define('BASE', Configuration::BASE);
 
 $router = new Router();
 foreach (require_once 'Routes.php' as $route) {
     $router->add($route);
 }
 
-
-
 $url = strval(filter_input(INPUT_GET, 'URL'));
 $httpMethod = filter_input(INPUT_SERVER, 'REQUEST_METHOD');
-
-// echo "RUTUA JE" . $url;
-// die($url . "Zasto je ruta prazna");
 
 $foundRoute = $router->find($httpMethod, $url);
 
@@ -47,6 +42,7 @@ $parameters = $foundRoute->extractArguments($url);
 $controllerInstance = new $fullControllerName($dbCon);
 $controllerInstance->setSession($session);
 
+$controllerInstance->__pre();
 call_user_func_array([ $controllerInstance, $method ], $parameters);
 
 $controllerInstance->getSession()->save();
@@ -65,18 +61,12 @@ if ($controllerInstance instanceof App\Core\ApiController) {
 $loader = new Twig_Loader_Filesystem('./views');
 $twig = new Twig_Environment($loader, [
     'cache' => './twig-cache',
-    'auto_reload' => true,
-    //'debug' => 'true',
-     //'cache' => false
-    // 'auto_reload' => 'true'
-    
+    'auto_reload' => true
 ]);
 
-//print_r($data);
-//nisam siguran kako twig razlucuje globalni html
+$data['BASE'] = BASE;
+
 echo $twig->render(
     $foundRoute->getControllerName() . '/' . $foundRoute->getMethodName() . '.html',
-    $data // aleternativno koristii ['data'=> data] da bi promenjive u twigu bile dostupune preko data
-
+    $data
 );
-//echo    ($foundRoute->getControllerName() . '/' . $foundRoute->getMethodName());

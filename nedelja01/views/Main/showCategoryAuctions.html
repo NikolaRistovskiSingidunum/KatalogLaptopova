@@ -12,12 +12,10 @@ Kategorija "{{ category.name|escape }}"
 <ul class="auction-list">
     {% for auction in auctions %}
     <li class="auction-list-item">
-        <a href="/nedelja01/auction/{{ auction.auction_id }}">
+        <a href="{{ BASE }}auction/{{ auction.auction_id }}">
             {{ auction.title|escape }},
             {{ auction.ends_at|date('j. n. Y. H.i') }}
         </a>
     {% endfor %}
 </ul>
-
-{{ "2019-03-12T14:21:05+00:00"|date('d.m.Y. H:i:s', timezone="Asia/Tokyo") }}
 {% endblock %}

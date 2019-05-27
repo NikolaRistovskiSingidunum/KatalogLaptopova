@@ -1,17 +1,31 @@
 <?php
     namespace App\Models;
 
-    use \App\Core\Model;
-    use \App\Core\Field;
+    use App\Core\Model;
+    use App\Core\Field;
+    use App\Validators\NumberValidator;
+    use App\Validators\DateTimeValidator;
 
     class OfferModel extends Model {
         protected function getFields() {
             return [
-                'offer_id'    => Field::readonlyInteger(20),
-                'created_at'  => Field::readonlyDateTime(),
-                'auction_id'  => Field::editableInteger(11),
-                'user_id'     => Field::editableInteger(11),
-                'price'       => Field::editableMaxDecimal(10, 2)
+                'offer_id'    => new Field(
+                                    (new NumberValidator())
+                                        ->setInteger()
+                                        ->setUnsigned()
+                                        ->setMaxIntegerDigits(11), false),
+                'created_at'  => new Field(new DateTimeValidator(), false),
+                'auction_id'  => new Field(
+                                    (new NumberValidator())
+                                        ->setInteger()
+                                        ->setUnsigned()
+                                        ->setMaxIntegerDigits(11)),
+                'user_id'     => new Field(
+                                    (new NumberValidator())
+                                        ->setInteger()
+                                        ->setUnsigned()
+                                        ->setMaxIntegerDigits(11)),
+                'price'       => new Field((new NumberValidator())->setUnsigned())
             ];
         }
 

@@ -32,7 +32,6 @@
             return $tableName;
         }
 
-        //vrace sve redove u tabeli - ne koristi FIELD mahanizam
         public function getAll(): array {
             $tableName = $this->getTableName();
             $pdo = $this->dbCon->getConnection();

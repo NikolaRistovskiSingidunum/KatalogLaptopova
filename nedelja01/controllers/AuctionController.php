@@ -6,15 +6,13 @@ use App\Core\Controller;
 use App\Models\OfferModel;
 
 class AuctionController extends Controller {
-
-    //pratimo konvenciju imenovanja, bitno je da postoji views/Aucution/show.html pod direktorijumom views
     public function show($auctionId) {
         $am = new AuctionModel($this->getDatabaseConnection());
         $auction = $am->getById($auctionId);
 
         if ( !$am->isActive($auction) ) {
             ob_clean();
-            header('Location: /nedelja01/');
+            header('Location: ' . BASE);
             exit;
         }
 
@@ -30,6 +28,15 @@ class AuctionController extends Controller {
 
         $this->set('auction', $auction);
         $this->set('lastPrice', $price);
-        
+    }
+
+    public function postSearch() {
+        $keyword = filter_input(INPUT_POST, 'search', FILTER_SANITIZE_STRING);
+
+        $am = new AuctionModel($this->getDatabaseConnection());
+
+        $auctions = $am->getAllActiveBySearch($keyword);
+
+        $this->set('auctions', $auctions);
     }
 }

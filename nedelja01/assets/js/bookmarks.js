@@ -51,7 +51,7 @@ function displayBookmarks(bookmarks) {
 
         div.appendChild(clearButton);
     } else {
-        div.innerText = 'Nema aucija u listi bukmarka!';
+        div.innerText = 'Niste dodali aukcije...';
     }
 }
 
