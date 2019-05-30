@@ -112,8 +112,8 @@ class LaptopController extends Controller {
         if($this->clampMinMax($cpuSpeedMin,$cpuSpeedMax))
         if($cpuSpeedMin!=="" && $cpuSpeedMax!=="" )
         {
-            $where += ["ram_capacity>="=>$cpuSpeedMin];
-            $where += ["ram_capacity<="=>$cpuSpeedMax];
+            $where += ["cpu.frequency>="=>$cpuSpeedMin];
+            $where += ["cpu.frequency<="=>$cpuSpeedMax];
         }
 
         if($categoryId!=="All")
