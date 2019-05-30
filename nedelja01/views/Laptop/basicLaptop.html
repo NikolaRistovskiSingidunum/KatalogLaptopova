@@ -1,4 +1,4 @@
-
+<menu>
 <li>{{ 'Ime laptopa: ' ~ laptop.name|e }}</li>
 <!-- <li>{{ 'Laptop id: ' ~ laptop.laptop_id|e }}</li> -->
 <li>{{ 'Cena: ' ~ laptop.price|e ~ ' RSD' }}</li>
@@ -11,4 +11,6 @@
 <li>{{ 'Proizvodjac: ' ~ laptop.manufacturer|e }}</li>
 <li>{{ 'Kreiran: ' ~ laptop.created_at|e }}</li>
 <!-- <li>{{BASE}}assets/img/laptops/{{laptop.image_path|e}}</li> -->
-<img src={{BASE}}assets/img/laptops/{{laptop.image_path|e}}></img>
+
+</menu>
+<img src={{BASE}}assets/img/laptops/{{laptop.image_path|e}} alt=""/>

@@ -1,5 +1,5 @@
 
-
+<menu>
 <li>{{ 'Ime laptopa: ' ~ laptop.name|e }}</li>
 <li>{{ 'Laptop id: ' ~ laptop.laptop_id|e }}</li>
 <li>{{ 'Cena: ' ~ laptop.price|e ~ ' RSD' }}</li>
@@ -12,7 +12,7 @@
 <li>{{ 'Proizvodjac: ' ~ laptop.manufacturer|e }}</li>
 <li>{{ 'Kreiran: ' ~ laptop.created_at|e }}</li>
 <!-- <li>{{BASE}}assets/img/laptops/{{laptop.image_path|e}}</li> -->
-<img src={{BASE}}assets/img/laptops/{{laptop.image_path|e}}></img>
+
 
 
 <!-- graficka karta -->
@@ -33,3 +33,5 @@
 <li>{{ 'Brzina procesora: ' ~ laptop.frequency|e ~" GHZ" }}</li>
 <li>{{ 'Proizvodjac procesora: ' ~ laptop.cpu_manufactor|e }}</li>
 <li>{{ 'Model procesora: ' ~ laptop.cpu_model|e }}</li>
+</menu>
+<img src={{BASE}}assets/img/laptops/{{laptop.image_path|e}} alt=""/>
