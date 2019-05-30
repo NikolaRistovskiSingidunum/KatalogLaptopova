@@ -1,0 +1,35 @@
+
+
+<li>{{ 'Ime laptopa: ' ~ laptop.name|e }}</li>
+<li>{{ 'Laptop id: ' ~ laptop.laptop_id|e }}</li>
+<li>{{ 'Cena: ' ~ laptop.price|e ~ ' RSD' }}</li>
+<li>{{ 'img model: ' ~ laptop.image_path|e }}</li>
+<li>{{ 'Operativni sistem: ' ~ laptop.operating_system|e }}</li>
+<li>{{ 'Raspored dugmica na tastaturi: ' ~ laptop.keyboard_layout|e }}</li>
+<li>{{  laptop.is_numpad ? 'Numericka tastatura: YES' : ' Numericka tastatura: NO'   }}</li>
+<li>{{ 'Capacitet RAMa: ' ~ laptop.ram_capacity|e }}</li>
+<li>{{ 'Tip RAMa: ' ~ laptop.ram_type|e }}</li>
+<li>{{ 'Proizvodjac: ' ~ laptop.manufacturer|e }}</li>
+<li>{{ 'Kreiran: ' ~ laptop.created_at|e }}</li>
+<!-- <li>{{BASE}}assets/img/laptops/{{laptop.image_path|e}}</li> -->
+<img src={{BASE}}assets/img/laptops/{{laptop.image_path|e}}></img>
+
+
+<!-- graficka karta -->
+<li>{{ 'Model graficke karte: ' ~ laptop.gpu_model|e }}</li>
+<li>{{ 'Tip graficke karte: ' ~ laptop.type|e }}</li>
+<li>{{ 'Video memorija: ' ~ laptop.video_memory|e ~ " GB" }}</li>
+
+<!-- kategorija -->
+<li>{{ 'Ime kateogrije: ' ~ laptop.category_name|e }}</li>
+
+<!-- ekran -->
+<li>{{  laptop.istouchscreen ? 'Ekran na dodir: DA' : ' Ekran na dodir : NE'   }}</li>
+<li>{{ 'Rezolucija ekrana: ' ~ laptop.resolution|e }}</li>
+
+
+<!-- cpu -->
+<li>{{ 'Broj jezgara: ' ~ laptop.core_count|e }}</li>
+<li>{{ 'Brzina procesora: ' ~ laptop.frequency|e ~" GHZ" }}</li>
+<li>{{ 'Proizvodjac procesora: ' ~ laptop.cpu_manufactor|e }}</li>
+<li>{{ 'Model procesora: ' ~ laptop.cpu_model|e }}</li>

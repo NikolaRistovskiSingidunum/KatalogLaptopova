@@ -1,0 +1,14 @@
+
+<li>{{ 'Ime laptopa: ' ~ laptop.name|e }}</li>
+<!-- <li>{{ 'Laptop id: ' ~ laptop.laptop_id|e }}</li> -->
+<li>{{ 'Cena: ' ~ laptop.price|e ~ ' RSD' }}</li>
+<!-- <li>{{ 'img model: ' ~ laptop.image_path|e }}</li> -->
+<li>{{ 'Operativni sistem: ' ~ laptop.operating_system|e }}</li>
+<li>{{ 'Raspored dugmica na tastaturi: ' ~ laptop.keyboard_layout|e }}</li>
+<li>{{  laptop.is_numpad ? 'Numericka tastatura: DA' : ' Numericka tastatura: NE'   }}</li>
+<li>{{ 'Capacitet RAMa: ' ~ laptop.ram_capacity|e ~" GB" }}</li>
+<li>{{ 'Tip RAMa: ' ~ laptop.ram_type|e }}</li>
+<li>{{ 'Proizvodjac: ' ~ laptop.manufacturer|e }}</li>
+<li>{{ 'Kreiran: ' ~ laptop.created_at|e }}</li>
+<!-- <li>{{BASE}}assets/img/laptops/{{laptop.image_path|e}}</li> -->
+<img src={{BASE}}assets/img/laptops/{{laptop.image_path|e}}></img>

@@ -34,7 +34,9 @@
         Route::get('#^laptop/getBasicInformations/([0-9]+)/?$#',     'Laptop',  'getBasicInformations'),
         Route::get('#^laptop/getAllInformations/([0-9]+)/?$#',     'Laptop',  'getAllInformations'),
         Route::get('#^laptop/getAllLaptopsByCategoryName/([A-Za-z0-9_]+)/?$#',     'Laptop',  'getAllLaptopsByCategoryName'),
-        Route::get('#^laptop/getAllLaptopsByCategoryId/([0-9]+|-1)/?$#',     'Laptop',  'getAllLaptopsByCategoryId'),
+        Route::get('#^laptop/getAllLaptopsByCategoryId/([0-9]+|All)/?$#',     'Laptop',  'getAllLaptopsByCategoryId'),
+        Route::get('#^laptop/getShowFilters/?$#',     'Laptop',  'getShowFilters'),
+        Route::post('#^laptop/postAllLaptopsByFilters/?$#',     'Laptop',  'postAllLaptopsByFilters'),
         # Fallback
         Route::get('#^.*$#', 'Main', 'home')
     ];
