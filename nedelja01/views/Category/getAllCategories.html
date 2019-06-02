@@ -1,0 +1,21 @@
+
+{% block main %}
+
+
+
+<li>{{ 'Ime Kategorije: Sve Kategorije'  }}</li>
+<p>sve</p>
+<a href={{BASE}}laptop/getAllLaptopsByCategoryId/All >Pogledaj sve informacije!</a>
+
+{% for category in categories %}
+<li>{{ 'Ime Kategorije: ' ~ category.name|e }}</li>
+<p>aaaaaaaaaaaaa</p>
+<a href={{BASE}}laptop/getAllLaptopsByCategoryId/{{category.category_id}} >Pogledaj sve informacije!</a>
+{% endfor %}
+
+
+
+{% endblock %}
+{% block title %}
+{{ "Pregledaj Kategorije" }}
+{% endblock %}

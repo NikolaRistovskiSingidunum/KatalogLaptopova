@@ -6,6 +6,8 @@ use App\Core\Controller;
 use App\Models\OfferModel;
 use App\Models\LaptopModel;
 use App\Models\CategoryModel;
+use App\Models\StorageModel;
+use App\Models\PortModel;
 
 class LaptopController extends Controller {
 
@@ -14,22 +16,31 @@ class LaptopController extends Controller {
     {
         
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
-        $laptop = $laptopModel->getAllLaptopsWithBasicInformations(["laptop_id="=>$laptopID],[]);
+        $laptop = $laptopModel->getAll(["laptop_id="=>$laptopID],[]);
         //print_r($laptop);
         // echo($laptop[0]->name);
         // //echo($laptop[0]).laptop_id );
         // die("AAA");
 
-        if(!$laptop)
-        die("LaptopController extends Controller public function getBasicInformations($laptopID) ");
+        // if(!$laptop)
+        // die("LaptopController extends Controller public function getBasicInformations($laptopID) ");
         $this->set("laptop", $laptop[0]);
     }
     //vraca jedan laptop sa svim informacijama
     public function getAllInformations($laptopID)
     {
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
-        $laptop = $laptopModel->getAllLaptopsWithFullInformations(["laptop_id="=>$laptopID],[]);
-       
+        $laptop = $laptopModel->getAll(["laptop_id="=>$laptopID],[]);
+        $storageModel = new StorageModel($this->getDatabaseConnection());
+        $storages = $storageModel->getStorages($laptopID);
+        $portModel = new PortModel($this->getDatabaseConnection());
+        $ports = $portModel->getPorts($laptopID);
+        
+        //die("GGGG");
+        // print_r($storages);
+        // print_r($ports);
+        $this->set("ports",$ports);
+        $this->set("storages",$storages); 
         $this->set("laptop", $laptop[0]);
     }
 
@@ -42,9 +53,9 @@ class LaptopController extends Controller {
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
         $laptops;
         if ($laptopCategoryName==="All")
-            $laptops = $laptopModel->getAllLaptopsWithBasicInformations([],[]);
+            $laptops = $laptopModel->getAll([],[]);
         else
-            $laptops = $laptopModel->getAllLaptopsWithBasicInformations(["category.name="=>$laptopCategoryName],[]);
+            $laptops = $laptopModel->getAll(["category.name="=>$laptopCategoryName],[]);
 
         print_r($laptops);
         echo(count($laptops));
@@ -64,16 +75,32 @@ class LaptopController extends Controller {
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
         $laptops;
         if ($laptopCategoryID==="All")
-            $laptops = $laptopModel->getAllLaptopsWithBasicInformations([],["laptop.laptop_id"=>"DESC"]);
+            $laptops = $laptopModel->getAll([],["laptop.laptop_id"=>"DESC"]);
         else
-            $laptops = $laptopModel->getAllLaptopsWithBasicInformations(["laptop.category_id="=>$laptopCategoryID],[]);
+            $laptops = $laptopModel->getAll(["laptop.category_id="=>$laptopCategoryID],[]);
 
 
 
         $this->set("laptops", $laptops);
   
     }
+    public function getAllLaptopsSortedByPrice($sort)
+    {
+        
+        $laptopModel = new LaptopModel($this->getDatabaseConnection());
+        $laptops;
+        $sortType = "ASC";
+        if($sort === "ASC" || $sort === "DESC")
+        $sortType = $sort;
 
+        $laptops = $laptopModel->getAll([],["price"=>$sortType]);
+
+        $this->set("laptops", $laptops);
+        //return  
+
+
+
+    }
 
     public function getShowFilters()
     {
@@ -124,10 +151,7 @@ class LaptopController extends Controller {
         $orderBy =["price"=>$priceSortOrder];
 
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
-        $laptops = $laptopModel->getAllLaptopsWithFullInformations($where,$orderBy);
-
-   
-
+        $laptops = $laptopModel->getAll($where,$orderBy);
         $this->set("laptops", $laptops);
 
 

@@ -10,7 +10,7 @@
 
 
         //pretraga po where i orderBy klauzuili
-        public function getAllLaptopsWithFullInformations($where,$orderBy): array {
+        public function getAll($where,$orderBy): array {
             $tableName = $this->getTableName();
             
             
@@ -51,34 +51,34 @@
             return $items;
         }
         //vraca sve laptopove 
-        public function getAllLaptopsWithBasicInformations($where,$orderBy): array {
-            $tableName = $this->getTableName();
+        // public function getAllLaptopsWithBasicInformations($where,$orderBy): array {
+        //     $tableName = $this->getTableName();
             
             
-            $pdo = $this->getDatabaseConnection()->getConnection();
+        //     $pdo = $this->getDatabaseConnection()->getConnection();
 
-            $sql = "select * from laptop";
-            $sqlValues =[];
-            $this->prepareSQL($sql,$where,$orderBy, $sqlValues );
+        //     $sql = "select * from laptop";
+        //     $sqlValues =[];
+        //     $this->prepareSQL($sql,$where,$orderBy, $sqlValues );
             
            
-            $prep = $pdo->prepare($sql);
-            $items = [];
+        //     $prep = $pdo->prepare($sql);
+        //     $items = [];
       
-            if ($prep) {
-                $res = $prep->execute($sqlValues);
+        //     if ($prep) {
+        //         $res = $prep->execute($sqlValues);
 
-                if ($res) {
-                    $items = $prep->fetchAll(PDO::FETCH_OBJ);
-                }
+        //         if ($res) {
+        //             $items = $prep->fetchAll(PDO::FETCH_OBJ);
+        //         }
          
-            }
+        //     }
 
 
         
-            //die($sql);
-            return $items;
-        }
+        //     //die($sql);
+        //     return $items;
+        // }
         //uzima where i order by uslov i pravi siguran sql upit
         protected function prepareSQL(string &$sql,$where,$orderBy,&$sqlValues )
         {

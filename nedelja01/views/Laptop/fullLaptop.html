@@ -1,6 +1,6 @@
 
 <menu>
-<li>{{ 'Ime laptopa: ' ~ laptop.name|e }}</li>
+<li>{{ 'Ime laptopa: ' ~ laptop.laptop_name|e }}</li>
 <li>{{ 'Laptop id: ' ~ laptop.laptop_id|e }}</li>
 <li>{{ 'Cena: ' ~ laptop.price|e ~ ' RSD' }}</li>
 <li>{{ 'img model: ' ~ laptop.image_path|e }}</li>
@@ -35,3 +35,25 @@
 <li>{{ 'Model procesora: ' ~ laptop.cpu_model|e }}</li>
 </menu>
 <img src={{BASE}}assets/img/laptops/{{laptop.image_path|e}} alt=""/>
+
+<p>Diskovi</p>
+{% for storage in storages %}
+<li>{{ 'Disk broj : ' ~ storage.storage_id|e }}</li>
+<li>{{ 'Tip diska: ' ~ storage.type|e }}</li>
+<li>{{ 'Kapacitet diska: ' ~ storage.capacity|e ~ " GB " }}</li>
+{% endfor %}
+
+
+<p>Portovi</p>
+{% for port in ports %}
+<li>{{ 'Port broj : ' ~ port.port_id|e }}</li>
+<li>{{ 'Tip porta: ' ~ port.type|e }}</li>
+{% endfor %}
+
+
+<!-- 
+<ol>
+    {% for key, value in _context  %}
+      <li>{{ key }}</li>
+    {% endfor %}
+</ol> -->
