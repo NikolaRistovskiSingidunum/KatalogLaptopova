@@ -20,8 +20,8 @@ class AdminController extends UserDashboardController {
     public function unlogAdmin()
     {
         $this->unlogUser();
-        ob_clean();
-        header('Location: ' . BASE . 'login/getLogin', true, 307);
-        exit;
+                       ob_clean();
+                header('Location: ' . BASE . 'login/getLogin', true, 307);
+                exit;
     }
 }
