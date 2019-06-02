@@ -33,46 +33,24 @@ class __TwigTemplate_c302e2a143f84ce86a7a2a6a1cd10077210e6f18da15e4a2b6845d6143d
     public function block_main($context, array $blocks = [])
     {
         // line 4
-        echo "<div class=\"row\">
-    ";
-        // line 5
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(($context["categories"] ?? null));
-        foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 6
-            echo "    <div class=\"col col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3\">
-        <div class=\"card category-item\">
-            <div class=\"card-body\">
-                <a href=\"";
-            // line 9
-            echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
-            echo "category/";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "category_id", []), "html", null, true);
-            echo "\" class=\"card-title\">
-                    ";
-            // line 10
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", []));
-            echo "
-                </a>
+        echo "
+<div class=\"jumbotron\">
+    <h1 class=\"display-4\">Hello, world!</h1>
+    <p class=\"lead\">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class=\"my-4\">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p class=\"lead\">
+      <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Learn more</a>
+    </p>
+  </div>
 
-                <p class=\"card-text\">Broj aukcija u kategoriji je: NN</p>
-            </div>
-        </div>
-    </div>
-    ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 18
-        echo "</div>
 ";
     }
 
-    // line 21
+    // line 17
     public function block_naslov($context, array $blocks = [])
     {
-        // line 22
+        // line 18
         echo "Spisak kategorija
 ";
     }
@@ -89,7 +67,7 @@ class __TwigTemplate_c302e2a143f84ce86a7a2a6a1cd10077210e6f18da15e4a2b6845d6143d
 
     public function getDebugInfo()
     {
-        return array (  76 => 22,  73 => 21,  68 => 18,  54 => 10,  48 => 9,  43 => 6,  39 => 5,  36 => 4,  33 => 3,  15 => 1,);
+        return array (  54 => 18,  51 => 17,  36 => 4,  33 => 3,  15 => 1,);
     }
 
     public function getSourceContext()

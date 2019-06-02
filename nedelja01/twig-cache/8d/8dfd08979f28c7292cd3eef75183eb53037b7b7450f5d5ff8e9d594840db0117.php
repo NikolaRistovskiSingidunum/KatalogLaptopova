@@ -103,16 +103,62 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
                             <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
         // line 55
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
-        echo "categories\"><i class=\"fa fa-list\"></i> Kategorije</a>
-                            <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
+        echo "category1/getAllCategories/\"><i class=\"fa fa-list\"></i> Kategorije</a>
+                            <!-- <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
         // line 56
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
         echo "user/register\"><i class=\"fa fa-user-plus\"></i> Registracija</a>
                             <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
         // line 57
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
-        echo "user/login\"><i class=\"fa fa-sign-in\"></i> Prijava</a>
+        echo "login/getLogin/\"><i class=\"fa fa-sign-in\"></i> Prijava</a> -->
                             <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\"><i class=\"fa fa-envelope\"></i> Kontakt</a>
+                            
+                                <li class=\"nav-item dropdown\">
+                                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                        <i class=\"fa fa-tags\"></i> Pregledaj po ceni
+                                    </a>
+                                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
+                                      <a class=\"dropdown-item\" href=\"";
+        // line 65
+        echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
+        echo "laptop/getAllLaptopsSortedByPrice/ASC\"><i class=\"fa fa-tag\"></i> Najbolje</a>
+                                      <a class=\"dropdown-item\" href=\"";
+        // line 66
+        echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
+        echo "laptop/getAllLaptopsSortedByPrice/DESC\"><i class=\"fa fa-tag\"></i> Bezbrizno</a>
+                                      
+                                    </div>
+                                  </li>
+
+                                  <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
+        // line 71
+        echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
+        echo "laptop/getShowFilters/\"><i class=\"fa fa-search\"></i> Trazi po filterima</a>
+
+
+                                    <li class=\"nav-item dropdown\">
+                                        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                            <i class=\"fa fa-briefcase\"></i> Admin
+                                        </a>
+                                        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
+                                          <a class=\"dropdown-item\" href=\"";
+        // line 79
+        echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
+        echo "login/getLogin/\"><i class=\"fa fa-sign-in\"></i> Prijava</a>
+                                          <a class=\"dropdown-item\" href=\"";
+        // line 80
+        echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
+        echo "admin/unlogAdmin\"><i class=\"fa fa-sign-out\"></i> Odjava</a>
+                                          <a class=\"dropdown-item\" href=\"";
+        // line 81
+        echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
+        echo "admin/getAdminDashboard/\"><i class=\"fa fa-briefcase\"></i> Radna Soba</a>
+                                          
+                                        </div>
+                                      </li>       
+
+
                         </ul>
                     </div>
                 </nav>
@@ -120,9 +166,9 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
 
             <div>
                 ";
-        // line 65
+        // line 93
         $this->displayBlock('main', $context, $blocks);
-        // line 68
+        // line 96
         echo "            </div>
 
             <aside>
@@ -136,16 +182,16 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         </section>
 
         <script src=\"";
-        // line 80
+        // line 108
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
         echo "assets/libs/jquery/dist/jquery.min.js\"></script>
         <script src=\"";
-        // line 81
+        // line 109
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
         echo "assets/libs/bootstrap/dist/js/bootstrap.min.js\"></script>
 
         <script src=\"";
-        // line 83
+        // line 111
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
         echo "assets/js/bookmarks.js\"></script>
     </body>
@@ -159,10 +205,10 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         echo "Aukcije";
     }
 
-    // line 65
+    // line 93
     public function block_main($context, array $blocks = [])
     {
-        // line 66
+        // line 94
         echo "                ...
                 ";
     }
@@ -179,7 +225,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
 
     public function getDebugInfo()
     {
-        return array (  166 => 66,  163 => 65,  157 => 5,  149 => 83,  144 => 81,  140 => 80,  126 => 68,  124 => 65,  113 => 57,  109 => 56,  105 => 55,  95 => 48,  76 => 32,  59 => 18,  50 => 12,  46 => 11,  42 => 10,  38 => 9,  33 => 6,  31 => 5,  25 => 1,);
+        return array (  212 => 94,  209 => 93,  203 => 5,  195 => 111,  190 => 109,  186 => 108,  172 => 96,  170 => 93,  155 => 81,  151 => 80,  147 => 79,  136 => 71,  128 => 66,  124 => 65,  113 => 57,  109 => 56,  105 => 55,  95 => 48,  76 => 32,  59 => 18,  50 => 12,  46 => 11,  42 => 10,  38 => 9,  33 => 6,  31 => 5,  25 => 1,);
     }
 
     public function getSourceContext()

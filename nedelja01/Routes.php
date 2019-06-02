@@ -42,6 +42,7 @@
         Route::get('#^login/getLogin/?$#',     'Login',  'getLogin'),
         Route::post('#^login/postLogin/?$#',     'Login',  'postLogin'),
         Route::get('#^admin/getAdminDashboard/?$#',     'Admin',  'getAdminDashboard'),
+        
         Route::get('#^admin/unlogAdmin/?$#',     'Admin',  'unlogAdmin'),
         # Fallback
         Route::get('#^.*$#', 'Main', 'home')
