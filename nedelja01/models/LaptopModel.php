@@ -8,6 +8,70 @@
 
     class LaptopModel extends Model {
 
+        protected function getFields() {
+            return [
+                'laptop_id'         => new Field(
+                                            (new NumberValidator())
+                                                ->setInteger()
+                                                ->setUnsigned()
+                                                ->setMaxIntegerDigits(10), false),
+                'name'              => new Field(
+                                            (new StringValidator())
+                                                ->setMinLength(1)
+                                                ->setMaxLength(255)),
+                'price'             => new Field((new NumberValidator())->setUnsigned()),
+                'image_path'        => new Field(
+                                            (new StringValidator())
+                                                ->setMinLength(1)
+                                                ->setMaxLength(255)),
+                'operating_system'  => new Field(
+                                            (new StringValidator())
+                                                ->setMinLength(1)
+                                                ->setMaxLength(255)),
+                'keyboard_layout'   => new Field(
+                                            (new StringValidator())
+                                                ->setMinLength(2)
+                                                ->setMaxLength(2)),
+                'is_numpad'         => new Field(new BitValidator()),
+                'is_deleted'        => new Field(new BitValidator()),
+                'cpu_id'            => new Field(
+                                            (new NumberValidator())
+                                                ->setInteger()
+                                                ->setUnsigned()
+                                                ->setMaxIntegerDigits(10)),
+                'category_id'       => new Field(
+                                            (new NumberValidator())
+                                                ->setInteger()
+                                                ->setUnsigned()
+                                                ->setMaxIntegerDigits(10)),
+                'display_id'        => new Field(
+                                            (new NumberValidator())
+                                                ->setInteger()
+                                                ->setUnsigned()
+                                                ->setMaxIntegerDigits(10)),
+                'gpu_id'            => new Field(
+                                            (new NumberValidator())
+                                                ->setInteger()
+                                                ->setUnsigned()
+                                                ->setMaxIntegerDigits(10)),   
+                'ram_capacity'      => new Field(
+                                            (new NumberValidator())
+                                                ->setInteger()
+                                                ->setUnsigned()
+                                                ->setMaxIntegerDigits(10)),  
+                'ram_type'          => new Field(
+                                            (new StringValidator())
+                                                ->setMinLength(4)
+                                                ->setMaxLength(4)),   
+                'manufacturer'      => new Field(
+                                            (new StringValidator())
+                                                ->setMinLength(1)
+                                                ->setMaxLength(255)),                                                                                                                                       
+                'created_at'     => new Field(new DateTimeValidator(), false)
+                
+            ];
+        }
+
 
         //pretraga po where i orderBy klauzuili
         public function getAll($where,$orderBy): array {

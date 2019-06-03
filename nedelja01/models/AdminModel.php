@@ -10,11 +10,11 @@
 
         protected function getFields() {
             return [
-                'user_id'        => new Field(
+                'admin_id'        => new Field(
                                     (new NumberValidator())
                                         ->setInteger()
                                         ->setUnsigned()
-                                        ->setMaxIntegerDigits(11), false),
+                                        ->setMaxIntegerDigits(10), false),
                 'created_at'     => new Field(new DateTimeValidator(), false),
                 'username'       => new Field(
                                         (new StringValidator())
@@ -36,6 +36,10 @@
                                         (new StringValidator())
                                             ->setMinLength(1)
                                             ->setMaxLength(64)),
+                'phone'         => new Field(
+                                        (new StringValidator())
+                                            ->setMinLength(1)
+                                            ->setMaxLength(64)),                                            
                 'is_active'      => new Field(new BitValidator())
             ];
         }

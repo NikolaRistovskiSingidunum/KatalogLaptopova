@@ -7,6 +7,29 @@
     use \PDO;
 
     class StorageModel extends Model {
+        protected function getFields() {
+            return [
+                'storage_id'    => new Field(
+                                        (new NumberValidator())
+                                            ->setInteger()
+                                            ->setUnsigned()
+                                            ->setMaxIntegerDigits(10), false),
+                'laptop_id'     => new Field(
+                                        (new NumberValidator())
+                                            ->setInteger()
+                                            ->setUnsigned()
+                                            ->setMaxIntegerDigits(10)),
+                'type'          => new Field(
+                                        (new StringValidator())
+                                            ->setMinLength(3)
+                                            ->setMaxLength(3)),
+                'capacity'      => new Field(
+                                        (new NumberValidator())
+                                            ->setInteger()
+                                            ->setUnsigned()
+                                            ->setMaxIntegerDigits(10))                                        
+            ];
+        }
 
         public function getStorages($laptopID)
         {
