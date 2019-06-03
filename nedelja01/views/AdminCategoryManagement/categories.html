@@ -1,0 +1,19 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<a href="{{ BASE }}admin/categories/add"><button class="btn btn-primary">Dodaj novu kategoruju</button></a>
+<a href="{{ BASE }}admin/getAdminDashboard"><button class="btn btn-primary">Nazad</button></a>
+<h6>Pregled postojecih kategorija:</h6>
+<ul>
+    {% for category in categories %}
+    <li>
+        <p>{{ category.name|escape }}</p>
+        <a href="{{ BASE }}admin/categories/edit/{{ category.category_id }}"><button class="btn btn-success">Izmeni</button></a>
+        <a href="{{ BASE }}admin/categories/delete/{{ category.category_id }}"><button class="btn btn-danger">Obrisi</button></a>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block naslov %}
+Spisak kategorija
+{% endblock %}

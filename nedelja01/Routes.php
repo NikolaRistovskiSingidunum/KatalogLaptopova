@@ -43,6 +43,12 @@
         Route::post('#^login/postLogin/?$#',     'Login',  'postLogin'),
         Route::get('#^admin/getAdminDashboard/?$#',     'Admin',  'getAdminDashboard'),   
         Route::get('#^admin/unlogAdmin/?$#',     'Admin',  'unlogAdmin'),
+        Route::get('#^admin/categories/?$#',                'AdminCategoryManagement', 'categories'),
+        Route::get('#^admin/categories/add/?$#',            'AdminCategoryManagement', 'getAdd'),
+        Route::post('#^admin/categories/add/?$#',           'AdminCategoryManagement', 'postAdd'),
+        Route::get('#^admin/categories/edit/([0-9]+)/?$#',  'AdminCategoryManagement', 'getEdit'),
+        Route::post('#^admin/categories/edit/([0-9]+)/?$#', 'AdminCategoryManagement', 'postEdit'),
+        Route::get('#^admin/categories/delete/([0-9]+)/?$#', 'AdminCategoryManagement', 'getDelete'),
         Route::get('#^laptop/getAllLaptops/?$#',     'Laptop',  'getAllLaptops'),
         
         # Fallback

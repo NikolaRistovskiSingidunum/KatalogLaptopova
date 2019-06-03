@@ -1,0 +1,18 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+    <h6>Dodavanje nove kategorije:</h6>
+    <div>
+        <form method="post">
+            <label for="name">Ime kategorije: </label>
+            <input type="text" required name="name" id="name" placeholder="Unesite ime nove kategorije"><br>
+
+            <button type="submit" class="btn btn-primary">Dodaj</button>
+        </form>
+        <a href="{{ BASE }}admin/categories"><button class="btn btn-primary">Nazad</button></a>
+    </div>
+{% endblock %}
+
+{% block naslov %}
+Dodavanje kategorije
+{% endblock %}

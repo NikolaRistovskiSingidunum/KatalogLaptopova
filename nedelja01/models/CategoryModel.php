@@ -3,8 +3,8 @@
 
     use App\Core\Model;
     use App\Core\Field;
-    // use App\Validators\StringValidator;
-    // use App\Validators\NumberValidator;
+    use App\Validators\StringValidator;
+    use App\Validators\NumberValidator;
 
     class CategoryModel extends Model {
         protected function getFields() {

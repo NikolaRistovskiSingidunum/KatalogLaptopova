@@ -1,0 +1,19 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+    <h6>Izmena kategorije:</h6>
+    <div>
+        <form method="post">
+            <label for="name">Ime kategorije: </label>
+            <input type="text" required name="name" id="name"
+                value="{{ category.name|escape }}"><br>
+
+            <button type="submit" class="btn btn-success">Izmeni</button>
+        </form>
+        <a href="{{ BASE }}admin/categories"><button class="btn btn-primary">Nazad</button></a>
+    </div>
+{% endblock %}
+
+{% block naslov %}
+Izmena kategorije
+{% endblock %}
