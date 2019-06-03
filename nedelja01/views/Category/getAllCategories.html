@@ -12,6 +12,10 @@
 <li>{{ 'Ime Kategorije: ' ~ category.name|e }}</li>
 <p>aaaaaaaaaaaaa</p>
 <a href={{BASE}}laptop/getAllLaptopsByCategoryId/{{category.category_id}} >Pogledaj sve informacije!</a>
+
+{% if Admin%}
+<h5> Dodatne mogucnosti za admina </h5>
+{% endif%}
 {% endfor %}
 
 
