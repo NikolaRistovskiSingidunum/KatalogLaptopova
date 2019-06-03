@@ -66,6 +66,11 @@ $twig = new Twig_Environment($loader, [
 
 $data['BASE'] = BASE;
 
+//provera sessije
+$data["Admin"] = false;
+if ($session->get('userId', null))
+$data["Admin"] = true;
+
 echo $twig->render(
     $foundRoute->getControllerName() . '/' . $foundRoute->getMethodName() . '.html',
     $data

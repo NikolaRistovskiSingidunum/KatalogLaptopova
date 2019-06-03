@@ -136,26 +136,44 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
         echo "laptop/getShowFilters/\"><i class=\"fa fa-search\"></i> Trazi po filterima</a>
 
+                                   
+                                  <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
+        // line 74
+        echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
+        echo "laptop/getAllLaptops/\"><i class=\"fa fa-search\"></i>Vidi sve laptopove</a>
+                                 
+                                  
 
                                     <li class=\"nav-item dropdown\">
                                         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                                             <i class=\"fa fa-briefcase\"></i> Admin
                                         </a>
                                         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">
+                                          ";
+        // line 83
+        if ( !($context["Admin"] ?? null)) {
+            echo "  
                                           <a class=\"dropdown-item\" href=\"";
-        // line 79
-        echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
-        echo "login/getLogin/\"><i class=\"fa fa-sign-in\"></i> Prijava</a>
+            // line 84
+            echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
+            echo "login/getLogin/\"><i class=\"fa fa-sign-in\"></i> Prijava</a>
+                                          ";
+        }
+        // line 86
+        echo "                                          ";
+        if (($context["Admin"] ?? null)) {
+            // line 87
+            echo "                                          <a class=\"dropdown-item\" href=\"";
+            echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
+            echo "admin/unlogAdmin\"><i class=\"fa fa-sign-out\"></i> Odjava</a>
                                           <a class=\"dropdown-item\" href=\"";
-        // line 80
-        echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
-        echo "admin/unlogAdmin\"><i class=\"fa fa-sign-out\"></i> Odjava</a>
-                                          <a class=\"dropdown-item\" href=\"";
-        // line 81
-        echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
-        echo "admin/getAdminDashboard/\"><i class=\"fa fa-briefcase\"></i> Radna Soba</a>
-                                          
-                                        </div>
+            // line 88
+            echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
+            echo "admin/getAdminDashboard/\"><i class=\"fa fa-briefcase\"></i> Radna Soba</a>
+                                          ";
+        }
+        // line 90
+        echo "                                        </div>
                                       </li>       
 
 
@@ -166,9 +184,9 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
 
             <div>
                 ";
-        // line 93
+        // line 100
         $this->displayBlock('main', $context, $blocks);
-        // line 96
+        // line 103
         echo "            </div>
 
             <aside>
@@ -182,16 +200,16 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         </section>
 
         <script src=\"";
-        // line 108
+        // line 115
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
         echo "assets/libs/jquery/dist/jquery.min.js\"></script>
         <script src=\"";
-        // line 109
+        // line 116
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
         echo "assets/libs/bootstrap/dist/js/bootstrap.min.js\"></script>
 
         <script src=\"";
-        // line 111
+        // line 118
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
         echo "assets/js/bookmarks.js\"></script>
     </body>
@@ -205,10 +223,10 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         echo "Aukcije";
     }
 
-    // line 93
+    // line 100
     public function block_main($context, array $blocks = [])
     {
-        // line 94
+        // line 101
         echo "                ...
                 ";
     }
@@ -225,7 +243,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
 
     public function getDebugInfo()
     {
-        return array (  212 => 94,  209 => 93,  203 => 5,  195 => 111,  190 => 109,  186 => 108,  172 => 96,  170 => 93,  155 => 81,  151 => 80,  147 => 79,  136 => 71,  128 => 66,  124 => 65,  113 => 57,  109 => 56,  105 => 55,  95 => 48,  76 => 32,  59 => 18,  50 => 12,  46 => 11,  42 => 10,  38 => 9,  33 => 6,  31 => 5,  25 => 1,);
+        return array (  230 => 101,  227 => 100,  221 => 5,  213 => 118,  208 => 116,  204 => 115,  190 => 103,  188 => 100,  176 => 90,  171 => 88,  166 => 87,  163 => 86,  158 => 84,  154 => 83,  142 => 74,  136 => 71,  128 => 66,  124 => 65,  113 => 57,  109 => 56,  105 => 55,  95 => 48,  76 => 32,  59 => 18,  50 => 12,  46 => 11,  42 => 10,  38 => 9,  33 => 6,  31 => 5,  25 => 1,);
     }
 
     public function getSourceContext()

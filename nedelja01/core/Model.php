@@ -260,4 +260,36 @@
 
             return $prep->execute( [ $id ] );
         }
+
+
+              //uzima where i order by uslov i pravi siguran sql upit
+              protected function prepareSQL(string &$sql,$where,$orderBy,&$sqlValues )
+              {
+            
+                  $appendWhere = " WHERE true ";
+                  $appendOrderBy =" ORDER BY ";
+                  $keysWhere = array_keys($where);
+                  foreach($keysWhere as $keyWhere) {
+                      $appendWhere .=" and " . $keyWhere . "? ";
+                  }
+                  $keysOrderBy = [];
+                  if($orderBy!=null)
+                  $keysOrderBy=array_keys($orderBy);
+                  foreach($keysOrderBy as $keyOrderBy){
+                      $appendOrderBy .=  $keyOrderBy . "  " .$orderBy[$keyOrderBy]  ."  ,";
+                  }
+                  //brzi z
+                  $appendOrderBy .= " true ";
+                 
+                  
+                  //dodaj terminator
+                  $sql .= $appendWhere;
+                  $sql .= $appendOrderBy;
+                  $sql .=";";
+      
+                  
+                  $sqlValues = array_values($where);
+      
+                
+              }
     }

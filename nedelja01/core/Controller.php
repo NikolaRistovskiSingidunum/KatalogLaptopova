@@ -37,4 +37,23 @@ class Controller {
         public function __pre() {
             
         }
+        public function setData(& $newData)
+        {
+            $this->data = $newData;
+        }
+        //gleda da li su min i max u ispravnom opsegu
+        //ovo mozda treba da bude pomereno u util klasa
+        protected function clampMinMax(&$min,&$max)
+        {
+            if($min==="" || $max==="")
+            return false;
+    
+            if($min>=$max)
+            $min=0;
+    
+            if($max<=0)
+            return false;
+    
+            return true;
+        }
     }

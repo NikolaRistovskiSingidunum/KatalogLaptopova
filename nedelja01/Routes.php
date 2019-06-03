@@ -41,9 +41,10 @@
         Route::get('#^category1/getAllCategories/?$#',     'Category',  'getAllCategories'),
         Route::get('#^login/getLogin/?$#',     'Login',  'getLogin'),
         Route::post('#^login/postLogin/?$#',     'Login',  'postLogin'),
-        Route::get('#^admin/getAdminDashboard/?$#',     'Admin',  'getAdminDashboard'),
-        
+        Route::get('#^admin/getAdminDashboard/?$#',     'Admin',  'getAdminDashboard'),   
         Route::get('#^admin/unlogAdmin/?$#',     'Admin',  'unlogAdmin'),
+        Route::get('#^laptop/getAllLaptops/?$#',     'Laptop',  'getAllLaptops'),
+        
         # Fallback
         Route::get('#^.*$#', 'Main', 'home')
     ];

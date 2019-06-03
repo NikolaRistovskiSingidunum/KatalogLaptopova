@@ -35,3 +35,8 @@
     </menu>
     <img src={{BASE}}assets/img/laptops/{{laptop.image_path|e}} alt=""/>
     <a href={{BASE}}laptop/getAllInformations/{{laptop.laptop_id}} >Pogledaj sve informacije!</a> 
+
+    {%if Admin%}
+    
+    <h5> dodatne informacije za admina <h5>
+    {% endif%}

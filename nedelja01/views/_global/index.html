@@ -70,16 +70,23 @@
 
                                   <li class="nav-item"><a class="nav-link" href="{{BASE}}laptop/getShowFilters/"><i class="fa fa-search"></i> Trazi po filterima</a>
 
+                                   
+                                  <li class="nav-item"><a class="nav-link" href="{{BASE}}laptop/getAllLaptops/"><i class="fa fa-search"></i>Vidi sve laptopove</a>
+                                 
+                                  
 
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fa fa-briefcase"></i> Admin
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                          {% if not Admin%}  
                                           <a class="dropdown-item" href="{{ BASE }}login/getLogin/"><i class="fa fa-sign-in"></i> Prijava</a>
+                                          {% endif %}
+                                          {%if Admin %}
                                           <a class="dropdown-item" href="{{BASE}}admin/unlogAdmin"><i class="fa fa-sign-out"></i> Odjava</a>
                                           <a class="dropdown-item" href="{{BASE}}admin/getAdminDashboard/"><i class="fa fa-briefcase"></i> Radna Soba</a>
-                                          
+                                          {%endif%}
                                         </div>
                                       </li>       
 

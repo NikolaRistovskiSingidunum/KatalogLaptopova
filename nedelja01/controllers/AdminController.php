@@ -10,7 +10,7 @@ use App\Models\StorageModel;
 use App\Models\PortModel;
 use App\Models\AdminModel;
 use App\Controllers\UserDashboardController;
-
+use App\Controllers\LaptopController;
 class AdminController extends UserDashboardController {
 
     public function getAdminDashboard()
@@ -24,4 +24,5 @@ class AdminController extends UserDashboardController {
                 header('Location: ' . BASE . 'login/getLogin', true, 307);
                 exit;
     }
+
 }

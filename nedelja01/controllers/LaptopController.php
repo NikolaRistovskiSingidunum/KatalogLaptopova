@@ -166,18 +166,16 @@ class LaptopController extends Controller {
         
     }
 
-    //gleda da li su min i max u ispravnom opsegu
-    private function clampMinMax(&$min,&$max)
+    public function getAllLaptops()
     {
-        if($min==="" || $max==="")
-        return false;
+        $laptopModel = new LaptopModel($this->getDatabaseConnection());
+        $laptops;
 
-        if($min>=$max)
-        $min=0;
+        $laptops = $laptopModel->getAll([],[]);
 
-        if($max<=0)
-        return false;
-
-        return true;
+        $this->set("laptops", $laptops);
     }
+
+    
+
 }
