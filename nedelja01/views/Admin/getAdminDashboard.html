@@ -1,9 +1,11 @@
 {% extends "_global/index.html" %}
 
+
+
 {% block main %}
 <p>Adminova forma</p>
-<a href="{{BASE}}admin/categories"><button class="btn btn-primary">Upravljanje kategorijama</button></a>
-<a href="{{BASE}}admin/categories"><button class="btn btn-primary">Upravljanje laptopovima</button></a>
+<a href="{{BASE}}category1/getAllCategories/"><button class="btn btn-primary">Menadzerisi kategorije</button></a>
+<a href="{{BASE}}laptop/getAllLaptopsByCategoryId/All"><button class="btn btn-primary">Menadzerisi laptopove</button></a>
 <a href="{{BASE}}admin/unlogAdmin"><button class="btn btn-primary">Odjava sa sistema</button></a>
    
 {% endblock %}

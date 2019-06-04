@@ -2,24 +2,42 @@
 {% extends "_global/index.html" %}
 {% block main %}
 
+{% if Admin%}
 
+<a href="{{BASE}}/admin/categories/add"><button class="btn btn-primary">Dodaj novu kategoriju</button></a>
 
-<li>{{ 'Ime Kategorije: Sve Kategorije'  }}</li>
+{% endif %}
+<div class="row">
+
+<div class="card-body col col-lg-2 text-dark bg-gradient-secondary">
+    <h5 class="card-title">Svi laptovi</h5>
+    <p class="card-text"></p>
+    <a href="{{BASE}}laptop/getAllLaptopsByCategoryId/All" class="btn btn-primary">Vidi sve laptopove iz ovde kategorije</a>
+</div>    
+<!-- <li>{{ 'Ime Kategorije: Sve Kategorije'  }}</li>
 <p>sve</p>
-<a href={{BASE}}laptop/getAllLaptopsByCategoryId/All >Pogledaj sve informacije!</a>
+<a href={{BASE}}laptop/getAllLaptopsByCategoryId/All >Pogledaj sve informacije!</a> -->
 
 {% for category in categories %}
-<li>{{ 'Ime Kategorije: ' ~ category.name|e }}</li>
+<!-- <li>{{ 'Ime Kategorije: ' ~ category.name|e }}</li>
 <p>aaaaaaaaaaaaa</p>
-<a href={{BASE}}laptop/getAllLaptopsByCategoryId/{{category.category_id}} >Pogledaj sve informacije!</a>
+<a href={{BASE}}laptop/getAllLaptopsByCategoryId/{{category.category_id}} >Pogledaj sve laptopove u ovoj kategoriji!</a> -->
 
+<div class="card-body col col-lg-2 text-dark bg-gradient-secondary">
+    <h5 class="card-title">{{category.name|e}}</h5>
+    <p class="card-text"></p>
+    <a href="{{BASE}}laptop/getAllLaptopsByCategoryId/{{category.category_id}}" class="btn btn-primary">Vidi sve laptopove iz ovde kategorije</a>
+  
 {% if Admin%}
-<h5> Dodatne mogucnosti za admina </h5>
+<a href="{{ BASE }}admin/categories/edit/{{ category.category_id }}"><button class="btn btn-success">Izmeni</button></a>
+<a href="{{ BASE }}admin/categories/delete/{{ category.category_id }}"><button class="btn btn-danger">Obrisi</button></a>
 {% endif%}
+</div>
+
 {% endfor %}
 
 
-
+</div>
 {% endblock %}
 {% block title %}
 {{ "Pregledaj Kategorije" }}

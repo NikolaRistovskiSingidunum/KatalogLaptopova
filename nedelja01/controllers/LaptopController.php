@@ -16,7 +16,7 @@ class LaptopController extends Controller {
     {
         
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
-        $laptop = $laptopModel->getAll(["laptop_id="=>$laptopID],[]);
+        $laptop = $laptopModel->getAllByWhereAndOrderBy(["laptop_id="=>$laptopID],[]);
         //print_r($laptop);
         // echo($laptop[0]->name);
         // //echo($laptop[0]).laptop_id );
@@ -30,7 +30,7 @@ class LaptopController extends Controller {
     public function getAllInformations($laptopID)
     {
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
-        $laptop = $laptopModel->getAll(["laptop_id="=>$laptopID],[]);
+        $laptop = $laptopModel->getAllByWhereAndOrderBy(["laptop_id="=>$laptopID],[]);
         $storageModel = new StorageModel($this->getDatabaseConnection());
         $storages = $storageModel->getStorages($laptopID);
         $portModel = new PortModel($this->getDatabaseConnection());
@@ -53,9 +53,9 @@ class LaptopController extends Controller {
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
         $laptops;
         if ($laptopCategoryName==="All")
-            $laptops = $laptopModel->getAll([],[]);
+            $laptops = $laptopModel->getAllByWhereAndOrderBy([],[]);
         else
-            $laptops = $laptopModel->getAll(["category.name="=>$laptopCategoryName],[]);
+            $laptops = $laptopModel->getAllByWhereAndOrderBy(["category.name="=>$laptopCategoryName],[]);
 
         print_r($laptops);
         echo(count($laptops));
@@ -75,9 +75,9 @@ class LaptopController extends Controller {
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
         $laptops;
         if ($laptopCategoryID==="All")
-            $laptops = $laptopModel->getAll([],["laptop.laptop_id"=>"DESC"]);
+            $laptops = $laptopModel->getAllByWhereAndOrderBy([],["laptop.laptop_id"=>"DESC"]);
         else
-            $laptops = $laptopModel->getAll(["laptop.category_id="=>$laptopCategoryID],[]);
+            $laptops = $laptopModel->getAllByWhereAndOrderBy(["laptop.category_id="=>$laptopCategoryID],[]);
 
 
 
@@ -93,7 +93,7 @@ class LaptopController extends Controller {
         if($sort === "ASC" || $sort === "DESC")
         $sortType = $sort;
 
-        $laptops = $laptopModel->getAll([],["price"=>$sortType]);
+        $laptops = $laptopModel->getAllByWhereAndOrderBy([],["price"=>$sortType]);
 
         $this->set("laptops", $laptops);
         //return  
@@ -122,8 +122,25 @@ class LaptopController extends Controller {
         $priceSortOrder = filter_input(INPUT_POST, 'price_sort_order');
         $categoryId = filter_input(INPUT_POST, 'category_id');
 
+        $screenSizeMin = filter_input(INPUT_POST, 'screen_size_min',FILTER_SANITIZE_NUMBER_FLOAT);
+        $screenSizeMax = filter_input(INPUT_POST, 'screen_size_max',FILTER_SANITIZE_NUMBER_FLOAT);
+
+        $gpuType = filter_input(INPUT_POST, 'gpu_type');
+
+
         $where = [];
         $orderBy = [];
+
+        
+        if($gpuType==="integrated" || $gpuType==="external"  )
+        $where += ["gpu.type="=>$gpuType];
+
+        if($this->clampMinMax($screenSizeMin,$screenSizeMax))
+        if($screenSizeMin!=="" && $screenSizeMax!=="" )
+        {
+            $where += ["screen_size>="=>$screenSizeMin];
+            $where += ["screen_size<="=>$screenSizeMax];
+        }
         if($this->clampMinMax($priceMin,$priceMax))
         if($priceMin!=="" && $priceMax!=="" )
         {
@@ -151,7 +168,7 @@ class LaptopController extends Controller {
         $orderBy =["price"=>$priceSortOrder];
 
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
-        $laptops = $laptopModel->getAll($where,$orderBy);
+        $laptops = $laptopModel->getAllByWhereAndOrderBy($where,$orderBy);
         $this->set("laptops", $laptops);
 
 
@@ -174,6 +191,20 @@ class LaptopController extends Controller {
         $laptops = $laptopModel->getAll([],[]);
 
         $this->set("laptops", $laptops);
+    }
+
+    protected function clampMinMax(&$min,&$max)
+    {
+        if($min==="" || $max==="")
+        return false;
+
+        if($min>=$max)
+        $min=0;
+
+        if($max<=0)
+        return false;
+
+        return true;
     }
 
     

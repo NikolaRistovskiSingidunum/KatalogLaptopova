@@ -30,7 +30,7 @@ class AdminCategoryManagementController extends UserController {
         }
 
         \ob_clean();
-        header('Location: ' . BASE . 'admin/categories');
+        header('Location: ' . BASE . 'category1/getAllCategories/');
         exit;
     }
 
@@ -65,7 +65,7 @@ class AdminCategoryManagementController extends UserController {
         }
 
         \ob_clean();
-        header('Location: ' . BASE . 'admin/categories');
+        header('Location: ' . BASE . 'category1/getAllCategories/');
         exit;
     }
 
@@ -74,7 +74,7 @@ class AdminCategoryManagementController extends UserController {
         $cm->deleteById($id);
 
         \ob_clean();
-        header('Location: ' . BASE . 'admin/categories');
+        header('Location: ' . BASE . 'category1/getAllCategories/');
         exit;
     }
 

@@ -1,8 +1,11 @@
+{#
 {% extends "_global/index.html" %}
 
 {% block main %}
 
-
+{%if Admin%} 
+<a class="btn btn-primary m-1" href="#" role="button">Dodaj</a>
+{% endif%}
 {% for laptop in laptops %}
 {{ include('Laptop/basicLaptop.html') }}
 {% endfor %}
@@ -11,3 +14,7 @@
 {% block title %}
 {{ "Katalog Laptopova" }}
 {% endblock %}
+
+#}
+
+{{ include('Laptop/getAllLaptops.html') }}

@@ -20,6 +20,24 @@
     Broj jezgara:<br>
     od: <input type="text" name="core_min" value=""> do: <input type="text" name="core_max" value=""> 
     <br>
+    Dijagonala ekrana:<br>
+    od: <input type="text" name="screen_size_min" value=""> do: <input type="text" name="screen_size_max" value=""> 
+    <br>
+
+    <div class="form-group">
+        <label for="gpu_type">Odaberite tip graficke karte: </label>
+        <select id="gpu_type" name="gpu_type" class="form-control">
+                <option value="all" selected>Nevazno</option>
+                <option value="integrated" >Ugradjena</option>
+                <option value="external" >Spoljasnja</option>
+        </select>
+    </div>
+
+    <!-- Tip graficke karte :<br>
+    <input type="radio" name="gpu_type" value="all" checked> Svejedno<br>
+    <input type="radio" name="gpu_type" value="intergrated"> Ugradjena <br>
+    <input type="radio" name="gpu_type" value="ekstern"> Spoljasnja  <br> -->
+
     
 
     <div class="form-group">

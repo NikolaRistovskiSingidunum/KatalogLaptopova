@@ -70,9 +70,10 @@
                                   </li>
 
                                   <li class="nav-item"><a class="nav-link" href="{{BASE}}laptop/getShowFilters/"><i class="fa fa-search"></i> Trazi po filterima</a>
+                                  <li class="nav-item"><a class="nav-link" href="{{BASE}}laptop/getAllLaptopsByCategoryId/All"><i class="fa fa-search"></i> Pregledaj Laptopove</a>
 
                                    
-                                  <li class="nav-item"><a class="nav-link" href="{{BASE}}laptop/getAllLaptops/"><i class="fa fa-search"></i>Vidi sve laptopove</a>
+                                  
                                  
                                   
 
@@ -89,7 +90,11 @@
                                           <a class="dropdown-item" href="{{BASE}}admin/getAdminDashboard/"><i class="fa fa-briefcase"></i> Radna Soba</a>
                                           {%endif%}
                                         </div>
-                                      </li>       
+                                      </li>    
+                                      
+                                     {% if Admin %}
+                                     <li class="nav-item"><a class="nav-link disabled text-danger" href="#"><i class="fa fa-briefcase"></i>Ulogovani ste</a>
+                                     {%endif%} 
 
 
                         </ul>

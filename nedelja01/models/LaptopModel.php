@@ -74,7 +74,7 @@
 
 
         //pretraga po where i orderBy klauzuili
-        public function getAll($where,$orderBy): array {
+        public function getAllByWhereAndOrderBy($where,$orderBy): array {
             $tableName = $this->getTableName();
             
             
@@ -87,7 +87,8 @@
             gpu.gpu_id,gpu.model as 'gpu_model',gpu.type,gpu.video_memory,
             category.`name` as 'category_name', 
             display.is_touchscreen,display.resolution,
-            cpu.core_count,cpu.frequency,cpu.manufacturer as 'cpu_manufactor',cpu.model as 'cpu_model'
+            cpu.core_count,cpu.frequency,cpu.manufacturer as 'cpu_manufactor',cpu.model as 'cpu_model',
+            screen_size
             
             from laptop
             join gpu on laptop.gpu_id=gpu.gpu_id
@@ -100,8 +101,9 @@
             $this->prepareSQL($sql,$where,$orderBy, $sqlValues );
 
 
-           //die($sql);
+           
             $prep = $pdo->prepare($sql);
+            //die($sql);
             $items = [];
 
             if ($prep) {
