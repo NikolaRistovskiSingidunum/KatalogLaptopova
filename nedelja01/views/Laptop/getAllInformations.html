@@ -1,11 +1,12 @@
 {% extends "_global/index.html" %}
 
 
-{%if Admin%} 
-<a class="btn btn-primary m-1" href="#" role="button">Dodaj</a>
-{% endif%}
+
 {% block main %}
-      
+{%if Admin%} 
+<a class="btn btn-primary m-1" href="#" role="button">Dodaj novi laptop</a>
+{% endif%}
+
 {{ include('Laptop/fullLaptop.html') }}
     
 
