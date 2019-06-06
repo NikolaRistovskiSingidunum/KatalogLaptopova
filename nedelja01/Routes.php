@@ -50,6 +50,8 @@
         Route::post('#^admin/categories/edit/([0-9]+)/?$#', 'AdminCategoryManagement', 'postEdit'),
         Route::get('#^admin/categories/delete/([0-9]+)/?$#', 'AdminCategoryManagement', 'getDelete'),
         Route::get('#^laptop/getAllLaptops/?$#',     'Laptop',  'getAllLaptops'),
+        Route::get('#^AdminLaptopManagement/getEdit/([0-9]+)/?$#',     'AdminLaptopManagement',  'getEdit'),
+        
         
         # Fallback
         Route::get('#^.*$#', 'Main', 'home')

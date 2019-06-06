@@ -12,7 +12,7 @@
 <div class="card-body col col-lg-2 text-dark bg-gradient-secondary">
     <h5 class="card-title">Svi laptovi</h5>
     <p class="card-text"></p>
-    <a href="{{BASE}}laptop/getAllLaptopsByCategoryId/All" class="btn btn-primary">Vidi sve laptopove iz ovde kategorije</a>
+    <a href="{{BASE}}laptop/getAllLaptopsByCategoryId/All" class="btn btn-primary">Vidi sve laptopove iz ove kategorije</a>
 </div>    
 <!-- <li>{{ 'Ime Kategorije: Sve Kategorije'  }}</li>
 <p>sve</p>
@@ -26,7 +26,7 @@
 <div class="card-body col col-lg-2 text-dark bg-gradient-secondary">
     <h5 class="card-title">{{category.name|e}}</h5>
     <p class="card-text"></p>
-    <a href="{{BASE}}laptop/getAllLaptopsByCategoryId/{{category.category_id}}" class="btn btn-primary">Vidi sve laptopove iz ovde kategorije</a>
+    <a href="{{BASE}}laptop/getAllLaptopsByCategoryId/{{category.category_id}}" class="btn btn-primary">Vidi sve laptopove iz ove kategorije</a>
   
 {% if Admin%}
 <a href="{{ BASE }}admin/categories/edit/{{ category.category_id }}"><button class="btn btn-success">Izmeni</button></a>
