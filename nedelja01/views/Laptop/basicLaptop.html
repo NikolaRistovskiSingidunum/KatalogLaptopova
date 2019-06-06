@@ -34,8 +34,8 @@
     <a class="btn btn-primary m-1" href="{{BASE}}laptop/getAllInformations/{{laptop.laptop_id}}" role="button">Dodatne informacije</a>
     
     {%if Admin%} 
-        <a class="btn btn-primary m-1" href="#" role="button">Promeni</a>
-        <a class="btn btn-primary m-1" href="#" role="button">Obrisi</a>
+        <a class="btn btn-primary m-1" href="{{BASE}}adminLaptopManagement/getEdit/{{laptop.laptop_id}}" role="button">Promeni</a>
+        <a class="btn btn-primary m-1" href="{{BASE}}adminLaptopManagement/getDelete/{{laptop.laptop_id}}" role="button">Obrisi</a>
     {% endif%}
     </div>    
 </div>

@@ -3,6 +3,11 @@
 
     use \App\Core\DatabaseConnection;
     use \PDO;
+    use \App\Validators\BitValidator;
+    use \App\Validators\DateTimeValidator;
+    use \App\Validators\IpAddressValidator;
+    use \App\Validators\NumberValidator;
+    use \App\Validators\StringValidator;
 
     abstract class Model {
         private $dbCon;

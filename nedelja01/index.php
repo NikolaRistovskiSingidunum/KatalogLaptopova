@@ -35,6 +35,7 @@ $fingerprintProvider = new $fingerprintProviderClassName();
 $session->setFingerprintProvider($fingerprintProvider);
 
 $session->reload();
+//die($foundRoute->getControllerName());
 $fullControllerName = 'App\\Controllers\\'. $foundRoute->getControllerName() . 'Controller';
 $method = $foundRoute->getMethodName();
 
