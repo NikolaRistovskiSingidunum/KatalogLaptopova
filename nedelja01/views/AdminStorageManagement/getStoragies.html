@@ -1,0 +1,39 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+
+<h5>Storagies su ovde  </h5>
+
+<a class="btn btn-primary m-1" href="{{BASE}}adminStorageManagement/getAdd/{{laptop_id}}/" role="button">Dodaj novi disk</a>
+<a class="btn btn-primary m-1" href="{{BASE}}laptop/getAllInformations/{{laptop_id}}/" role="button">Sve informacije o ovom laptopu</a>
+<div class="row">
+
+
+    
+
+
+{% for storage in storagies %}
+{{ include('AdminStorageManagement/storage.html') }}
+
+
+
+
+   
+
+
+{#    
+{{storage.id}}
+{{storage.laptop_id}}
+{{storage.type}}
+{{storage.capacity}}
+#}
+
+
+{%endfor %}
+</div>
+
+
+{% endblock %}
+{% block title %}
+{{ "Katalog Laptopova" }}
+{% endblock %}
