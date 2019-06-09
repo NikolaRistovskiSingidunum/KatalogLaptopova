@@ -7,6 +7,7 @@ use App\Models\StorageModel;
 
 class AdminStorageManagementController extends UserController {
 
+    /* Storage je implementiran na nacin tako da zavisi od id laptopa za koji je vezena */
 
     public function getStoragies($laptopId)
     {
@@ -27,7 +28,7 @@ class AdminStorageManagementController extends UserController {
         //die($res);
 
         if (!$res) {
-            $this->set('message', 'Došlo je do greške prilikom brisanja laptopa.');
+            $this->set('message', 'Došlo je do greške prilikom brisanja diska.');
             return;
         }
 
@@ -100,4 +101,6 @@ class AdminStorageManagementController extends UserController {
         exit;
 
     }
+
+    
 }

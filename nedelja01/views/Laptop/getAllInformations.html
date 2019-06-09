@@ -4,7 +4,7 @@
 
 {% block main %}
 {%if Admin%} 
-<a class="btn btn-primary m-1" href="#" role="button">Dodaj novi laptop</a>
+<a class="btn btn-primary m-1" href="{{BASE}}adminLaptopManagement/getAdd" role="button">Dodaj novi laptop</a>
 {% endif%}
 
 {{ include('Laptop/fullLaptop.html') }}

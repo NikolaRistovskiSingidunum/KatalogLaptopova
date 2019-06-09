@@ -1,0 +1,20 @@
+
+{% extends "_global/index.html" %}
+
+{% block main %}
+<div class="alert alert-danger" role="alert">
+    Porukua o gresci: {{message}}
+</div>
+
+<div class="alert alert-danger" role="alert">
+    Opis greske: {{ description }}
+</div>
+
+<div class="alert alert-danger" role="alert">
+        twig Error: {{ twigError }}
+    </div>
+
+{% endblock %}
+{% block title %}
+{{ "Greska" }}
+{% endblock %}

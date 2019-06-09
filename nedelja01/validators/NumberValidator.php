@@ -48,6 +48,8 @@
         }
 
         public function isValid(string $value) {
+       
+
             if ($this->isSigned == false) {
                 if ($value < 0) {
                     return false;

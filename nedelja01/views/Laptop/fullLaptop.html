@@ -72,8 +72,9 @@
   {%if Admin%}
   <a class="btn btn-primary m-1" href="{{BASE}}adminLaptopManagement/getEdit/{{laptop.laptop_id}}" role="button">Promeni</a>
   
-  <a class="btn btn-primary m-1" href="{{BASE}}adminLaptopManagement/getDelete/{{laptop.laptop_id}}" role="button">Obrisi</a>
+  <a class="btn btn-primary m-1" href="{{BASE}}adminLaptopManagement/deleteById/{{laptop.laptop_id}}" role="button">Obrisi</a>
   <a class="btn btn-primary m-1" href="{{BASE}}adminStorageManagement/getStoragies/{{laptop.laptop_id}}" role="button">Uparavljaj diskovima</a>
+  <a class="btn btn-primary m-1" href="{{BASE}}adminPortManagement/getPorts/{{laptop.laptop_id}}" role="button">Uparavljaj portovima</a>
   {% endif%}
 
 </div>

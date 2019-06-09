@@ -16,6 +16,7 @@ class AdminCategoryManagementController extends UserController {
     }
 
     public function postAdd() {
+        try{
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 
         $cm = new CategoryModel($this->getDatabaseConnection());
@@ -28,6 +29,15 @@ class AdminCategoryManagementController extends UserController {
             $this->set('message', 'Došlo je do greške prilikom dodavanja nove kategorije.');
             return;
         }
+    }
+    catch (\Throwable $e)
+    {
+        if (!$categoryId) {
+            $this->set('message', 'Došlo je do greške prilikom dodavanja nove kategorije.');
+            $this->set('description', $e->getMessage() );
+            return;
+        }
+    }
 
         \ob_clean();
         header('Location: ' . BASE . 'category1/getAllCategories/');
@@ -41,7 +51,7 @@ class AdminCategoryManagementController extends UserController {
 
         if (!$category) {
             \ob_clean();
-            header('Location: ' . BASE . 'admin/categories');
+            header('Location: ' . BASE . 'category1/getAllCategories/');
             exit;
         }
 
@@ -49,6 +59,7 @@ class AdminCategoryManagementController extends UserController {
     }
 
     public function postEdit($id) {
+        try{
         $this->getEdit($id);
 
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
@@ -63,6 +74,13 @@ class AdminCategoryManagementController extends UserController {
             $this->set('message', 'Došlo je do greške prilikom izmene podataka ove kategorije.');
             return;
         }
+    }
+    catch (\Throwable $e)
+    {
+        $this->set('message', 'Došlo je do greške prilikom izmene podataka ove kategorije.');
+        $this->set('description', $e->getMessage() );
+        return;
+    }
 
         \ob_clean();
         header('Location: ' . BASE . 'category1/getAllCategories/');

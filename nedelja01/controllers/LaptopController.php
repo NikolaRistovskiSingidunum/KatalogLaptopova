@@ -17,13 +17,22 @@ class LaptopController extends Controller {
         
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
         $laptop = $laptopModel->getAllByWhereAndOrderBy(["laptop_id="=>$laptopID],[]);
-        //print_r($laptop);
-        // echo($laptop[0]->name);
+        print_r($laptop);
+        echo("prazno");
         // //echo($laptop[0]).laptop_id );
         // die("AAA");
 
         // if(!$laptop)
         // die("LaptopController extends Controller public function getBasicInformations($laptopID) ");
+        
+        //ako ne postoji laptop sa  tim id
+        if(!$laptop)
+        {
+            \ob_clean();
+            header('Location: ' . BASE . 'laptop/getAllLaptopsByCategoryId/All' );
+            exit;
+        }
+
         $this->set("laptop", $laptop[0]);
     }
     //vraca jedan laptop sa svim informacijama
@@ -35,10 +44,17 @@ class LaptopController extends Controller {
         $storages = $storageModel->getStorages($laptopID);
         $portModel = new PortModel($this->getDatabaseConnection());
         $ports = $portModel->getPorts($laptopID);
-        
-        //die("GGGG");
-        // print_r($storages);
-        // print_r($ports);
+      
+
+        //laptop mora da postoji
+        //ako trazi laptop koji ne postoji preusmeri ga sve laptopove
+        if(!$laptop)
+        {
+            \ob_clean();
+            header('Location: ' . BASE . 'laptop/getAllLaptopsByCategoryId/All' );
+            exit;
+        }
+
         $this->set("ports",$ports);
         $this->set("storages",$storages); 
         $this->set("laptop", $laptop[0]);

@@ -36,6 +36,7 @@ $session->setFingerprintProvider($fingerprintProvider);
 
 $session->reload();
 //die($foundRoute->getControllerName());
+//die("'App\\Controllers\\'. $foundRoute->getControllerName() . 'Controller'");
 $fullControllerName = 'App\\Controllers\\'. $foundRoute->getControllerName() . 'Controller';
 $method = $foundRoute->getMethodName();
 
@@ -72,7 +73,17 @@ $data["Admin"] = false;
 if ($session->get('userId', null))
 $data["Admin"] = true;
 
+try {
 echo $twig->render(
     $foundRoute->getControllerName() . '/' . $foundRoute->getMethodName() . '.html',
     $data
 );
+}
+catch (\Twig\Error\Error $e)
+{
+    $data['twigError'] = "Ovaj opis je samo za debagovanje. Trazeni view ne postoji i ova je alternativna ruta. " . $e->getMessage();
+    echo $twig->render(
+        'Error' . '/' .'errorAll.html',
+        $data
+    );  
+}

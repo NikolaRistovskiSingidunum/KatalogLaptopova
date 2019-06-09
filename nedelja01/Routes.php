@@ -54,13 +54,21 @@
         Route::post('#^adminLaptopManagement/postEdit/([0-9]+)/?$#',     'AdminLaptopManagement',  'postEdit'),
         Route::get('#^adminLaptopManagement/getAdd/?$#',     'AdminLaptopManagement',  'getAdd'),
         Route::post('#^adminLaptopManagement/postAdd/?$#',     'AdminLaptopManagement',  'postAdd'),
-        Route::get('#^adminLaptopManagement/getDelete/([0-9]+)/?$#',     'AdminLaptopManagement',  'getDelete'),
+        Route::get('#^adminLaptopManagement/deleteById/([0-9]+)/?$#',     'AdminLaptopManagement',  'deleteById'),
         Route::get('#^adminStorageManagement/getStoragies/([0-9]+)/?$#',     'AdminStorageManagement',  'getStoragies'),
         Route::get('#^adminStorageManagement/getAdd/([0-9]+)/?$#',     'AdminStorageManagement',  'getAdd'),
         Route::post('#^adminStorageManagement/postAdd/([0-9]+)/?$#',     'AdminStorageManagement',  'postAdd'),
         Route::get('#^adminStorageManagement/deleteById/([0-9]+)/?$#',     'AdminStorageManagement',  'deleteById'),
         Route::get('#^adminStorageManagement/getEdit/([0-9]+)/?$#',     'AdminStorageManagement',  'getEdit'),
         Route::post('#^adminStorageManagement/postEdit/([0-9]+)/?$#',     'AdminStorageManagement',  'postEdit'),
+
+        //ports
+        Route::get('#^adminPortManagement/getPorts/([0-9]+)/?$#',     'AdminPortManagement',  'getPorts'),
+        Route::get('#^adminPortManagement/deleteById/([0-9]+)/?$#',     'AdminPortManagement',  'deleteById'),
+        Route::get('#^adminPortManagement/getAdd/([0-9]+)/?$#',     'AdminPortManagement',  'getAdd'),
+        Route::post('#^adminPortManagement/postAdd/([0-9]+)/?$#',     'AdminPortManagement',  'postAdd'),
+        Route::get('#^adminPortManagement/getEdit/([0-9]+)/?$#',     'AdminPortManagement',  'getEdit'),
+        Route::post('#^adminPortManagement/postEdit/([0-9]+)/?$#',     'AdminPortManagement',  'postEdit'),
         
         # Fallback
         Route::get('#^.*$#', 'Main', 'home')

@@ -24,6 +24,7 @@
         public function isValid(string $value) {
             $length = strlen($value);
 
+
             if ($length < $this->minLength) {
                 return false;
             }

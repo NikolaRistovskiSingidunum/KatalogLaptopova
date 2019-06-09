@@ -43,6 +43,8 @@ class AdminLaptopManagementController extends UserController {
     }
     public function postEdit($id)
     {
+
+        try{
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
         
         $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
@@ -75,9 +77,17 @@ class AdminLaptopManagementController extends UserController {
             $this->set('message', 'Došlo je do greške prilikom izmene podataka ovog laptopa.');
             return;
         }
+    }
+    catch(\Throwable $e)
+    {
+        //die("AAAAAAAA");
+        $this->set('message', 'Došlo je do greške prilikom dodavanja laptopa.');
+        $this->set('description', $e->getMessage());
+        return;
+    }
 
         \ob_clean();
-        header('Location: ' . BASE . 'laptop/getAllLaptopsByCategoryId/All');
+        header('Location: ' . BASE . 'laptop/getAllInformations/' . $res);
         exit;
     }
 
@@ -116,6 +126,8 @@ class AdminLaptopManagementController extends UserController {
 
     public function postAdd()
     {
+        try{
+       
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
         
         $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
@@ -136,6 +148,7 @@ class AdminLaptopManagementController extends UserController {
 
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
 
+        
         $res = $laptopModel->add([
             'name' => $name, 'price' => $price, 'image_path'=>$image_path, 'operating_system' => $operating_system,
             'keyboard_layout'=>$keyboard_layout, 'is_numpad'=>$is_numpad,'is_deleted'=>$is_deleted,'cpu_id'=>$cpu_id,
@@ -149,14 +162,28 @@ class AdminLaptopManagementController extends UserController {
             return;
         }
 
+    }
+    catch(\Throwable $e)
+    {
+        //die("AAAAAAAA");
+        $this->set('message', 'Došlo je do greške prilikom dodavanja laptopa.');
+        $this->set('description', $e->getMessage());
+        return;
+    }
         \ob_clean();
-        header('Location: ' . BASE . 'laptop/getAllLaptopsByCategoryId/All');
+        header('Location: ' . BASE . 'laptop/getAllInformations/' . $res);
         exit;
     }
-    public function getDelete($id) {
+    public function deleteById($laptopId) {
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
-        $laptopModel->deleteById($id);
+        $res = $laptopModel->deleteById($laptopId);
 
+        if(!$res)
+        {
+   
+            $this->set('message', 'Došlo je do greške prilikom brisanja laptopa.');
+            return;
+        }        
         \ob_clean();
         header('Location: ' . BASE . 'laptop/getAllLaptopsByCategoryId/All');
         exit;

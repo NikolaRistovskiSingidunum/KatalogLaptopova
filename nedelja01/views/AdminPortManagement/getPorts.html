@@ -1,0 +1,39 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+
+<h5>Portovi  </h5>
+
+<a class="btn btn-primary m-1" href="{{BASE}}adminPortManagement/getAdd/{{laptop_id}}/" role="button">Dodaj novi port</a>
+<a class="btn btn-primary m-1" href="{{BASE}}laptop/getAllInformations/{{laptop_id}}/" role="button">Sve informacije o ovom laptopu</a>
+<div class="row">
+
+
+    
+
+
+{% for port in ports %}
+{{ include('AdminPortManagement/port.html') }}
+
+
+
+
+   
+
+
+{#    
+{{storage.id}}
+{{storage.laptop_id}}
+{{storage.type}}
+{{storage.capacity}}
+#}
+
+
+{%endfor %}
+</div>
+
+
+{% endblock %}
+{% block title %}
+{{ "Katalog Laptopova" }}
+{% endblock %}

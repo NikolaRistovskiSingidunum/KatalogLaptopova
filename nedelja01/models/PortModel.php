@@ -6,6 +6,11 @@
     use \App\Core\DatabaseConnection;
     use \PDO;
 
+    use \App\Validators\BitValidator;
+    use \App\Validators\DateTimeValidator;
+    use \App\Validators\IpAddressValidator;
+    use \App\Validators\NumberValidator;
+    use \App\Validators\StringValidator;
     class PortModel extends Model {
         protected function getFields() {
             return [

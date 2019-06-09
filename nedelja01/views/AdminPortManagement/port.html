@@ -1,0 +1,29 @@
+
+
+
+
+<div class="card" style="width: 18rem;">
+    <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+    <div class="card-body">
+        <h5 class="card-title">Port broj {{loop.index}}</h5>
+
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Tip porta: {{port.type}} </li>
+            
+    </ul>
+    <div class="card-body">
+        <!-- <a href="#" class="{{BASE}}adminStorageManagement/deleteById/{{storage.id}}/">Obrisi disk</a> -->
+        <a class="btn btn-primary m-1" href="{{BASE}}adminPortManagement/deleteById/{{port.port_id}}/" role="button">Obrisi</a>
+        <a class="btn btn-primary m-1" href="{{BASE}}adminPortManagement/getEdit/{{port.port_id}}/" role="button">Izmeni</a>
+        <!-- <a href="#" class="card-link">Another link</a> -->
+    </div>
+</div>
+
+{#
+{{storage.id}}
+{{storage.laptop_id}}
+{{storage.type}}
+{{storage.capacity}}
+#}
+
