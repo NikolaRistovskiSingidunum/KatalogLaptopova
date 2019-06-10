@@ -22,6 +22,7 @@ class AdminGpuManagementController extends UserController {
         $type = filter_input(INPUT_POST, 'gpu_type', FILTER_SANITIZE_STRING);
         $video_memory = filter_input(INPUT_POST, 'video_memory', FILTER_SANITIZE_NUMBER_INT);
 
+        
         $gm = new GpuModel($this->getDatabaseConnection());
 
         $res = $gm->add([
@@ -32,16 +33,17 @@ class AdminGpuManagementController extends UserController {
        
         if (!$res) {
             $this->set('message', 'Došlo je do greške prilikom dodavanja novog Gpu-a.');
+            die("aaaaaaaaa");
             return;
         }
     }
     catch (\Throwable $e)
     {
-        if (!$res) {
-            $this->set('message', 'Došlo je do greške prilikom dodavanja novog Gpu-a.');
-            $this->set('description', $e->getMessage() );
-            return;
-        }
+        
+        $this->set('message', 'Došlo je do greške prilikom dodavanja novog Gpu-a.');
+        $this->set('description', $e->getMessage() );
+         return;
+        
     }
 
         \ob_clean();

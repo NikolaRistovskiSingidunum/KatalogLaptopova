@@ -6,7 +6,9 @@
     use \App\Core\DatabaseConnection;
     use \App\Validators\NumberValidator;
     use \App\Validators\StringValidator;
+    use \App\Validators\EnumValidator;
     use \PDO;
+    use \App\Utils\EnumUtils;
     class GpuModel extends Model {
         protected function getFields() {
             return [

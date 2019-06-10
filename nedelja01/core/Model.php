@@ -8,6 +8,8 @@
     use \App\Validators\IpAddressValidator;
     use \App\Validators\NumberValidator;
     use \App\Validators\StringValidator;
+    use \App\Validators\EnumValidator;
+    use \App\Utils\EnumUtils;
 
     abstract class Model {
         private $dbCon;
