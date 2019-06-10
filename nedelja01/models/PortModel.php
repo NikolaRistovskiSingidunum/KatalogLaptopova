@@ -11,6 +11,8 @@
     use \App\Validators\IpAddressValidator;
     use \App\Validators\NumberValidator;
     use \App\Validators\StringValidator;
+    use \App\Validators\EnumValidator;
+    use App\Utils\EnumUtils;
     class PortModel extends Model {
         protected function getFields() {
             return [
@@ -25,9 +27,9 @@
                                             ->setUnsigned()
                                             ->setMaxIntegerDigits(10)),
                 'type'          => new Field(
-                                        (new StringValidator())
-                                            ->setMinLength(1)
-                                            ->setMaxLength(255))                                      
+                                        (new EnumValidator())
+                                        ->setData(EnumUtils::getPortTypes()))
+                                                                                 
             ];
         }
 

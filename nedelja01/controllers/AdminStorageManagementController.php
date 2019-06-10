@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Core\UserController;
 use App\Models\CategoryModel;
 use App\Models\StorageModel;
+use App\Utils\EnumUtils;
 
 class AdminStorageManagementController extends UserController {
 
@@ -43,11 +44,12 @@ class AdminStorageManagementController extends UserController {
         //$storageModel = new StorageModel($this->getDatabaseConnection());
 
         $this->set("laptop_id",$laptopId);
-        $this->set("storage_types",[0=>'SSD',1=>'HDD']);
+        $this->set("storage_types",EnumUtils::getStorageTypes());
      
     }
     public function postAdd($laptopId)
     {
+        try{
         $type = filter_input(INPUT_POST, 'storage_type', FILTER_SANITIZE_STRING);
         
         $capacity = filter_input(INPUT_POST, 'storage_capacity', FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
@@ -58,10 +60,18 @@ class AdminStorageManagementController extends UserController {
 
 
         if (!$res) {
-            $this->set('message', 'Došlo je do greške prilikom dodavanja laptopa.');
+            $this->set('message', 'Došlo je do greške prilikom dodavanja diska.');
             return;
         }
 
+    }
+    catch(\Throwable $e)
+    {
+        $this->set('message', 'Došlo je do greške prilikom dodavanja diska.');
+        $this->set('description', $e->getMessage());
+        return;
+
+    } 
         \ob_clean();
         header('Location: ' . BASE . 'adminStorageManagement/getStoragies/' . $laptopId);
         exit;
@@ -76,12 +86,13 @@ class AdminStorageManagementController extends UserController {
  
 
         $this->set("storage",$storage);
-        $this->set("storage_types",[0=>'SSD',1=>'HDD']);
+        $this->set("storage_types",EnumUtils::getStorageTypes());
 
     }
 
     public function postEdit($storageId)
     {
+        try{
         $type = filter_input(INPUT_POST, 'storage_type', FILTER_SANITIZE_STRING);
         
         $capacity = filter_input(INPUT_POST, 'storage_capacity', FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
@@ -90,11 +101,17 @@ class AdminStorageManagementController extends UserController {
         $res = $storageModel->editById($storageId, ["type"=>$type, "capacity"=>$capacity]);
 
         if (!$res) {
-            $this->set('message', 'Došlo je do greške prilikom dodavanja.');
+            $this->set('message', 'Došlo je do greške prilikom izmene ovog diska.');
             return;
         }
 
-
+    }
+    catch(\Throwable $e)
+    {
+        $this->set('message', 'Došlo je do greške prilikom izmene ovog diska.');
+        $this->set('description', $e->getMessage());
+        return;
+    }
         $laptopId = $storageModel->getById($storageId)->laptop_id;
         \ob_clean();
         header('Location: ' . BASE . 'adminStorageManagement/getStoragies/' . $laptopId);

@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Core\UserController;
 use App\Models\CategoryModel;
 use App\Models\PortModel;
+use App\Utils\EnumUtils;
 
 class AdminPortManagementController extends UserController {
 
@@ -49,26 +50,30 @@ class AdminPortManagementController extends UserController {
         //$storageModel = new StorageModel($this->getDatabaseConnection());
 
         $this->set("laptop_id",$laptopId);
-        $this->set("port_types",[0=>'HDMI',1=>'VGA',2=>'DVI',3=>'Video Port',4=>'USB C']);
+        $this->set("port_types",EnumUtils::getPortTypes());
      
     }
 
     public function postAdd($laptopId)
     {
+        try{
         $type = filter_input(INPUT_POST, 'port_type', FILTER_SANITIZE_STRING);
-        
-       
-
         $portModel = new PortModel($this->getDatabaseConnection());
-
         $res = $portModel->add(['laptop_id'=>$laptopId, 'type'=>$type     ]);
 
 
         if (!$res) {
-            $this->set('message', 'Došlo je do greške prilikom dodavanja laptopa.');
+            $this->set('message', 'Došlo je do greške prilikom dodavanja porta.');
             return;
         }
 
+    }
+    catch (\Throwable $e)
+    {
+        $this->set('message', 'Došlo je do greške prilikom dodavanja porta.');
+        $this->set('description', $e->getMessage());
+        return;
+    }
         \ob_clean();
         header('Location: ' . BASE . 'adminPortManagement/getPorts/' . $laptopId);
         exit;
@@ -84,12 +89,15 @@ class AdminPortManagementController extends UserController {
  
 
         $this->set("port",$port);
-        $this->set("port_types",[0=>'HDMI',1=>'VGA',2=>'DVI',3=>'Video Port',4=>'USB C']);
+        
+        
+        $this->set("port_types",EnumUtils::getPortTypes());
 
     }
 
     public function postEdit($portId)
     {
+        try{
         $type = filter_input(INPUT_POST, 'port_type', FILTER_SANITIZE_STRING);
         
        
@@ -105,6 +113,13 @@ class AdminPortManagementController extends UserController {
             return;
         }
 
+    }
+    catch (\Throwable $e)
+    {
+        $this->set('message', 'Došlo je do greške prilikom izmene porta.');
+        $this->set('description', $e->getMessage());
+        return;
+    }
         $laptopId = $portModel->getById($portId)->laptop_id;
         \ob_clean();
         header('Location: ' . BASE . 'adminPortManagement/getPorts/' . $laptopId);
