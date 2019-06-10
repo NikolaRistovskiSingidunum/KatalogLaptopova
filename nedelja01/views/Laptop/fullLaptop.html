@@ -1,53 +1,55 @@
 <div class="jumbotron">
   <div class="row ">
-    <div class="media col col-lg-4 col-md-12 col-sm-12 col-12  ">
-      <img src="{{BASE}}assets/img/laptops/{{laptop.image_path|e}}" class="img-thumbnail" alt="Responsive image">
+    <div class="media col-xl-4 col col-lg-3 col-md-12 col-sm-12 col-12  ">
+      <img src="{{BASE}}assets/img/laptops/{{laptop.image_path|e}}" class="img-thumbnail " alt="Responsive image">
     </div>
 
-    <div class="col  col-lg-4 col-sm-12 col-12 col-md-6 bg-transparent">
+    <div class="col col-xl-4  col-lg-5 col-sm-12 col-12 col-md-7 bg-transparent ">
       <ul>
-        <li>{{ 'Ime laptopa: ' ~ laptop.laptop_name|e }}</li>
-        <li>{{ 'Laptop id: ' ~ laptop.laptop_id|e }}</li>
-        <li>{{ 'Cena: ' ~ laptop.price|e ~ ' RSD' }}</li>
-        <li>{{ 'img model: ' ~ laptop.image_path|e }}</li>
-        <li>{{ 'Operativni sistem: ' ~ laptop.operating_system|e }}</li>
-        <li>{{ 'Raspored dugmica na tastaturi: ' ~ laptop.keyboard_layout|e }}</li>
-        <li>{{  laptop.is_numpad ? 'Numericka tastatura: YES' : ' Numericka tastatura: NO'   }}</li>
-        <li>{{ 'Capacitet RAMa: ' ~ laptop.ram_capacity|e }}</li>
-        <li>{{ 'Tip RAMa: ' ~ laptop.ram_type|e }}</li>
-        <li>{{ 'Proizvodjac: ' ~ laptop.manufacturer|e }}</li>
-        <li>{{ 'Kreiran: ' ~ laptop.created_at|e }}</li>
-        <li>{{ 'Model graficke karte: ' ~ laptop.gpu_model|e }}</li>
-        <li>{{ 'Tip graficke karte: ' ~ laptop.type|e }}</li>
-        <li>{{ 'Video memorija: ' ~ laptop.video_memory|e ~ " GB" }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Ime laptopa: ' ~ laptop.laptop_name|e }}</li>
+        {% if Admin %}
+        <li><i class="fa fa-star"></i>{{ 'Laptop id: ' ~ laptop.laptop_id|e }}</li>
+        <li><i class="fa fa-star"></i>{{ 'img model: ' ~ laptop.image_path|e }}</li>
+        {% endif %}
+        <li><i class="fa fa-star"></i>{{ 'Cena: ' ~ laptop.price|e ~ ' RSD' }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Operativni sistem: ' ~ laptop.operating_system|e }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Raspored dugmica na tastaturi: ' ~ laptop.keyboard_layout|e }}</li>
+        <li><i class="fa fa-star"></i>{{  laptop.is_numpad ? 'Numericka tastatura: YES' : ' Numericka tastatura: NO'   }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Capacitet RAMa: ' ~ laptop.ram_capacity|e }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Tip RAMa: ' ~ laptop.ram_type|e }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Proizvodjac: ' ~ laptop.manufacturer|e }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Kreiran: ' ~ laptop.created_at|e }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Model graficke karte: ' ~ laptop.gpu_model|e }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Tip graficke karte: ' ~ laptop.type|e }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Video memorija: ' ~ laptop.video_memory|e ~ " GB" }}</li>
 
         <!-- kategorija -->
-        <li>{{ 'Ime kateogrije: ' ~ laptop.category_name|e }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Ime kateogrije: ' ~ laptop.category_name|e }}</li>
 
         <!-- ekran -->
-        <li>{{  laptop.istouchscreen ? 'Ekran na dodir: DA' : ' Ekran na dodir : NE'   }}</li>
-        <li>{{ 'Rezolucija ekrana: ' ~ laptop.resolution|e }}</li>
+        <li><i class="fa fa-star"></i>{{  laptop.istouchscreen ? 'Ekran na dodir: DA' : ' Ekran na dodir : NE'   }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Rezolucija ekrana: ' ~ laptop.resolution|e }}</li>
         <li><i class="fa fa-star"></i>{{ ' Dijagonala ekrana: ' ~ laptop.screen_size|e ~ " cm"  }}</li>
 
         <!-- cpu -->
-        <li>{{ 'Broj jezgara: ' ~ laptop.core_count|e }}</li>
-        <li>{{ 'Brzina procesora: ' ~ laptop.frequency|e ~" GHZ" }}</li>
-        <li>{{ 'Proizvodjac procesora: ' ~ laptop.cpu_manufactor|e }}</li>
-        <li>{{ 'Model procesora: ' ~ laptop.cpu_model|e }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Broj jezgara: ' ~ laptop.core_count|e }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Brzina procesora: ' ~ laptop.frequency|e ~" GHZ" }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Proizvodjac procesora: ' ~ laptop.cpu_manufactor|e }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Model procesora: ' ~ laptop.cpu_model|e }}</li>
       </ul>
     </div>
     <!-- <li>{{BASE}}assets/img/laptops/{{laptop.image_path|e}}</li> -->
 
-    <div class="col  col-lg-4 col-sm-12 col-12 col-md-6">
+    <div class="col col-xl-4  col-lg-4 col-sm-12 col-12 col-md-5 ">
       <ul>
         <li>Diskovi:</li>
         {%if storages|length==0 %}
         <li>nema diskove</li>
         {% endif%}
         {% for storage in storages %}
-        <li>{{ 'Broj diska : ' ~ loop.index|e }}</li>
-        <li>{{ 'Tip diska: ' ~ storage.type|e }}</li>
-        <li>{{ 'Kapacitet diska: ' ~ storage.capacity|e ~ " GB " }}</li>
+        <li> <i class="fa fa-plus" aria-hidden="true"></i> {{ 'Broj diska : ' ~ loop.index|e }}</li>
+        <li> <i class="fa fa-plus" aria-hidden="true"></i>{{ ' Tip diska: ' ~ storage.type|e }}</li>
+        <li> <i class="fa fa-plus" aria-hidden="true"></i>{{ ' Kapacitet diska: ' ~ storage.capacity|e ~ " GB " }}</li>
         {% endfor %}
 
 
@@ -56,8 +58,8 @@
         <li>nema portove</li>
         {% endif%}
         {% for port in ports %}
-        <li>{{ 'Broj porta : ' ~ loop.index|e }}</li>
-        <li>{{ 'Tip porta: ' ~ port.type|e }}</li>
+        <li><i class="fa fa-plus" aria-hidden="true"></i> {{ 'Broj porta : ' ~ loop.index|e }}</li>
+        <li><i class="fa fa-plus" aria-hidden="true"></i>{{ 'Tip porta: ' ~ port.type|e }}</li>
 
         {% endfor %}
       </ul>
@@ -66,6 +68,7 @@
     <!-- graficka karta -->
 
   </div>
+  
 
 
 
