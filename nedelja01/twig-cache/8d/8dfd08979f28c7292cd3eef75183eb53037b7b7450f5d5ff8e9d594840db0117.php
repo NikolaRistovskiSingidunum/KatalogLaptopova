@@ -45,10 +45,10 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         // line 11
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
         echo "assets/libs/font-awesome/css/font-awesome.min.css\">
-        <link rel=\"stylesheet\" href=\"";
+        <!-- <link rel=\"stylesheet\" href=\"";
         // line 12
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
-        echo "assets/css/style.css\">
+        echo "assets/css/style.css\"> -->
         <link rel=\"stylesheet\" href=\"";
         // line 13
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
@@ -224,10 +224,10 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         echo "assets/libs/bootstrap/dist/js/bootstrap.min.js\"></script>
         
 
-        <script src=\"";
+        <!-- <script src=\"";
         // line 125
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
-        echo "assets/js/bookmarks.js\"></script>
+        echo "assets/js/bookmarks.js\"></script> -->
         
     </body>
 </html>

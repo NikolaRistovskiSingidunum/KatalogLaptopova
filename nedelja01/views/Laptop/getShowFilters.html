@@ -2,34 +2,91 @@
 
 {% block main %}
 
-<h6>Mogli je nasao mandarinu</h6>
+
 
 <form action="{{BASE}}laptop/postAllLaptopsByFilters" method="POST">
-    Cena:<br>
-    od: <input type="text" name="price_min" value=""> do: <input type="text" name="price_max" value=""> 
-    <br>
-    Velicina RAMa:<br>
-    od: <input type="text" name="ram_min" value=""> do: <input type="text" name="ram_max" value=""> 
-    <br>
-    Brzina procesora:<br>
-    od: <input type="text" name="cpu_speed_min" value=""> do: <input type="text" name="cpu_speed_max" value=""> 
-    <br>
+
+    <div class="row">
+        <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
+            <label for="price_min">Minimalna cena</label>
+            <input class="form-control" type="number" required name="price_min" id="price_min" value="">
+        </div>
+        <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
+            <label for="price_max">Maksimalna cena</label>
+            <input class="form-control" type="number" required id="price_max" name="price_max" value="">
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
+            <label for="ram_min">Minimalno RAM memorije</label>
+            <input class="form-control" type="number" required name="ram_min" id="ram_min" value="">
+        </div>
+        <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
+            <label for="ram_max">Maksimalno RAM memorije</label>
+            <input class="form-control" type="number" required name="ram_max" id="ram_max" value="">
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
+            <label for="cpu_speed_min">Minimalna brzina procesora</label>
+            <input class="form-control" type="text" name="cpu_speed_min" id="cpu_speed_min" value="">
+        </div>
+
+        <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
+            <label for="cpu_speed_max">Maksimalna brzina procesora</label>
+            <input class="form-control" type="text" name="cpu_speed_max" id="cpu_speed_max" value="">
+        </div>
+    </div>
+
+
+
+    <!-- 
     Velicina diska:<br>
-    od: <input type="text" name="disk_min" value=""> do: <input type="text" name="disk_max" value=""> 
-    <br>
-    Broj jezgara:<br>
-    od: <input type="text" name="core_min" value=""> do: <input type="text" name="core_max" value=""> 
-    <br>
-    Dijagonala ekrana:<br>
-    od: <input type="text" name="screen_size_min" value=""> do: <input type="text" name="screen_size_max" value=""> 
-    <br>
+    <label for="cpu_speed_min">Minimalna brzina procesora</label>
+    od: <input type="number" name="disk_min" id="disk_min" value=""> 
+    do: <input type="number" name="disk_max" id="disk_max" value=""> -->
+
+
+    <div class="row">
+        <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
+            <label for="core_min">Minimalno jezgara</label>
+            <input class="form-control" type="text" required name="core_min" id="core_min" value="">
+        </div>
+        <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
+            <label for="core_max">Maksimalno jezgara</label>
+            <input class="form-control" type="text" required name="core_max" id="core_max" value="">
+        </div>
+    </div>
+
+
+
+    
+    
+    <div class="row">
+    <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
+    <label for="screen_size_min">Minimalna dijagonala ekrana</label>
+     <input class="form-control" type="number" required name="screen_size_min" id="screen_size_min" value=""> 
+    </div>    
+
+     <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
+     <label for="screen_size_max">Maksimalna dijagonala ekrana</label>
+     <input class="form-control" type="number" required name="screen_size_max" id="screen_size_max" value="">
+     </div>
+
+    </div>
 
     <div class="form-group">
         <label for="gpu_type">Odaberite tip graficke karte: </label>
         <select id="gpu_type" name="gpu_type" class="form-control">
-                <option value="all" selected>Nevazno</option>
-                <option value="integrated" >Ugradjena</option>
-                <option value="external" >Spoljasnja</option>
+            <option value="all" selected>Nevazno</option>
+            <option value="integrated">Ugradjena</option>
+            <option value="external">Spoljasnja</option>
         </select>
     </div>
 
@@ -38,44 +95,47 @@
     <input type="radio" name="gpu_type" value="intergrated"> Ugradjena <br>
     <input type="radio" name="gpu_type" value="ekstern"> Spoljasnja  <br> -->
 
-    
-
-    <div class="form-group">
-            <label for="price_sort_order">Odaberite kategoriju: </label>
-            <select id="price_sort_order" name="price_sort_order" class="form-control">
-                    <option value="ASC" selected>Rastuce</option>
-                    <option value="DESC" selected>Opadajuce</option>
-            </select>
-        </div>
-
-    
 
 
     <div class="form-group">
-            <label for="category_id">Odaberite kategoriju: </label>
-            <select id="category_id" name="category_id" class="form-control">
-                    <option value="All">
-                            Sve Kategorije
-                        </option>
-                {% for category in categories %}
-                    {% if category.category_id == auction.category_id %}
-                        <option value="{{ category.category_id }}" selected>
-                            {{ category.name }}
-                        </option>
-                    {% else %}
-                        <option value="{{ category.category_id }}">
-                            {{ category.name }}
-                        </option>
-                    {% endif %}
-                {% endfor %}
+        <label for="price_sort_order">Uredi po ceni </label>
+        <select id="price_sort_order" name="price_sort_order" class="form-control">
+            <option value="ASC" selected>Rastuce</option>
+            <option value="DESC" >Opadajuce</option>
+        </select>
+    </div>
 
-            </select>
-        </div>
+
+
+
+    <div class="form-group">
+        <label for="category_id">Odaberite kategoriju: </label>
+        <select id="category_id" name="category_id" class="form-control">
+            <option value="All">
+                Sve Kategorije
+            </option>
+            {% for category in categories %}
+            {% if category.category_id == auction.category_id %}
+            <option value="{{ category.category_id }}" selected>
+                {{ category.name }}
+            </option>
+            {% else %}
+            <option value="{{ category.category_id }}">
+                {{ category.name }}
+            </option>
+            {% endif %}
+            {% endfor %}
+
+        </select>
+    </div>
 
     <br><br>
-    <input type="submit" value="Submit">
 
-  </form> 
+    <div class="row">
+    <input class="btn  btn-success col-xl-6 col-lg-6 col-sm-6 col-6 " type="submit" value="Trazi">
+    <input class="btn  btn-warning col-xl-6 col-lg-6 col-sm-6 col-6" type='reset' value='Reset' name='reset'>
+    </div>
+</form>
 
 {% endblock %}
 {% block title %}
