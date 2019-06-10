@@ -1,0 +1,49 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+
+<div>
+    <form method="post" action="{{BASE}}adminGpuManagement/postAdd">
+        <div class="form-group">
+            <div class="form-group">
+                    <label for="model">Model</label>
+                    <input class="form-control" type="text"
+                           required name="model" id="model">
+            </div>
+
+            <div class="form-group">
+                <label for="gpu_type">Tip Gpu-a</label>
+                <select id="gpu_type" name="gpu_type" class="form-control">
+                   
+        
+                        {% for gpu_type in gpu_types %}
+                       
+                                <option value="{{ gpu_type }}">
+                                    {{ gpu_type }}
+                                </option>
+                            
+                        {% endfor %}
+                    
+                    
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="video_memory">Kolicina video memorije u GB</label>
+                <input class="form-control" type="number"
+                       required name="video_memory" id="video_memory">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-block btn-primary">
+                    Dodaj novi Gpu
+                </button>
+            </div>
+    </form>
+</div>
+
+
+{% endblock %}
+{% block title %}
+{{ "Katalog Laptopova" }}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+
+<h4>Lista Gpu-ova</h4>
+
+<a class="btn btn-primary m-1" href="{{BASE}}adminGpuManagement/getAdd/" role="button">Dodaj novi Gpu</a>
+<div class="row">
+
+    {% for gpu in gpus %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Gpu broj {{loop.index}}</h5>
+            
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Tip gpu-a: {{gpu.type}} </li>
+                <li class="list-group-item">Model: {{gpu.model}}</li>
+                <li class="list-group-item">Kolicina video memorije: {{gpu.video_memory}}  GB</li>
+                
+
+            </ul>
+            <div class="card-body">
+                <a class="btn btn-primary m-1" href="{{BASE}}adminGpuManagement/deleteById/{{gpu.gpu_id}}/" role="button">Obrisi</a>
+                <a class="btn btn-primary m-1" href="{{BASE}}adminGpuManagement/getEdit/{{gpu.gpu_id}}/" role="button">Izmeni</a>
+            </div>
+        </div>
+
+        {#    
+        {{gpu.id}}
+        {{gpu.type}}
+        {{gpu.video_memory}}
+        {{gpu.model}}
+        #}
+
+    {%endfor %}
+</div>
+
+
+{% endblock %}
+{% block title %}
+{{ "Katalog Laptopova" }}
+{% endblock %}

@@ -4,6 +4,8 @@
     use \App\Core\Model;
     use \App\Core\Field;
     use \App\Core\DatabaseConnection;
+    use \App\Validators\NumberValidator;
+    use \App\Validators\StringValidator;
     use \PDO;
     class GpuModel extends Model {
         protected function getFields() {

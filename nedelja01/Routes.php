@@ -62,6 +62,14 @@
         Route::get('#^adminStorageManagement/getEdit/([0-9]+)/?$#',     'AdminStorageManagement',  'getEdit'),
         Route::post('#^adminStorageManagement/postEdit/([0-9]+)/?$#',     'AdminStorageManagement',  'postEdit'),
 
+        //gpus
+        Route::get('#^adminGpuManagement/getGpus/?$#',     'AdminGpuManagement',  'getGpus'),
+        Route::get('#^adminGpuManagement/deleteById/([0-9]+)/?$#',     'AdminGpuManagement',  'deleteById'),
+        Route::get('#^adminGpuManagement/getAdd/?$#',     'AdminGpuManagement',  'getAdd'),
+        Route::post('#^adminGpuManagement/postAdd/?$#',     'AdminGpuManagement',  'postAdd'),
+        Route::get('#^adminGpuManagement/getEdit/([0-9]+)/?$#',     'AdminGpuManagement',  'getEdit'),
+        Route::post('#^adminGpuManagement/postEdit/([0-9]+)/?$#',     'AdminGpuManagement',  'postEdit'),
+
         //ports
         Route::get('#^adminPortManagement/getPorts/([0-9]+)/?$#',     'AdminPortManagement',  'getPorts'),
         Route::get('#^adminPortManagement/deleteById/([0-9]+)/?$#',     'AdminPortManagement',  'deleteById'),
