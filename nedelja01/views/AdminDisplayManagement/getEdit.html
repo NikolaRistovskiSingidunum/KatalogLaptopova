@@ -1,0 +1,58 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<div>
+    <form method="post" action="{{BASE}}adminDisplayManagement/postEdit/{{display.display_id}}">
+
+        <div class="form-group">
+            <label for="screen_size" >Velicina ekrana</label>
+            <input value ="{{display.screen_size}}" required class="form-control" type="text" required name="screen_size" id="screen_size">
+            
+        </div>
+        <div class="form-group">
+            <label  for="resolution">Rezolucija ekrana</label>
+            <input value= "{{display.resolution}}" required class="form-control" type="text" required name="resolution" id="resolution">
+            
+        </div>
+
+        <div class="form-group">
+            <label for="is_touchscreen">Da li je ekran na dodir</label>
+            <select id="is_touchscreen" name="is_touchscreen" class="form-control">
+
+
+
+                {% if ( display.is_touchscreen ==1) %}
+                <option value="1" selected>
+                    Ekran na dodir
+                </option>
+                <option value="0">
+                    Ekran nije na dodir
+                </option>
+                {% else %}
+                <option value="1" >
+                        Ekran na dodir
+                    </option>
+                    <option value="0" selected>
+                        Ekran nije na dodir
+                    </option>
+                     
+
+                {% endif %}
+
+
+            </select>
+        </div>
+
+        <div class="form-group">
+                <button type="submit" class="btn btn-block btn-primary">
+                    Izmeni ovaj ekran
+                </button>
+            </div>
+    </form>
+</div>
+
+
+{% endblock %}
+{% block title %}
+{{ "Katalog Laptopova" }}
+{% endblock %}

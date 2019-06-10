@@ -5,6 +5,13 @@
     use \App\Core\Field;
     use \App\Core\DatabaseConnection;
     use \PDO;
+    use \App\Validators\BitValidator;
+    use \App\Validators\DateTimeValidator;
+    use \App\Validators\IpAddressValidator;
+    use \App\Validators\NumberValidator;
+    use \App\Validators\StringValidator;
+    use \App\Validators\EnumValidator;
+    use \App\Utils\EnumUtils;
     class DisplayModel extends Model {
         protected function getFields() {
             return [
