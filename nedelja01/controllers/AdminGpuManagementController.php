@@ -33,7 +33,7 @@ class AdminGpuManagementController extends UserController {
        
         if (!$res) {
             $this->set('message', 'Došlo je do greške prilikom dodavanja novog Gpu-a.');
-            die("aaaaaaaaa");
+            
             return;
         }
     }

@@ -85,7 +85,15 @@
         Route::post('#^adminPortManagement/postAdd/([0-9]+)/?$#',     'AdminPortManagement',  'postAdd'),
         Route::get('#^adminPortManagement/getEdit/([0-9]+)/?$#',     'AdminPortManagement',  'getEdit'),
         Route::post('#^adminPortManagement/postEdit/([0-9]+)/?$#',     'AdminPortManagement',  'postEdit'),
-        
+
+
+        //display
+        Route::get('#^adminDisplayManagement/getDisplays/?$#',     'AdminDisplayManagement',  'getDisplays'),
+        Route::get('#^adminDisplayManagement/getAdd/?$#',     'AdminDisplayManagement',  'getAdd'),
+        Route::post('#^adminDisplayManagement/postAdd/?$#',     'AdminDisplayManagement',  'postAdd'),
+        Route::get('#^adminDisplayManagement/getEdit/([0-9]+)/?$#',     'AdminDisplayManagement',  'getEdit'),
+        Route::post('#^adminDisplayManagement/postEdit/([0-9]+)/?$#',     'AdminDisplayManagement',  'postEdit'),
+        Route::get('#^adminDisplayManagement/deleteById/([0-9]+)/?$#',     'AdminDisplayManagement',  'deleteById'),
         # Fallback
         Route::get('#^.*$#', 'Main', 'home')
     ];
