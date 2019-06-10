@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Core\UserController;
 use App\Models\GpuModel;
+use App\Utils\EnumUtils;
 
 class AdminGpuManagementController extends UserController {
     public function getGpus() {
@@ -12,7 +13,7 @@ class AdminGpuManagementController extends UserController {
     }
 
     public function getAdd() {
-        $this->set("gpu_types",[0=>'integrated',1=>'external']);
+        $this->set("gpu_types", EnumUtils::getGPUTypes());
     }
 
     public function postAdd() {
@@ -49,7 +50,7 @@ class AdminGpuManagementController extends UserController {
     }
 
     public function getEdit($id) {
-        $this->set("gpu_types",[0=>'integrated',1=>'external']);
+        $this->set("gpu_types", EnumUtils::getGPUTypes());
 
         $gm = new GpuModel($this->getDatabaseConnection());
 

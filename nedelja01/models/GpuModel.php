@@ -16,9 +16,8 @@
                                             ->setUnsigned()
                                             ->setMaxIntegerDigits(10), false),
                 'type'          => new Field(
-                                        (new StringValidator())
-                                            ->setMinLength(1)
-                                            ->setMaxLength(255)),
+                                        (new EnumValidator())
+                                        ->setData(EnumUtils::getGPUTypes())),
                 'model'         => new Field(
                                         (new StringValidator())
                                             ->setMinLength(1)
