@@ -70,6 +70,14 @@
         Route::get('#^adminGpuManagement/getEdit/([0-9]+)/?$#',     'AdminGpuManagement',  'getEdit'),
         Route::post('#^adminGpuManagement/postEdit/([0-9]+)/?$#',     'AdminGpuManagement',  'postEdit'),
 
+        //cpus
+        Route::get('#^adminCpuManagement/getCpus/?$#',     'AdminCpuManagement',  'getCpus'),
+        Route::get('#^adminCpuManagement/deleteById/([0-9]+)/?$#',     'AdminCpuManagement',  'deleteById'),
+        Route::get('#^adminCpuManagement/getAdd/?$#',     'AdminCpuManagement',  'getAdd'),
+        Route::post('#^adminCpuManagement/postAdd/?$#',     'AdminCpuManagement',  'postAdd'),
+        Route::get('#^adminCpuManagement/getEdit/([0-9]+)/?$#',     'AdminCpuManagement',  'getEdit'),
+        Route::post('#^adminCpuManagement/postEdit/([0-9]+)/?$#',     'AdminCpuManagement',  'postEdit'),
+
         //ports
         Route::get('#^adminPortManagement/getPorts/([0-9]+)/?$#',     'AdminPortManagement',  'getPorts'),
         Route::get('#^adminPortManagement/deleteById/([0-9]+)/?$#',     'AdminPortManagement',  'deleteById'),

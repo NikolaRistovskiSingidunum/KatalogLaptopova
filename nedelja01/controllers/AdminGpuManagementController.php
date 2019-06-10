@@ -104,7 +104,7 @@ class AdminGpuManagementController extends UserController {
         $res = $gm->deleteById($id);
 
         if (!$res) {
-            $this->set('message', 'Došlo je do greške prilikom brisanja diska.');
+            $this->set('message', 'Došlo je do greške prilikom brisanja GPU-a.');
             return;
         }
 

@@ -1,0 +1,44 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+
+<h4>Lista Cpu-ova</h4>
+
+<a class="btn btn-primary m-1" href="{{BASE}}adminCpuManagement/getAdd/" role="button">Dodaj novi Cpu</a>
+<div class="row">
+
+    {% for cpu in cpus %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Cpu broj {{loop.index}}</h5>
+            
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Proizvodjac: {{cpu.manufacturer}} </li>
+                <li class="list-group-item">Model: {{cpu.model}}</li>
+                <li class="list-group-item">Frekvencija: {{cpu.frequency}}  Ghz</li>
+                <li class="list-group-item">Broj jezgra: {{cpu.core_count}}</li>
+                
+
+            </ul>
+            <div class="card-body">
+                <a class="btn btn-primary m-1" href="{{BASE}}adminCpuManagement/deleteById/{{cpu.cpu_id}}/" role="button">Obrisi</a>
+                <a class="btn btn-primary m-1" href="{{BASE}}adminCpuManagement/getEdit/{{cpu.cpu_id}}/" role="button">Izmeni</a>
+            </div>
+        </div>
+
+        {#    
+        {{cpu.manufacturer}}
+        {{cpu.model}}
+        {{cpu.frequency}}
+        {{cpu.core_count}}
+        #}
+
+    {%endfor %}
+</div>
+
+
+{% endblock %}
+{% block title %}
+{{ "Katalog Laptopova" }}
+{% endblock %}
