@@ -10,6 +10,8 @@
     use \App\Validators\IpAddressValidator;
     use \App\Validators\NumberValidator;
     use \App\Validators\StringValidator;
+    use \App\Validators\EnumValidator;
+    use App\Utils\EnumUtils;
 
     class LaptopModel extends Model {
 
@@ -34,9 +36,8 @@
                                                 ->setMinLength(1)
                                                 ->setMaxLength(255)),
                 'keyboard_layout'   => new Field(
-                                            (new StringValidator())
-                                                ->setMinLength(2)
-                                                ->setMaxLength(2)),
+                                            (new EnumValidator())->setData(EnumUtils::getKeyboardLayouts())),
+                                              
                 'is_numpad'         => new Field(new BitValidator()),
                 'is_deleted'        => new Field(new BitValidator()),
                 'cpu_id'            => new Field(
@@ -65,9 +66,8 @@
                                                 ->setUnsigned()
                                                 ->setMaxIntegerDigits(10)),  
                 'ram_type'          => new Field(
-                                            (new StringValidator())
-                                                ->setMinLength(4)
-                                                ->setMaxLength(4)),   
+                                            (new EnumValidator())->setData(EnumUtils::getRamTypes())),
+
                 'manufacturer'      => new Field(
                                             (new StringValidator())
                                                 ->setMinLength(1)

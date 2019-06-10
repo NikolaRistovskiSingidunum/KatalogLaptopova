@@ -10,6 +10,8 @@
     use \App\Validators\IpAddressValidator;
     use \App\Validators\NumberValidator;
     use \App\Validators\StringValidator;
+    use \App\Validators\EnumValidator;
+    use App\Utils\EnumUtils;
 
     class StorageModel extends Model {
         protected function getFields() {
@@ -25,9 +27,9 @@
                                             ->setUnsigned()
                                             ->setMaxIntegerDigits(10)),
                 'type'          => new Field(
-                                        (new StringValidator())
-                                            ->setMinLength(3)
-                                            ->setMaxLength(3)),
+                                        (new EnumValidator())
+                                            ->setData(EnumUtils::getStorageTypes())
+                                        ),
                 'capacity'      => new Field(
                                         (new NumberValidator())
                                             ->setInteger()

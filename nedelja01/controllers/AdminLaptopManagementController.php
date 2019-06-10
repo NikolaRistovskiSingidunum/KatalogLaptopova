@@ -7,6 +7,7 @@ use App\Models\LaptopModel;
 use App\Models\CpuModel;
 use App\Models\GpuModel;
 use App\Models\DisplayModel;
+use App\Utils\EnumUtils;
 
 class AdminLaptopManagementController extends UserController {
    
@@ -33,12 +34,12 @@ class AdminLaptopManagementController extends UserController {
         $categories = $categoryModel->getAll();
 
         $this->set("laptop",$laptops);
-        $this->set("keyboard_layouts",[0=>'YU',1=>'US',2=>'UK']);
+        $this->set("keyboard_layouts",EnumUtils::getKeyboardLayouts());
         $this->set("cpus",$cpus);
         $this->set("gpus",$gpus);
         $this->set("displays",$displays);
         $this->set("categories",$categories);
-        $this->set("ram_types",[0=>'DDR2',1=>'DDR3',2=>'DDR4']);
+        $this->set("ram_types",EnumUtils::getRamTypes());
         
     }
     public function postEdit($id)
@@ -81,7 +82,7 @@ class AdminLaptopManagementController extends UserController {
     catch(\Throwable $e)
     {
         //die("AAAAAAAA");
-        $this->set('message', 'Došlo je do greške prilikom dodavanja laptopa.');
+        $this->set('message', 'Došlo je do greške prilikom izmene ovog laptopa.');
         $this->set('description', $e->getMessage());
         return;
     }
@@ -114,12 +115,12 @@ class AdminLaptopManagementController extends UserController {
         $categories = $categoryModel->getAll();
 
         $this->set("laptop",$laptops);
-        $this->set("keyboard_layouts",[0=>'YU',1=>'US',2=>'UK']);
+        $this->set("keyboard_layouts",EnumUtils::getKeyboardLayouts());
         $this->set("cpus",$cpus);
         $this->set("gpus",$gpus);
         $this->set("displays",$displays);
         $this->set("categories",$categories);
-        $this->set("ram_types",[0=>'DDR2',1=>'DDR3',2=>'DDR4']);
+        $this->set("ram_types",EnumUtils::getRamTypes());
         
     }
 
