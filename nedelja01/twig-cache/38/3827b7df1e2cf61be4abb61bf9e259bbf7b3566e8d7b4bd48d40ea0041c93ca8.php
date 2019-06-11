@@ -15,7 +15,7 @@ class __TwigTemplate_c302e2a143f84ce86a7a2a6a1cd10077210e6f18da15e4a2b6845d6143d
         $this->parent = $this->loadTemplate("_global/index.html", "Main/home.html", 1);
         $this->blocks = [
             'main' => [$this, 'block_main'],
-            'naslov' => [$this, 'block_naslov'],
+            'title' => [$this, 'block_title'],
         ];
     }
 
@@ -35,23 +35,21 @@ class __TwigTemplate_c302e2a143f84ce86a7a2a6a1cd10077210e6f18da15e4a2b6845d6143d
         // line 4
         echo "
 <div class=\"jumbotron\">
-    <h1 class=\"display-4\">Hello, world!</h1>
-    <p class=\"lead\">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class=\"my-4\">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class=\"lead\">
-      <a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\">Learn more</a>
-    </p>
+    <h1 class=\"display-8\">Dobro došli na stranicu za online pregled laptopova!!!</h1>
+    <!-- <p class=\"lead\">Dorbro dosili na stranicu za online pregled laptopova</p>
+    
+     -->
+    
   </div>
 
 ";
     }
 
-    // line 17
-    public function block_naslov($context, array $blocks = [])
+    // line 15
+    public function block_title($context, array $blocks = [])
     {
-        // line 18
-        echo "Spisak kategorija
+        // line 16
+        echo "Pocetna stranica
 ";
     }
 
@@ -67,7 +65,7 @@ class __TwigTemplate_c302e2a143f84ce86a7a2a6a1cd10077210e6f18da15e4a2b6845d6143d
 
     public function getDebugInfo()
     {
-        return array (  54 => 18,  51 => 17,  36 => 4,  33 => 3,  15 => 1,);
+        return array (  52 => 16,  49 => 15,  36 => 4,  33 => 3,  15 => 1,);
     }
 
     public function getSourceContext()

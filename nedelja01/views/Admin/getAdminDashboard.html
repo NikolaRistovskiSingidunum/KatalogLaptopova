@@ -4,12 +4,12 @@
 
 {% block main %}
 <p>Adminova forma</p>
-<a href="{{BASE}}category1/getAllCategories/"><button class="btn btn-primary">Menadzerisi kategorije</button></a>
-<a href="{{BASE}}laptop/getAllLaptopsByCategoryId/All"><button class="btn btn-primary">Menadzerisi laptopove</button></a>
-<a href="{{BASE}}adminGpuManagement/getGpus"><button class="btn btn-primary">Menadzerisi Gpu-ove</button></a>
-<a href="{{BASE}}adminCpuManagement/getCpus"><button class="btn btn-primary">Menadzerisi Cpu-ove</button></a>
-<a href="{{BASE}}admin/unlogAdmin"><button class="btn btn-primary">Odjava sa sistema</button></a>
-<a class="btn btn-primary m-1" href="{{BASE}}adminDisplayManagement/getDisplays/" role="button">Upravljaj Ekranima</a>
+<a href="{{BASE}}category1/getAllCategories/" role="button"  class="btn btn-primary">Upravljaj kategorijama</a>
+<a href="{{BASE}}laptop/getAllLaptopsByCategoryId/All" role="button" class="btn btn-primary">Upravljaj laptopove</a>
+<a href="{{BASE}}adminGpuManagement/getGpus" role="button" class="btn btn-primary">Upravljaj Gpu-ove</a>
+<a href="{{BASE}}adminCpuManagement/getCpus" role="button" class="btn btn-primary">Upravljaj Cpu-ove</a>
+<a href="{{BASE}}admin/unlogAdmin" role="button" class="btn btn-primary">Odjava sa sistema</a>
+<a class="btn btn-primary m-1" href="{{BASE}}adminDisplayManagement/getDisplays/" role="button">Upravljaj Ekrane</a>
    
 {% endblock %}
 
