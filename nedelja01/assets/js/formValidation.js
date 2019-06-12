@@ -86,7 +86,7 @@ function validateGPUForm() {
 
     let model = document.getElementById('model');
     model.classList.remove('is-invalid')
-    if (!model.value.match(/^[A-Za-z0-9]+$/)) {
+    if (!model.value.match(/^[A-Za-z][A-Za-z0-9]+$/)) {
         //showAlert('Nije ispravan broj telefona. Mora da pocinje sa + iza kojeg sledi od 6 do 24 cifara.');
         model.classList.add('is-invalid');
         status = false;
@@ -179,7 +179,7 @@ function validateDisplayForm()
 
     let resolution = document.getElementById('resolution');
     resolution.classList.remove('is-invalid')
-    if (!resolution.value.match(/^[0-9]{2,4}x[0-9]{2,4}$/)) {
+    if (!resolution.value.match(/^[1-9][0-9]{1,3}x[1-9][0-9]{1,3}$/)) {
         
         resolution.classList.add('is-invalid');
         status = false;
