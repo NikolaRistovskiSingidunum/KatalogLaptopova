@@ -3,30 +3,30 @@
 {% block main %}
 <div> </div>
 <div>
-    <form method="post" action="{{BASE}}adminLaptopManagement/postEdit/{{laptop.laptop_id}}">
+    <form method="post" action="{{BASE}}adminLaptopManagement/postEdit/{{laptop.laptop_id}}" onsubmit="return validateLaptopForm()">
         <div class="form-group">
             <label for="name">Ime Laptopa</label>
             <input class="form-control" type="text"
-                   required name="name" id="name"
+                   required name="name" id="name" pattern="[A-Za-z][A-Za-z0-9]+" title="dozvoljeni su samo slova i cifre"
                    value="{{ laptop.name }}">
         </div>
 
         <div class="form-group">
             <label for="price">Cena u RSD</label>
-            <input class="form-control" type="number"
-                   required name="price" id="price"
+            <input class="form-control" type="number" min="1000" step="500"
+                   required name="price" id="price"  
                    value="{{ laptop.price }}">
         </div>
         <div class="form-group">
             <label for="image_path">Slika</label>
             <input class="form-control" type="text"
-                   required name="image_path" id="image_path"
+                   required name="image_path" id="image_path"  pattern="[A-Za-z][A-Za-z0-9_\.]+" title="dozvoljeni su samo slova, cifre,_ i ."
                    value="{{ laptop.image_path }}">
         </div>
         <div class="form-group">
             <label for="operating_system">Operativni sistem</label>
             <input class="form-control" type="text"
-                   required name="operating_system" id="operating_system"
+                   required name="operating_system" id="operating_system" pattern="[A-Za-z][A-Za-z0-9]+" title="dozvoljeni su samo slova i cifre"
                    value="{{ laptop.operating_system }}">
         </div>
 
@@ -159,7 +159,7 @@
         <div class="form-group">
             <label for="ram_capacity">Kapacitet RAM-a</label>
             <input class="form-control" type="number"
-                   required name="ram_capacity" id="ram_capacity"
+                   required name="ram_capacity" id="ram_capacity" min="0" max="64"
                    value="{{ laptop.ram_capacity }}">
         </div>
 
@@ -194,7 +194,7 @@
                    value="{{ laptop.manufacturer }}">
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="is_deleted">Da li je obrisan</label>
             <select id="is_deleted" name="is_deleted" class="form-control">
         
@@ -207,7 +207,7 @@
                 <option value="1"  >DA</option>
                 {% endif%}
             </select>
-        </div>
+        </div> -->
 
 
 
@@ -222,6 +222,6 @@
 
 {% endblock %}
 
-{% block naslov %}
+{% block title %}
 Izmena Laptopa
 {% endblock %}

@@ -3,11 +3,11 @@
 {% block main %}
 
 <div>
-    <form method="post" action="{{BASE}}adminGpuManagement/postAdd">
+    <form method="post" action="{{BASE}}adminGpuManagement/postAdd" onsubmit="return validateGPUForm()">
         <div class="form-group">
             <div class="form-group">
                     <label for="model">Model</label>
-                    <input class="form-control" type="text"
+                    <input class="form-control" type="text"  pattern="[A-Za-z0-9]+" title="Dozvoljeni su samo slova i cifre"
                            required name="model" id="model">
             </div>
 
@@ -30,7 +30,7 @@
 
             <div class="form-group">
                 <label for="video_memory">Kolicina video memorije u GB</label>
-                <input class="form-control" type="number"
+                <input class="form-control" type="number" min="1" max="64" step="1"
                        required name="video_memory" id="video_memory">
             </div>
 

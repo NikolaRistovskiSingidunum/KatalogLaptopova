@@ -53,7 +53,7 @@ class AdminLaptopManagementController extends UserController {
         $operating_system = filter_input(INPUT_POST, 'operating_system', FILTER_SANITIZE_STRING);
         $keyboard_layout = filter_input(INPUT_POST, 'keyboard_layout', FILTER_SANITIZE_STRING);
         $is_numpad = filter_input(INPUT_POST, 'is_numpad', FILTER_SANITIZE_NUMBER_INT);
-        $is_deleted = filter_input(INPUT_POST, 'is_deleted', FILTER_SANITIZE_NUMBER_INT);
+        $is_deleted = 0 ;//filter_input(INPUT_POST, 'is_deleted', FILTER_SANITIZE_NUMBER_INT);
         $cpu_id = filter_input(INPUT_POST, 'cpu_id', FILTER_SANITIZE_NUMBER_INT);
         $category_id = filter_input(INPUT_POST, 'category_id', FILTER_SANITIZE_NUMBER_INT);
         $display_id = filter_input(INPUT_POST, 'display_id', FILTER_SANITIZE_NUMBER_INT);
@@ -136,7 +136,7 @@ class AdminLaptopManagementController extends UserController {
         $operating_system = filter_input(INPUT_POST, 'operating_system', FILTER_SANITIZE_STRING);
         $keyboard_layout = filter_input(INPUT_POST, 'keyboard_layout', FILTER_SANITIZE_STRING);
         $is_numpad = filter_input(INPUT_POST, 'is_numpad', FILTER_SANITIZE_NUMBER_INT);
-        $is_deleted = filter_input(INPUT_POST, 'is_deleted', FILTER_SANITIZE_NUMBER_INT);
+        $is_deleted = 0; //filter_input(INPUT_POST, 'is_deleted', FILTER_SANITIZE_NUMBER_INT);
         $cpu_id = filter_input(INPUT_POST, 'cpu_id', FILTER_SANITIZE_NUMBER_INT);
         $category_id = filter_input(INPUT_POST, 'category_id', FILTER_SANITIZE_NUMBER_INT);
         $display_id = filter_input(INPUT_POST, 'display_id', FILTER_SANITIZE_NUMBER_INT);

@@ -2,15 +2,15 @@
 
 {% block main %}
 <div>
-    <form method="post" action="{{BASE}}adminDisplayManagement/postAdd/">
+    <form method="post" action="{{BASE}}adminDisplayManagement/postAdd/" onsubmit="return validateDisplayForm()">
 
         <div class="form-group">
             <label for="screen_size" >Velicina ekrana</label>
-            <input required class="form-control" type="number" required name="screen_size" id="screen_size">
+            <input required class="form-control" type="number" min="1" max="200" step="0.25"  required name="screen_size" id="screen_size">
         </div>
         <div class="form-group">
             <label  for="resolution">Rezolucija ekrana</label>
-            <input required class="form-control" type="text" required name="resolution" id="resolution">
+            <input required class="form-control" type="text" required pattern="[0-9]{2,4}x[0-9]{2,4}" title="mora biti [0-9]{2,4}x[0-9]{2,4}" name="resolution" id="resolution">
         </div>
 
         <div class="form-group">
