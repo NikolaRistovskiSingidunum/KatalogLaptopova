@@ -3,7 +3,7 @@
 {% block main %}
 
 <div>
-    <form method="post" action="{{BASE}}adminStorageManagement/postAdd/{{laptop_id}}">
+    <form method="post" action="{{BASE}}adminStorageManagement/postAdd/{{laptop_id}}"  onsubmit="return validateStorageForm()">
 
 
 
@@ -14,7 +14,7 @@
 
 
             <label for="storage_capacity">Kapracitet diska u GB</label>
-            <input class="form-control" type="number" required name="storage_capacity" id="storage_capacity" value="8">
+            <input class="form-control" type="number" required name="storage_capacity" id="storage_capacity" value="100" min="0" max="2000" step="100">
         </div>
 
         <div class="form-group">
