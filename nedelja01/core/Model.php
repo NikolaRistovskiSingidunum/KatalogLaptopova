@@ -302,4 +302,21 @@
       
                 
               }
+
+        function deleteByFieldValue($fieldName, $fieldValue)
+        {
+
+            $tableName = $this->getTableName();
+
+            $sql = "DELETE FROM `{$tableName}` WHERE `{$fieldName}` = ?;";
+
+            $pdo = $this->dbCon->getConnection();
+            $prep = $pdo->prepare($sql);
+
+            if (!$prep) {
+                return false;
+            }
+
+            return $prep->execute( [ $fieldValue ] );
+        }      
     }

@@ -8,6 +8,8 @@ use App\Models\CpuModel;
 use App\Models\GpuModel;
 use App\Models\DisplayModel;
 use App\Utils\EnumUtils;
+use App\Models\PortModel;
+use App\Models\StorageModel;
 
 class AdminLaptopManagementController extends UserController {
    
@@ -204,9 +206,10 @@ class AdminLaptopManagementController extends UserController {
         exit;
     }
     public function deleteById($laptopId) {
-        $laptopModel = new LaptopModel($this->getDatabaseConnection());
-        $res = $laptopModel->deleteById($laptopId);
+        // $laptopModel = new LaptopModel($this->getDatabaseConnection());
+        // $res = $laptopModel->deleteById($laptopId);
 
+        $res = $this->deleteAllLaptopDependenciesById($laptopId);
         if(!$res)
         {
    
@@ -239,5 +242,26 @@ class AdminLaptopManagementController extends UserController {
             $this->set('message', 'Došlo je do greške: ' . implode(', ', $file->getErrors()));
             return false;
         }
+    }
+
+    //brise storage i port data prvo pa onda i laptop
+    private function deleteAllLaptopDependenciesById($laptopId)
+    {
+        $status = true;
+
+
+
+        $portModel = new PortModel($this->getDatabaseConnection());
+        $status = $status && $portModel->deleteByFieldValue("laptop_id",$laptopId);
+
+
+        $storageModel = new StorageModel($this->getDatabaseConnection());
+        $status = $status && $storageModel->deleteByFieldValue("laptop_id",$laptopId);
+
+        $laptopModel = new LaptopModel($this->getDatabaseConnection());
+        $status = $status && $laptopModel->deleteById($laptopId);
+
+        return $status;
+
     }
 }

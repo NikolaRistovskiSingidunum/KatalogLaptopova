@@ -188,4 +188,7 @@
           
         // }
 
+        
+        //brise laptop i storage i diskove
+
     }
