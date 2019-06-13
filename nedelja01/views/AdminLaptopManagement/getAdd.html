@@ -3,11 +3,7 @@
 {% block main %}
 <div>  </div>
 <div>
-<<<<<<< HEAD
-    <form method="post" action="{{BASE}}adminLaptopManagement/postAdd" enctype="multipart/form-data">
-=======
-    <form method="post" action="{{BASE}}adminLaptopManagement/postAdd" onsubmit="return validateLaptopForm()">
->>>>>>> 86dd1599d67cc3b91c34476ae7654aa021197000
+    <form method="post" action="{{BASE}}adminLaptopManagement/postAdd" onsubmit="return validateLaptopForm()" enctype="multipart/form-data">
         <div class="form-group">
 
             
@@ -24,15 +20,6 @@
                    value="{{ laptop.price }}" min="1000" step="500" >
         </div>
         <div class="form-group">
-<<<<<<< HEAD
-=======
-            <label for="image_path">Slika</label>
-            <input class="form-control" type="text"
-                   required name="image_path" id="image_path" pattern="[A-Za-z][A-Za-z0-9_\.]+" title="dozvoljeni su samo slova, cifre_, i ."
-                   value="{{ laptop.image_path }}">
-        </div>
-        <div class="form-group">
->>>>>>> 86dd1599d67cc3b91c34476ae7654aa021197000
             <label for="operating_system">Operativni sistem</label>
             <input class="form-control" type="text"
                    required name="operating_system" id="operating_system" pattern="[A-Za-z][A-Za-z0-9]+" title="Mora pocinjati veliki slovom i dozvoljeni su samo slova i cifre"
