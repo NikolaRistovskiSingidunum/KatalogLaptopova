@@ -12,5 +12,6 @@
 
         const FINGERPRINT_PROVIDER_CLASS = '\\App\\Core\\Fingerprint\\BasicFingerprintProvider';
 
-        const UPLOAD_DIR = 'assets/uploads/';
+        const UPLOAD_DIR = 'assets/img/laptops/';
+        const DEFAULT_IMAGE = 'no_image.jpg';
     }

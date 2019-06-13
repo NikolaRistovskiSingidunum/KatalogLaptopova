@@ -49,7 +49,6 @@ class AdminLaptopManagementController extends UserController {
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
         
         $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
-        $image_path = filter_input(INPUT_POST, 'image_path', FILTER_SANITIZE_STRING);
         $operating_system = filter_input(INPUT_POST, 'operating_system', FILTER_SANITIZE_STRING);
         $keyboard_layout = filter_input(INPUT_POST, 'keyboard_layout', FILTER_SANITIZE_STRING);
         $is_numpad = filter_input(INPUT_POST, 'is_numpad', FILTER_SANITIZE_NUMBER_INT);
@@ -67,7 +66,7 @@ class AdminLaptopManagementController extends UserController {
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
 
         $res = $laptopModel->editById($id, [
-            'name' => $name, 'price' => $price, 'image_path'=>$image_path, 'operating_system' => $operating_system,
+            'name' => $name, 'price' => $price, 'operating_system' => $operating_system,
             'keyboard_layout'=>$keyboard_layout, 'is_numpad'=>$is_numpad,'is_deleted'=>$is_deleted,'cpu_id'=>$cpu_id,
             'category_id'=>$category_id,'display_id'=>$display_id,'gpu_id'=>$gpu_id,'ram_capacity'=>$ram_capacity,
             'ram_type'=>$ram_type,'manufacturer'=>$manufacturer
@@ -77,6 +76,23 @@ class AdminLaptopManagementController extends UserController {
         if (!$res) {
             $this->set('message', 'Došlo je do greške prilikom izmene podataka ovog laptopa.');
             return;
+        }
+
+        if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+            $image_path = $laptopModel->getById(intval($id))->image_path;
+            unlink(\Configuration::UPLOAD_DIR . $image_path);
+            if (!$this->doUpload('image', $id)) { 
+                return;
+            }
+
+            $uploaded_img_path = $this->getData()['path'];
+
+            $res = $laptopModel->editById(intval($id), ['image_path' => $uploaded_img_path]);
+
+            if (!$res) {
+                $this->set('message', 'Došlo je do greške prilikom izmene slike ovog laptopa.');
+                return;
+            }
         }
     }
     catch(\Throwable $e)
@@ -88,7 +104,7 @@ class AdminLaptopManagementController extends UserController {
     }
 
         \ob_clean();
-        header('Location: ' . BASE . 'laptop/getAllInformations/' . $res);
+        header('Location: ' . BASE . 'laptop/getAllInformations/' . $id);
         exit;
     }
 
@@ -132,7 +148,6 @@ class AdminLaptopManagementController extends UserController {
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
         
         $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
-        $image_path = filter_input(INPUT_POST, 'image_path', FILTER_SANITIZE_STRING);
         $operating_system = filter_input(INPUT_POST, 'operating_system', FILTER_SANITIZE_STRING);
         $keyboard_layout = filter_input(INPUT_POST, 'keyboard_layout', FILTER_SANITIZE_STRING);
         $is_numpad = filter_input(INPUT_POST, 'is_numpad', FILTER_SANITIZE_NUMBER_INT);
@@ -145,12 +160,12 @@ class AdminLaptopManagementController extends UserController {
         $ram_type = filter_input(INPUT_POST, 'ram_type', FILTER_SANITIZE_STRING);
         $manufacturer = filter_input(INPUT_POST, 'manufacturer', FILTER_SANITIZE_STRING);
 
-        //die($price);        
-
+        $image_path = \Configuration::DEFAULT_IMAGE;     
+        
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
 
         
-        $res = $laptopModel->add([
+        $laptopId = $laptopModel->add([
             'name' => $name, 'price' => $price, 'image_path'=>$image_path, 'operating_system' => $operating_system,
             'keyboard_layout'=>$keyboard_layout, 'is_numpad'=>$is_numpad,'is_deleted'=>$is_deleted,'cpu_id'=>$cpu_id,
             'category_id'=>$category_id,'display_id'=>$display_id,'gpu_id'=>$gpu_id,'ram_capacity'=>$ram_capacity,
@@ -158,8 +173,21 @@ class AdminLaptopManagementController extends UserController {
         ]);
 
 
-        if (!$res) {
+        if (!$laptopId) {
             $this->set('message', 'Došlo je do greške prilikom dodavanja laptopa.');
+            return;
+        }
+
+        if (!$this->doUpload('image', $laptopId)) { 
+            return;
+        }
+
+        $uploaded_img_path = $this->getData()['path'];
+
+        $res = $laptopModel->editById(intval($laptopId), ['image_path' => $uploaded_img_path]);
+
+        if (!$res) {
+            $this->set('message', 'Došlo je do greške prilikom dodavanja slike.');
             return;
         }
 
@@ -172,7 +200,7 @@ class AdminLaptopManagementController extends UserController {
         return;
     }
         \ob_clean();
-        header('Location: ' . BASE . 'laptop/getAllInformations/' . $res);
+        header('Location: ' . BASE . 'laptop/getAllInformations/' . $laptopId);
         exit;
     }
     public function deleteById($laptopId) {
@@ -188,5 +216,28 @@ class AdminLaptopManagementController extends UserController {
         \ob_clean();
         header('Location: ' . BASE . 'laptop/getAllLaptopsByCategoryId/All');
         exit;
+    }
+
+    private function doUpload(string $fieldName, string $filename): bool {
+
+        $path = new \Upload\Storage\FileSystem(\Configuration::UPLOAD_DIR);
+        $file = new \Upload\File($fieldName, $path);
+        $file->setName($filename);
+        $file->addValidations([
+            new \Upload\Validation\Mimetype(['image/jpeg', "image/png"]),
+            new \Upload\Validation\Size('3M')
+        ]);
+
+        try {
+            $file->upload();
+
+            $fullFilename = $file->getNameWithExtension();
+
+            $this->set("path", $fullFilename);
+            return true;
+        } catch (\Exception $e) {
+            $this->set('message', 'Došlo je do greške: ' . implode(', ', $file->getErrors()));
+            return false;
+        }
     }
 }

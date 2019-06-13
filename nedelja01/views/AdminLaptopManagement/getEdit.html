@@ -3,7 +3,7 @@
 {% block main %}
 <div> </div>
 <div>
-    <form method="post" action="{{BASE}}adminLaptopManagement/postEdit/{{laptop.laptop_id}}">
+    <form method="post" action="{{BASE}}adminLaptopManagement/postEdit/{{laptop.laptop_id}}" enctype="multipart/form-data">
         <div class="form-group">
             <label for="name">Ime Laptopa</label>
             <input class="form-control" type="text"
@@ -16,12 +16,6 @@
             <input class="form-control" type="number"
                    required name="price" id="price"
                    value="{{ laptop.price }}">
-        </div>
-        <div class="form-group">
-            <label for="image_path">Slika</label>
-            <input class="form-control" type="text"
-                   required name="image_path" id="image_path"
-                   value="{{ laptop.image_path }}">
         </div>
         <div class="form-group">
             <label for="operating_system">Operativni sistem</label>
@@ -209,7 +203,10 @@
             </select>
         </div>
 
-
+        <div class="form-group">
+            <label for="image">Promenite sliku </label>
+            <input class="form-control-file" type="file" name="image" id="image" accept="image/jpeg, image/png">
+        </div>
 
 
         <div class="form-group">
