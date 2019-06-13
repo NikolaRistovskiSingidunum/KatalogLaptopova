@@ -34,7 +34,9 @@
                                         (new NumberValidator())
                                             ->setInteger()
                                             ->setUnsigned()
-                                            ->setMaxIntegerDigits(10))                                        
+                                            ->setMaxIntegerDigits(10)
+                                            ->setMin(100)
+                                            ->setMax(2000))                                        
             ];
         }
 

@@ -7,7 +7,8 @@
         <div class="form-group">
             <label for="name">Ime Laptopa</label>
             <input class="form-control" type="text"
-                   required name="name" id="name" pattern="[A-Za-z][A-Za-z0-9]+" title="dozvoljeni su samo slova i cifre"
+                   required name="name" id="name" pattern="[A-Za-z][A-Za-z0-9 ]{0,244}" 
+                   title="Mora pocinjati slovom i sve da sadrzi samo slova,cifre i razmak "
                    value="{{ laptop.name }}">
         </div>
 
@@ -20,7 +21,8 @@
         <div class="form-group">
             <label for="operating_system">Operativni sistem</label>
             <input class="form-control" type="text"
-                   required name="operating_system" id="operating_system" pattern="[A-Za-z][A-Za-z0-9]+" title="dozvoljeni su samo slova i cifre"
+                   required name="operating_system" id="operating_system" pattern="[A-Za-z][A-Za-z0-9 ]{0,244}" 
+                   title="Mora pocinjati slovom i sve da sadrzi samo slova,cifre i razmak "
                    value="{{ laptop.operating_system }}">
         </div>
 
@@ -184,7 +186,8 @@
         <div class="form-group">
             <label for="manufacturer">Proizvodjac</label>
             <input class="form-control" type="text"
-                   required name="manufacturer" id="manufacturer"
+                   required name="manufacturer" id="manufacturer" pattern="[A-Za-z][A-Za-z0-9 ]{0,244}" 
+                   title="Mora pocinjati slovom i sve da sadrzi samo slova,cifre i razmak "
                    value="{{ laptop.manufacturer }}">
         </div>
 

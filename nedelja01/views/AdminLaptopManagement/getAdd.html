@@ -10,7 +10,8 @@
             <label for="name">Ime Laptopa</label>
             <input class="form-control" type="text"
                    required name="name" id="name"
-                   value="{{ laptop.name }}" pattern="[A-Za-z][A-Za-z0-9]+" title="Mora pocinjati slovom i dozvoljeni su samo slova i cifre">
+                   value="{{ laptop.name }}" pattern="[A-Za-z][A-Za-z0-9 ]{0,244}" 
+                   title="Mora pocinjati slovom i sve da sadrzi samo slova,cifre i razmak ">
         </div>
 
         <div class="form-group">
@@ -22,7 +23,8 @@
         <div class="form-group">
             <label for="operating_system">Operativni sistem</label>
             <input class="form-control" type="text"
-                   required name="operating_system" id="operating_system" pattern="[A-Za-z][A-Za-z0-9]+" title="Mora pocinjati veliki slovom i dozvoljeni su samo slova i cifre"
+                   required name="operating_system" id="operating_system" pattern="[A-Za-z][A-Za-z0-9 ]{0,244}" 
+                   title="Mora pocinjati slovom i sve da sadrzi samo slova,cifre i razmak "
                    value="{{ laptop.operating_system }}">
         </div>
 
@@ -132,7 +134,7 @@
 
         <div class="form-group">
             <label for="category_id">Kategorija</label>
-            <select id="category_id" name="category_id" class="form-control" type="number" step="1" min="0">
+            <select id="category_id" name="category_id" class="form-control" >
                
     
                     {% for category in categories %}
@@ -186,7 +188,8 @@
         <div class="form-group">
             <label for="manufacturer">Proizvodjac</label>
             <input class="form-control" type="text"
-                   required name="manufacturer" id="manufacturer" pattern="[a-zA-Z][a-zA-Z0-9]+" title="Mora pocinjati slovom i sadrzati samo slova i cifre"
+                   required name="manufacturer" id="manufacturer" pattern="[A-Za-z][A-Za-z0-9 ]{0,244}" 
+                   title="Mora pocinjati slovom i sve da sadrzi samo slova,cifre i razmak "
                     value="{{ laptop.manufacturer }}">
         </div>
 

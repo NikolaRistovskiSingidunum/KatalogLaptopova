@@ -8,12 +8,22 @@
         private $isReal;
         private $maxIntegerDigits;
         private $maxDecimalDigits;
+        private $minValue,$maxValue;
 
         public function __construct() {
             $this->isSigned = true;
             $this->isReal   = true;
             $this->maxIntegerDigits = 10;
             $this->maxDecimalDigits = 2;
+        }
+
+        public function &setMax($max): NumberValidator {
+            $this->maxValue = $max;
+            return $this;
+        }
+        public function &setMin($min): NumberValidator {
+            $this->minValue = $min;
+            return $this;
         }
 
         public function &setInteger(): NumberValidator {
@@ -80,6 +90,14 @@
             if (strlen($decimalniDeo) > $this->maxDecimalDigits) {
                 return false;
             }
+
+            if(isset($this->$minValue))
+            if($value<$this->$minValue)
+            return false;
+
+            if(isset($this->$maxValue))
+            if($value>$this->$manValue)
+            return false;
 
             return true;
         }

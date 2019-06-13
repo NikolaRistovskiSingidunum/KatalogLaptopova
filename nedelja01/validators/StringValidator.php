@@ -6,6 +6,7 @@
     class StringValidator implements Validator {
         private $minLength, $maxLength;
 
+        private $pattern;
         public function __construct() {
             $this->minLength = 0;
             $this->maxLength = 255;
@@ -21,6 +22,11 @@
             return $this;
         }
 
+        public function &setRegex($newPattern): StringValidator {
+            $this->pattern = $newPattern;
+            return $this;
+        }
+
         public function isValid(string $value) {
             $length = strlen($value);
 
@@ -33,6 +39,11 @@
                 return false;
             }
 
+            
+            if(isset($this->pattern))
+            if(!preg_match($this->pattern,$value))
+            return false;
+            
             return true;
         }
     }

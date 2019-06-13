@@ -4,16 +4,16 @@
 
 
 
-<form action="{{BASE}}laptop/postAllLaptopsByFilters" method="POST">
+<form action="{{BASE}}laptop/postAllLaptopsByFilters" method="POST" onsubmit="return validateSearchFilterForm()">
 
     <div class="row">
         <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
             <label for="price_min">Minimalna cena</label>
-            <input class="form-control" type="number"  name="price_min" id="price_min" value="">
+            <input class="form-control" type="number" min="1000" step="500"  name="price_min" id="price_min" value="">
         </div>
         <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
             <label for="price_max">Maksimalna cena</label>
-            <input class="form-control" type="number" id="price_max" name="price_max" value="">
+            <input class="form-control" type="number" min="1000" step="500" id="price_max" name="price_max" value="">
         </div>
     </div>
 
@@ -22,11 +22,11 @@
     <div class="row">
         <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
             <label for="ram_min">Minimalno RAM memorije</label>
-            <input class="form-control" type="number"  name="ram_min" id="ram_min" value="">
+            <input class="form-control" type="number" min="1" max="64" step="1"  name="ram_min" id="ram_min" value="">
         </div>
         <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
             <label for="ram_max">Maksimalno RAM memorije</label>
-            <input class="form-control" type="number"  name="ram_max" id="ram_max" value="">
+            <input class="form-control" type="number" min="1" max="64" step="1"  name="ram_max" id="ram_max" value="">
         </div>
 
     </div>
@@ -35,12 +35,12 @@
     <div class="row">
         <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
             <label for="cpu_speed_min">Minimalna brzina procesora</label>
-            <input class="form-control" type="text" name="cpu_speed_min" id="cpu_speed_min" value="">
+            <input class="form-control" type="number" min="1" max="10" step="0.1" name="cpu_speed_min" id="cpu_speed_min" value="">
         </div>
 
         <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
             <label for="cpu_speed_max">Maksimalna brzina procesora</label>
-            <input class="form-control" type="text" name="cpu_speed_max" id="cpu_speed_max" value="">
+            <input class="form-control" type="number" min="1" max="10" step="0.1" name="cpu_speed_max" id="cpu_speed_max" value="">
         </div>
     </div>
 
@@ -56,11 +56,11 @@
     <div class="row">
         <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
             <label for="core_min">Minimalno jezgara</label>
-            <input class="form-control" type="text" min="1" max="64"  name="core_min" id="core_min" value="">
+            <input class="form-control" type="number" min="1" max="64" step="1"  name="core_min" id="core_min" value="">
         </div>
         <div class="form-group col-xl-6 col-lg-6 col-sm-6 col-12">
             <label for="core_max">Maksimalno jezgara</label>
-            <input class="form-control" type="text" min="1" max="64"  name="core_max" id="core_max" value="">
+            <input class="form-control" type="number" min="1" max="64" step="1"  name="core_max" id="core_max" value="">
         </div>
     </div>
 

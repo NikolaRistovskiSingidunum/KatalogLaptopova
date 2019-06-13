@@ -23,12 +23,14 @@
                 'model'         => new Field(
                                         (new StringValidator())
                                             ->setMinLength(1)
-                                            ->setMaxLength(255)),
+                                            ->setMaxLength(255)
+                                            ->setRegex("#^[A-Za-z][A-Za-z0-9 ]{0,244}$#")),
                 'video_memory'  => new Field(
                                         (new NumberValidator())
                                             ->setInteger()
                                             ->setUnsigned()
-                                            ->setMaxIntegerDigits(10)) 
+                                            ->setMaxIntegerDigits(10)
+                                            ->setMin(1)->setMax(64)) 
                                                                                                                                           
             ];
         }

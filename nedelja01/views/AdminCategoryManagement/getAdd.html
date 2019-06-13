@@ -5,7 +5,8 @@
     <div>
         <form method="post">
             <label for="name">Ime kategorije: </label>
-            <input type="text" required name="name" id="name" placeholder="Unesite ime nove kategorije"><br>
+            <input type="text" required name="name" id="name" placeholder="Unesite ime nove kategorije" pattern="[A-Za-z][A-Za-z0-9 ]{0,244}" 
+            title="Mora pocinjati slovom i sve da sadrzi samo slova,cifre i razmak ">
 
             <button type="submit" class="btn btn-primary">Dodaj</button>
         </form>

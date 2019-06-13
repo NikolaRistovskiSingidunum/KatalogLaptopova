@@ -4,18 +4,20 @@
 
 <div>
     <form method="post" action="{{BASE}}adminCpuManagement/postEdit/{{cpu.cpu_id}}" onsubmit="return validateCPUForm()">
-        <div class="form-group">
+        
             <div class="form-group">
                 <label for="manufacturer">Proizvodjac</label>
                 <input class="form-control" type="text"
-                       required name="manufacturer" id="manufacturer" pattern="[A-Za-z][A-Za-z0-9]+" title="Mora pocinjati slovom i sme da sadrzi samo slova i cifre"
+                       required name="manufacturer" id="manufacturer" pattern="[A-Za-z][A-Za-z0-9 ]{0,244}" 
+                       title="Mora pocinjati slovom i sve da sadrzi samo slova,cifre i razmak "
                        value="{{ cpu.manufacturer }}">
             </div>
             
             <div class="form-group">
                 <label for="model">Model</label>
                 <input class="form-control" type="text"
-                       required name="model" id="model" pattern="[A-Za-z][A-Za-z0-9]+" title="Mora pocinjati slovom i sme da sadrzi samo slova i cifre"
+                       required name="model" id="model" pattern="[A-Za-z][A-Za-z0-9 ]{0,244}" 
+                       title="Mora pocinjati slovom i sve da sadrzi samo slova,cifre i razmak "
                        value="{{ cpu.model }}">
             </div>
 

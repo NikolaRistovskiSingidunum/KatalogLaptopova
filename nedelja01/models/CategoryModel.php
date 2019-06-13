@@ -17,7 +17,8 @@
                 'name'        => new Field(
                                     (new StringValidator())
                                         ->setMinLength(1)
-                                        ->setMaxLength(255))
+                                        ->setMaxLength(255)
+                                        ->setRegex("#^[A-Za-z][A-Za-z0-9 ]{0,244}$#"))
             ];
         }
 

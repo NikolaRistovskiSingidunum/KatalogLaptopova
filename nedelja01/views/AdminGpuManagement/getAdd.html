@@ -4,34 +4,35 @@
 
 <div>
     <form method="post" action="{{BASE}}adminGpuManagement/postAdd" onsubmit="return validateGPUForm()">
-        <div class="form-group">
+        
             <div class="form-group">
-                    <label for="model">Model</label>
-                    <input class="form-control" type="text"  pattern="[A-Za-z][A-Za-z0-9]+" title="Mora pocinjati slovom i Dozvoljeni su samo slova i cifre"
-                           required name="model" id="model">
+                <label for="model">Model</label>
+                <input class="form-control" type="text" pattern="[A-Za-z][A-Za-z0-9 ]{0,244}"
+                    title="Mora pocinjati slovom i sve da sadrzi samo slova,cifre i razmak " required name="model"
+                    id="model">
             </div>
 
             <div class="form-group">
                 <label for="gpu_type">Tip Gpu-a</label>
                 <select id="gpu_type" name="gpu_type" class="form-control">
-                   
-        
-                        {% for gpu_type in gpu_types %}
-                       
-                                <option value="{{ gpu_type }}">
-                                    {{ gpu_type }}
-                                </option>
-                            
-                        {% endfor %}
-                    
-                    
+
+
+                    {% for gpu_type in gpu_types %}
+
+                    <option value="{{ gpu_type }}">
+                        {{ gpu_type }}
+                    </option>
+
+                    {% endfor %}
+
+
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="video_memory">Kolicina video memorije u GB</label>
-                <input class="form-control" type="number" min="1" max="64" step="1"
-                       required name="video_memory" id="video_memory">
+                <input class="form-control" type="number" min="1" max="64" step="1" required name="video_memory"
+                    id="video_memory">
             </div>
 
             <div class="form-group">
@@ -45,5 +46,5 @@
 
 {% endblock %}
 {% block title %}
-{{ "Katalog Laptopova" }}
+{{ "Upravljanje GPU" }}
 {% endblock %}

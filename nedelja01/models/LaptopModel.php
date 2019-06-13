@@ -25,8 +25,9 @@
                 'name'              => new Field(
                                             (new StringValidator())
                                                 ->setMinLength(1)
-                                                ->setMaxLength(255)),
-                'price'             => new Field((new NumberValidator())->setUnsigned()),
+                                                ->setMaxLength(255)
+                                                ->setRegex("#^[A-Za-z][A-Za-z0-9 ]{0,244}$#")),
+                'price'             => new Field((new NumberValidator())->setUnsigned()->setMin(1000)),
                 'image_path'        => new Field(
                                             (new StringValidator())
                                                 ->setMinLength(1)
@@ -34,7 +35,8 @@
                 'operating_system'  => new Field(
                                             (new StringValidator())
                                                 ->setMinLength(1)
-                                                ->setMaxLength(255)),
+                                                ->setMaxLength(255)
+                                                ->setRegex("#^[A-Za-z][A-Za-z0-9 ]{0,244}$#")),
                 'keyboard_layout'   => new Field(
                                             (new EnumValidator())->setData(EnumUtils::getKeyboardLayouts())),
                                               
@@ -64,14 +66,15 @@
                                             (new NumberValidator())
                                                 ->setInteger()
                                                 ->setUnsigned()
-                                                ->setMaxIntegerDigits(10)),  
+                                                ->setMaxIntegerDigits(10)->setMin(1)->setMax(64)),  
                 'ram_type'          => new Field(
                                             (new EnumValidator())->setData(EnumUtils::getRamTypes())),
 
                 'manufacturer'      => new Field(
                                             (new StringValidator())
                                                 ->setMinLength(1)
-                                                ->setMaxLength(255)),                                                                                                                                       
+                                                ->setMaxLength(255)
+                                                ->setRegex("#^[A-Za-z][A-Za-z0-9 ]{0,244}$#")),                                                                                                                                       
                 'created_at'     => new Field(new DateTimeValidator(), false)
                 
             ];
