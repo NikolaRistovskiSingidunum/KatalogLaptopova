@@ -17,8 +17,8 @@ class LaptopController extends Controller {
         
         $laptopModel = new LaptopModel($this->getDatabaseConnection());
         $laptop = $laptopModel->getAllByWhereAndOrderBy(["laptop_id="=>$laptopID],[]);
-        print_r($laptop);
-        echo("prazno");
+        // print_r($laptop);
+        // echo("prazno");
         // //echo($laptop[0]).laptop_id );
         // die("AAA");
 
@@ -73,9 +73,9 @@ class LaptopController extends Controller {
         else
             $laptops = $laptopModel->getAllByWhereAndOrderBy(["category.name="=>$laptopCategoryName],[]);
 
-        print_r($laptops);
-        echo(count($laptops));
-        die("[[[[[");    
+        // print_r($laptops);
+        // echo(count($laptops));
+        // die("[[[[[");    
         $this->set("laptops", $laptops);
   
     }

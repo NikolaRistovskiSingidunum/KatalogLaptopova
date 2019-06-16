@@ -14,7 +14,7 @@
         <li><i class="fa fa-star"></i>{{ 'Cena: ' ~ laptop.price|e ~ ' RSD' }}</li>
         <li><i class="fa fa-star"></i>{{ 'Operativni sistem: ' ~ laptop.operating_system|e }}</li>
         <li><i class="fa fa-star"></i>{{ 'Raspored dugmica na tastaturi: ' ~ laptop.keyboard_layout|e }}</li>
-        <li><i class="fa fa-star"></i>{{  laptop.is_numpad ? 'Numericka tastatura: YES' : ' Numericka tastatura: NO'   }}</li>
+        <li><i class="fa fa-star"></i>{{  laptop.is_numpad ? 'Numericka tastatura: DA' : ' Numericka tastatura: NE'   }}</li>
         <li><i class="fa fa-star"></i>{{ 'Capacitet RAMa: ' ~ laptop.ram_capacity|e }}</li>
         <li><i class="fa fa-star"></i>{{ 'Tip RAMa: ' ~ laptop.ram_type|e }}</li>
         <li><i class="fa fa-star"></i>{{ 'Proizvodjac: ' ~ laptop.manufacturer|e }}</li>
@@ -27,9 +27,9 @@
         <li><i class="fa fa-star"></i>{{ 'Ime kateogrije: ' ~ laptop.category_name|e }}</li>
 
         <!-- ekran -->
-        <li><i class="fa fa-star"></i>{{  laptop.istouchscreen ? 'Ekran na dodir: DA' : ' Ekran na dodir : NE'   }}</li>
+        <li><i class="fa fa-star"></i>{{  laptop.istouchscreen ? 'Ekran na dodir: DA' : 'Ekran na dodir : NE'   }}</li>
         <li><i class="fa fa-star"></i>{{ 'Rezolucija ekrana: ' ~ laptop.resolution|e }}</li>
-        <li><i class="fa fa-star"></i>{{ ' Dijagonala ekrana: ' ~ laptop.screen_size|e ~ " cm"  }}</li>
+        <li><i class="fa fa-star"></i>{{ 'Dijagonala ekrana: ' ~ laptop.screen_size|e ~ " cm"  }}</li>
 
         <!-- cpu -->
         <li><i class="fa fa-star"></i>{{ 'Broj jezgara: ' ~ laptop.core_count|e }}</li>

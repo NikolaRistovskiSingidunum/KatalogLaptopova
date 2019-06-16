@@ -11,7 +11,8 @@ use App\Models\PortModel;
 use App\Models\AdminModel;
 use App\Controllers\UserDashboardController;
 use App\Controllers\LaptopController;
-class AdminController extends UserDashboardController {
+use App\Core\UserController;
+class AdminController extends UserController {
 
     public function getAdminDashboard()
     {

@@ -177,6 +177,7 @@ class AdminLaptopManagementController extends UserController {
 
         if (!$laptopId) {
             $this->set('message', 'Došlo je do greške prilikom dodavanja laptopa.');
+            
             return;
         }
 
