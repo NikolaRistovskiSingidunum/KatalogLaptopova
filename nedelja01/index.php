@@ -4,7 +4,7 @@ use App\Core\Session\Session;
 
 require_once 'vendor/autoload.php';
 require_once 'Configuration.php';
-
+try {
 $config = new App\Core\DatabaseConfiguration(
     \Configuration::DATABASE_HOST,
     \Configuration::DATABASE_NAME,
@@ -86,4 +86,12 @@ catch (\Twig\Error\Error $e)
         'Error' . '/' .'errorAll.html',
         $data
     );  
+}
+
+}
+catch (\Throwable $e)
+{
+    \ob_clean();
+    header('Location: ' . BASE );
+    exit;
 }

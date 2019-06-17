@@ -231,10 +231,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
         echo "assets/js/formValidation.js\"></script>
 
-        <!-- <script src=\"";
-        // line 126
-        echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
-        echo "assets/js/bookmarks.js\"></script> -->
+        
         
     </body>
 </html>
@@ -267,7 +264,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
 
     public function getDebugInfo()
     {
-        return array (  254 => 108,  251 => 107,  245 => 5,  236 => 126,  231 => 124,  227 => 123,  223 => 122,  209 => 110,  207 => 107,  196 => 98,  192 => 97,  190 => 96,  185 => 93,  180 => 91,  175 => 90,  172 => 89,  167 => 87,  163 => 86,  148 => 74,  144 => 73,  136 => 68,  132 => 67,  121 => 59,  117 => 58,  113 => 57,  103 => 50,  84 => 34,  67 => 20,  58 => 14,  54 => 13,  50 => 12,  46 => 11,  42 => 10,  38 => 9,  33 => 6,  31 => 5,  25 => 1,);
+        return array (  251 => 108,  248 => 107,  242 => 5,  231 => 124,  227 => 123,  223 => 122,  209 => 110,  207 => 107,  196 => 98,  192 => 97,  190 => 96,  185 => 93,  180 => 91,  175 => 90,  172 => 89,  167 => 87,  163 => 86,  148 => 74,  144 => 73,  136 => 68,  132 => 67,  121 => 59,  117 => 58,  113 => 57,  103 => 50,  84 => 34,  67 => 20,  58 => 14,  54 => 13,  50 => 12,  46 => 11,  42 => 10,  38 => 9,  33 => 6,  31 => 5,  25 => 1,);
     }
 
     public function getSourceContext()
