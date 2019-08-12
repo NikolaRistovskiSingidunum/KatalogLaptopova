@@ -40,5 +40,10 @@
         <a class="btn btn-primary m-1" href="{{BASE}}adminStorageManagement/getStoragies/{{laptop.laptop_id}}" role="button">Uparavljaj diskovima</a>
         <a class="btn btn-primary m-1" href="{{BASE}}adminPortManagement/getPorts/{{laptop.laptop_id}}" role="button">Uparavljaj portovima</a>
     {% endif%}
+
+    {%if not Admin%}
+    <div id="paypal-button"></div>
+    {% endif%}
+    
     </div>    
 </div>

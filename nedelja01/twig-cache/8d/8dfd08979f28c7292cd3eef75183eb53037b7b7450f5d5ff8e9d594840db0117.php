@@ -231,7 +231,47 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
         echo twig_escape_filter($this->env, ($context["BASE"] ?? null), "html", null, true);
         echo "assets/js/formValidation.js\"></script>
 
-        
+        <script src=\"https://www.paypalobjects.com/api/checkout.js\"></script>
+<script>
+  paypal.Button.render({
+    // Configure environment
+    env: 'production',
+    client: {
+      sandbox: 'Acte100wvL0L4Vy--ge8a634G9dY51dZqOWTDnzz6kpOeDu5bYs4s1on12G3pT0foTYD_kK8l80Hg_do',
+      production: 'AS2fdng9XrtSejzZO3dc8CW5FOOYYr13YIGcn_JFIc83dE44OJFdIWCJSwXXcLtMPlg_CBDdjwBybaRv'
+    },
+    // Customize button (optional)
+    locale: 'en_US',
+    style: {
+      size: 'small',
+      color: 'gold',
+      shape: 'pill',
+    },
+
+    // Enable Pay Now checkout flow (optional)
+    commit: true,
+
+    // Set up a payment
+    payment: function(data, actions) {
+      return actions.payment.create({
+        transactions: [{
+          amount: {
+            total: '0.01',
+            currency: 'USD'
+          }
+        }]
+      });
+    },
+    // Execute the payment
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+        // Show a confirmation message to the buyer
+        window.alert('Thank you for your purchase!');
+      });
+    }
+  }, '#paypal-button');
+
+</script>
         
     </body>
 </html>
@@ -264,7 +304,7 @@ class __TwigTemplate_42e84f4bc2ef5a4ce180fff7f86b4c8e98c51be7e3d744d5a8ba7e22b83
 
     public function getDebugInfo()
     {
-        return array (  251 => 108,  248 => 107,  242 => 5,  231 => 124,  227 => 123,  223 => 122,  209 => 110,  207 => 107,  196 => 98,  192 => 97,  190 => 96,  185 => 93,  180 => 91,  175 => 90,  172 => 89,  167 => 87,  163 => 86,  148 => 74,  144 => 73,  136 => 68,  132 => 67,  121 => 59,  117 => 58,  113 => 57,  103 => 50,  84 => 34,  67 => 20,  58 => 14,  54 => 13,  50 => 12,  46 => 11,  42 => 10,  38 => 9,  33 => 6,  31 => 5,  25 => 1,);
+        return array (  291 => 108,  288 => 107,  282 => 5,  231 => 124,  227 => 123,  223 => 122,  209 => 110,  207 => 107,  196 => 98,  192 => 97,  190 => 96,  185 => 93,  180 => 91,  175 => 90,  172 => 89,  167 => 87,  163 => 86,  148 => 74,  144 => 73,  136 => 68,  132 => 67,  121 => 59,  117 => 58,  113 => 57,  103 => 50,  84 => 34,  67 => 20,  58 => 14,  54 => 13,  50 => 12,  46 => 11,  42 => 10,  38 => 9,  33 => 6,  31 => 5,  25 => 1,);
     }
 
     public function getSourceContext()

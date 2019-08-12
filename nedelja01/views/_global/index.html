@@ -123,7 +123,47 @@
         <script src="{{ BASE }}assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="{{ BASE }}assets/js/formValidation.js"></script>
 
-        
+        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+  paypal.Button.render({
+    // Configure environment
+    env: 'production',
+    client: {
+      sandbox: 'Acte100wvL0L4Vy--ge8a634G9dY51dZqOWTDnzz6kpOeDu5bYs4s1on12G3pT0foTYD_kK8l80Hg_do',
+      production: 'AS2fdng9XrtSejzZO3dc8CW5FOOYYr13YIGcn_JFIc83dE44OJFdIWCJSwXXcLtMPlg_CBDdjwBybaRv'
+    },
+    // Customize button (optional)
+    locale: 'en_US',
+    style: {
+      size: 'small',
+      color: 'gold',
+      shape: 'pill',
+    },
+
+    // Enable Pay Now checkout flow (optional)
+    commit: true,
+
+    // Set up a payment
+    payment: function(data, actions) {
+      return actions.payment.create({
+        transactions: [{
+          amount: {
+            total: '0.01',
+            currency: 'USD'
+          }
+        }]
+      });
+    },
+    // Execute the payment
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+        // Show a confirmation message to the buyer
+        window.alert('Thank you for your purchase!');
+      });
+    }
+  }, '#paypal-button');
+
+</script>
         
     </body>
 </html>
